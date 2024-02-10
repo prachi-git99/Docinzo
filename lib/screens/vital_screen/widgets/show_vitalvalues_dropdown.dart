@@ -10,7 +10,7 @@ Widget showVitalvaluesDropdown(context,index){
   return Row(
     mainAxisAlignment: MainAxisAlignment.spaceBetween,
     children: [
-      //vital value and time column
+      //vital value and time column7
       Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -51,14 +51,14 @@ Widget showVitalvaluesDropdown(context,index){
         ),
         child: Obx( () => DropdownButton(
           onChanged: (newValue) {
-            controller.setSelected(newValue!);
+            controller.setSelected(newValue!,index);
           },
           elevation: 0,
           underline: SizedBox.shrink(),
           alignment: Alignment.bottomRight,
           borderRadius: BorderRadius.circular(smallBorderRadius),
-          value: controller.dropDownValue.value,
-          items: controller.dropDownList.map((value) {
+          value: controller.dropDownValue[index],
+          items: controller.dropDownList[index].map((value) {
             return DropdownMenuItem(
               value: value,
               child: Text(value),

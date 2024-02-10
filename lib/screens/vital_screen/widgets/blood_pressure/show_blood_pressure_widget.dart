@@ -10,6 +10,9 @@ import "../../../../components/reponsive_text.dart";
 
 Widget showBloodPressureWidget(context,index){
 
+  String bp_value = "120/80";
+  String dropDownDefault = "WEEKLY";
+
   final gradientList = <List<Color>>[
     unselectedPieChartGradient,
     [
@@ -78,5 +81,5 @@ Widget showBloodPressureWidget(context,index){
 
   var controller = Get.find<VitalsController>();
 
-  return Obx(() =>BP_GRAPH_MAP[controller.dropDownValue.value]);
+  return Obx(() =>BP_GRAPH_MAP[controller.dropDownValue[index]]);
 }

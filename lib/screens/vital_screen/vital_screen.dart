@@ -100,6 +100,7 @@ class _VitalScreenState extends State<VitalScreen> {
                                 showVitalvaluesDropdown(context,index),
                                 SizedBox(height: 2 * containerVerMargin,),
                                 index == 0 ? showBloodPressureWidget(context, index) : SizedBox.shrink()
+
                               ],
                             ),
                           ),

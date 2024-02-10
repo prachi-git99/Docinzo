@@ -1,16 +1,26 @@
 import 'package:get/get.dart';
+import '../consts/lists.dart';
 class VitalsController extends GetxController{
 
-  var dropDownValue = "WEEKLY".obs;
+  var dropDownValue = List.generate(myVitalData.length, (index) => "WEEKLY").obs;
 
-  final List<String> dropDownList = [
-    "WEEKLY",
-    "MONTHLY",
-    "YEARLY",
-  ];
+  // var dropDownValue = "WEEKLY".obs;
 
-  void setSelected(String value){
-    dropDownValue.value = value;
+  final dropDownList =  List.generate(myVitalData.length, (index) => [
+      "WEEKLY",
+      "MONTHLY",
+      "YEARLY",
+      ]);
+
+  // final List<String> dropDownList = [
+  //   "WEEKLY",
+  //   "MONTHLY",
+  //   "YEARLY",
+  // ];
+
+  void setSelected(String value,index){
+    dropDownValue[index] = value;
+
   }
 
 
