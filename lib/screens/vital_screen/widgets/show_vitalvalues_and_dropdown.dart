@@ -35,7 +35,7 @@ Widget showVitalvaluesDropdown(context,index){
           responsiveText(
               context: context,
               textColor: primaryColor,
-              text: "${myVitalData[index]['date']} ago",
+              text: "${myVitalData[index]['date']}",
               fontWeight: FontWeight.w400,
               size: 13.0),
         ],
@@ -54,7 +54,6 @@ Widget showVitalvaluesDropdown(context,index){
           },
           elevation: 0,
           underline: SizedBox.shrink(),
-
           iconEnabledColor: primaryColor,
           alignment: Alignment.bottomRight,
           borderRadius: BorderRadius.circular(smallBorderRadius),
@@ -72,7 +71,7 @@ Widget showVitalvaluesDropdown(context,index){
           }).toList(),
         ),
         ),
-      )
+      ),
     ],
   );
 }

@@ -1,6 +1,6 @@
 import 'package:doctor/consts/consts.dart';
 
-import '../screens/vital_screen/widgets/blood_pressure/show_blood_pressure_widget.dart';
+import '../screens/vital_screen/vitals/blood_pressure/show_blood_pressure_widget.dart';
 
 const healthGrid = [
   {
@@ -50,12 +50,12 @@ const bpTitle = [
 ];
 
 const myVitalData = [
-  {"name":"Blood Pressure","image":icBp,"value":"120/80","unit":"mmHg","date":"4 Aug"},
-  {"name":"Weight","image":icweight,"value":"56","unit":"Kg","date":"4 Aug"},
-  {"name":"Pulse Rate","image":icpulse,"value":"80","unit":"bpm","date":"4 Aug"},
-  {"name":"Blood Sugar Level","image":icsugar,"value":"70","unit":"mg/dL","date":"4 Aug"},
-  {"name":"Body Temperature","image":ictemp,"value":"98.6","unit":"F","date":"4 Aug"},
-  {"name":"Oxygen Saturation","image":icoxygen,"value":"92","unit":"SpO","date":"4 Aug"},
-  {"name":"Menstrual Cycle","image":icperiod,"value":"12","unit":"days","date":"4 Aug"},
-  {"name":"Height","image":icheight,"value":"160","unit":"cm","date":"4 Aug"},
+  {"name":"Blood Pressure","image":icBp,"value":"--/--","unit":"mmHg","date":"No data"},
+  {"name":"Weight","image":icweight,"value":"--","unit":"Kg","date":"No data"},
+  {"name":"Pulse Rate","image":icpulse,"value":"--","unit":"bpm","date":"No data"},
+  {"name":"Blood Sugar Level","image":icsugar,"value":"--","unit":"mg/dL","date":"No data"},
+  {"name":"Body Temperature","image":ictemp,"value":"--","unit":"F","date":"No data"},
+  {"name":"Oxygen Saturation","image":icoxygen,"value":"--","unit":"SpO","date":"No data"},
+  {"name":"Height","image":icheight,"value":"--","unit":"cm","date":"No data"},
+  {"name":"Menstrual Cycle","image":icperiod,"value":"--","unit":"days","date":"No data"},
 ];

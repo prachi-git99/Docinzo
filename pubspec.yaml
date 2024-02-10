@@ -16,6 +16,7 @@ dependencies:
 
   cupertino_icons: ^1.0.2
 
+  fl_chart:
   pie_chart:
   auto_size_text:
   flutter_svg:

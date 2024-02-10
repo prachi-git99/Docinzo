@@ -12,11 +12,7 @@ class VitalsController extends GetxController{
       "YEARLY",
       ]);
 
-  // final List<String> dropDownList = [
-  //   "WEEKLY",
-  //   "MONTHLY",
-  //   "YEARLY",
-  // ];
+  final titles = <String>['Mon', 'Tue', 'Wed', 'Thus', 'Fri', 'Sat', 'Sun'];
 
   void setSelected(String value,index){
     dropDownValue[index] = value;
