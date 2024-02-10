@@ -15,7 +15,7 @@ class ScaleSize {
 
 Widget responsiveText({context,text,textColor,fontWeight,size}){
   return Text(
-    "${text[0].toUpperCase()}${text.substring(1)}",
+    "${text[0].toUpperCase()}${text.substring(1).toLowerCase()}",
       textScaleFactor: ScaleSize.textScaleFactor(context),
     style: TextStyle(color: textColor,
         fontSize: size,

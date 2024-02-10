@@ -5,7 +5,7 @@ import "package:doctor/controllers/vitals_controller.dart";
 import "package:get/get.dart";
 import "package:pie_chart/pie_chart.dart";
 
-import "../../../../components/reponsive_text.dart";
+import "../../../../components/responsive_text.dart";
 
 
 Widget showBloodPressureWidget(context,index){

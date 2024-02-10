@@ -2,7 +2,7 @@ import "package:doctor/consts/consts.dart";
 import "package:flutter_svg/svg.dart";
 
 import "../../../components/gradient_rounded_container.dart";
-import "../../../components/reponsive_text.dart";
+import "../../../components/responsive_text.dart";
 
 Widget showAppointmentSection({context}) {
   var size = MediaQuery.of(context).size;

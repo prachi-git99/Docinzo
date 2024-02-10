@@ -1,7 +1,7 @@
 import "package:doctor/components/gradient_rounded_container.dart";
 import "package:doctor/consts/consts.dart";
 
-import "../../../components/reponsive_text.dart";
+import "../../../components/responsive_text.dart";
 
 Widget showHealthTrackerSection(context) {
   var size = MediaQuery.of(context).size;

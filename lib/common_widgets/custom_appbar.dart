@@ -1,6 +1,6 @@
 import 'package:doctor/consts/consts.dart';
 
-import '../components/reponsive_text.dart';
+import '../components/responsive_text.dart';
 
 AppBar customAppbar(context,text){
   return AppBar(

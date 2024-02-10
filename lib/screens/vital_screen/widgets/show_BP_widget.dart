@@ -1,7 +1,7 @@
 import 'package:doctor/consts/consts.dart';
 import 'package:pie_chart/pie_chart.dart';
 
-import '../../../components/reponsive_text.dart';
+import '../../../components/responsive_text.dart';
 import '../../../components/rounded_corner_container.dart';
 
 Widget showBPwidget(context){

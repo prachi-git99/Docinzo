@@ -1,5 +1,5 @@
 import 'package:doctor/common_widgets/custom_appbar.dart';
-import 'package:doctor/components/reponsive_text.dart';
+import 'package:doctor/components/responsive_text.dart';
 import 'package:doctor/components/rounded_corner_container.dart';
 import 'package:doctor/consts/consts.dart';
 import 'package:doctor/screens/vital_screen/widgets/blood_pressure/show_blood_pressure_widget.dart';

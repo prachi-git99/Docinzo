@@ -2,7 +2,7 @@ import 'dart:math';
 
 import 'package:doctor/common_widgets/gradient_background.dart';
 import 'package:doctor/components/gradient_rounded_container.dart';
-import 'package:doctor/components/reponsive_text.dart';
+import 'package:doctor/components/responsive_text.dart';
 import 'package:doctor/consts/consts.dart';
 import 'package:doctor/screens/home_screen/widgets/show_appointment_section.dart';
 import 'package:doctor/screens/home_screen/widgets/show_header_widget.dart';

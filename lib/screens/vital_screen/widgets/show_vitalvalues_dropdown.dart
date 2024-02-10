@@ -1,8 +1,7 @@
 
 import 'package:doctor/consts/consts.dart';
 import 'package:get/get.dart';
-
-import '../../../components/reponsive_text.dart';
+import '../../../components/responsive_text.dart';
 import '../../../controllers/vitals_controller.dart';
 
 Widget showVitalvaluesDropdown(context,index){
@@ -55,13 +54,20 @@ Widget showVitalvaluesDropdown(context,index){
           },
           elevation: 0,
           underline: SizedBox.shrink(),
+
+          iconEnabledColor: primaryColor,
           alignment: Alignment.bottomRight,
           borderRadius: BorderRadius.circular(smallBorderRadius),
           value: controller.dropDownValue[index],
           items: controller.dropDownList[index].map((value) {
             return DropdownMenuItem(
               value: value,
-              child: Text(value),
+              child: responsiveText(
+                  context: context,
+                  textColor: primaryColor,
+                  text: value,
+                  fontWeight: FontWeight.w500,
+                  size: 16.0),
             );
           }).toList(),
         ),
