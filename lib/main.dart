@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'consts/colors.dart';
 
 void main() {
+
   runApp(const MyApp());
 }
 
@@ -16,6 +17,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Doctor',
       debugShowCheckedModeBanner: false,
+      themeMode: ThemeMode.system,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: primaryColor),
         useMaterial3: true,

@@ -13,7 +13,7 @@ var size = MediaQuery.of(context).size;
           services.length,
           (index) => Container(
             width:size.width * 0.3,
-            margin: EdgeInsets.symmetric(horizontal: containerHorMargin/2,vertical: 2*containerVerMargin),
+
               child: roundedCornerContainer(
                   color: services[index]['color'],
                   borderRadius: smallBorderRadius,

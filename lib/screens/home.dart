@@ -1,5 +1,5 @@
-import 'package:doctor/screens/report_screen/report_screen.dart';
 import 'package:doctor/screens/schedule_screen/schedule_screen.dart';
+import 'package:doctor/screens/vital_screen/vital_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
@@ -43,7 +43,7 @@ class Home extends StatelessWidget {
       BottomNavigationBarItem(
           icon: Obx(
             () => SvgPicture.asset(
-              "assets/images/icons/navbar_icons/$reportIcon",
+              "assets/images/icons/navbar_icons/$vitalIcon",
               width: navBarIconSize,
               height: navBarIconSize,
               color: controller.currentNavIndex.value == 2
@@ -68,7 +68,7 @@ class Home extends StatelessWidget {
     var navBody = [
       const HomeScreen(),
       const ScheduleScreen(),
-      const ReportScreen(),
+      const VitalScreen(),
       const NotificationScreen(),
     ];
 

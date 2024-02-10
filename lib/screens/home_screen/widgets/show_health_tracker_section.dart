@@ -8,18 +8,14 @@ Widget showHealthTrackerSection(context) {
   var aspectRatio = (size.width * 0.41)/(size.height * 0.31);
   return Column(
     children: [
-      GridView.count(
-        physics: ScrollPhysics(),
-        crossAxisCount: 2,
-        childAspectRatio:aspectRatio,
-        crossAxisSpacing: 2 * containerHorMargin,
-        mainAxisSpacing: containerVerMargin,
-        shrinkWrap: true,
+      Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: List.generate(
             2,
             (index) => Container(
+              width: size.width*0.43,
               margin: EdgeInsets.symmetric(vertical: containerVerMargin),
-              padding: EdgeInsets.symmetric(vertical: containerVerMargin),
+              padding: EdgeInsets.symmetric(vertical: containerVerMargin,horizontal: containerHorPadd),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(smallBorderRadius),
                 color: white,
@@ -89,7 +85,7 @@ Widget showHealthTrackerSection(context) {
 
       Container(
         width: size.width,
-          margin: EdgeInsets.symmetric(vertical: containerVerMargin),
+          margin: EdgeInsets.symmetric(vertical: containerVerMargin,horizontal: 5.0),
           padding: EdgeInsets.symmetric(vertical: 2*containerVerMargin),
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(smallBorderRadius),

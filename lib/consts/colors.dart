@@ -5,23 +5,46 @@ const Color shadow = Color.fromRGBO(0, 0, 0, 0.07058823529411765);
 const Color white = Colors.white;
 const Color black = Colors.black;
 const Color bgColor = Color.fromRGBO(248,248,248, 1);
-
+const Color glassWhite = Color.fromRGBO(255,255,255,0.75);
 
 const Color unselectedNavbarIcon = Color.fromRGBO(171, 171, 171, 1.0);
+//blue
+const Color primaryColor = Color.fromRGBO(45,120,233, 1);
+const Color secondaryColor = Color.fromRGBO(98, 158, 245, 1.0);
 
-const Color primaryColor = Color.fromRGBO(45,120,233, 1); //darkblue
+//yellow
+// const Color primaryColor = Color.fromRGBO(227, 153, 63, 1.0);
+// const Color secondaryColor = Color.fromRGBO(245, 194, 98, 1.0);
+
+// green
+// const Color primaryColor = Color.fromRGBO(70, 147, 42, 1.0);
+// const Color secondaryColor = Color.fromRGBO(125, 175, 105, 1.0);
+
+//pink
+// const Color primaryColor = Color.fromRGBO(239, 103, 142, 1.0);
+// const Color secondaryColor = Color.fromRGBO(248, 133, 171, 1.0);
+
+//purple
+// const Color primaryColor = Color.fromRGBO(165, 92, 241, 1.0);
+// const Color secondaryColor = Color.fromRGBO(195, 131, 238, 1.0);
+
+//red
+// const Color primaryColor = Color.fromRGBO(241, 91, 91, 1.0);
+// const Color secondaryColor = Color.fromRGBO(236, 126, 126, 1.0);
+
+
+const Color unselectedPieChart = Color.fromRGBO(170, 198, 238, 1.0);
 
 const myGradient = LinearGradient(
   colors: [
-    Color.fromRGBO(98, 158, 245, 1.0),
-    Color.fromRGBO(45,120,233, 1),
+    secondaryColor,
+   primaryColor
   ],
   begin: Alignment.centerLeft,
   end: Alignment.centerRight,
 );
 const bgGradient = LinearGradient(
   colors: [
-
     Color.fromRGBO(204, 204, 204, 0.4745098039215686),
     Color.fromRGBO(252, 252, 252, 0.49411764705882355),
     Colors.white,
@@ -40,8 +63,12 @@ const Color lightYellow = Color.fromRGBO(255, 244, 222, 1);
 const Color lightGreen = Color.fromRGBO(220, 252, 231, 1);
 const Color lightPurple = Color.fromRGBO(243, 232, 255, 1);
 
-// const Color gradientPrimary = Color.fromRGBO(74, 146, 254, 1);
-// const Color primaryBlueColor = Color.fromRGBO(45,120,233, 1);
+const unselectedPieChartGradient = [
+  Color.fromRGBO(192, 205, 217, 0.615686274509804),
+  Color.fromRGBO(197, 202, 218, 0.615686274509804),
+];
+
+
 
 
 

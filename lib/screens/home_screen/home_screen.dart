@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:doctor/common_widgets/gradient_background.dart';
 import 'package:doctor/components/gradient_rounded_container.dart';
 import 'package:doctor/components/reponsive_text.dart';
@@ -35,15 +37,31 @@ class HomeScreen extends StatelessWidget {
                     textColor: black,
                     fontWeight: FontWeight.w500,
                     size: 18.0),
-
+                SizedBox(
+                  height: containerVerMargin,
+                ),
                 showServicesSection(context),
                 //health section
-                responsiveText(
-                    context: context,
-                    text: trackerSectionTitle,
-                    textColor: black,
-                    fontWeight: FontWeight.w500,
-                    size: 18.0),
+                SizedBox(
+                  height: 2*containerVerMargin,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    responsiveText(
+                        context: context,
+                        text: trackerSectionTitle,
+                        textColor: black,
+                        fontWeight: FontWeight.w500,
+                        size: 18.0),
+                    responsiveText(
+                        context: context,
+                        text: viewAll,
+                        textColor: black,
+                        fontWeight: FontWeight.w300,
+                        size: 12.0),
+                  ],
+                ),
                 SizedBox(
                   height: containerVerMargin,
                 ),
@@ -52,12 +70,23 @@ class HomeScreen extends StatelessWidget {
                   height: 2*containerVerMargin,
                 ),
                 //appointment
-                responsiveText(
-                    context: context,
-                    text: appointmentSectionTitle,
-                    textColor: black,
-                    fontWeight: FontWeight.w500,
-                    size: 18.0),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    responsiveText(
+                        context: context,
+                        text: appointmentSectionTitle,
+                        textColor: black,
+                        fontWeight: FontWeight.w500,
+                        size: 18.0),
+                    responsiveText(
+                        context: context,
+                        text: viewAll,
+                        textColor: black,
+                        fontWeight: FontWeight.w300,
+                        size: 12.0),
+                  ],
+                ),
                 SizedBox(height: containerVerMargin,),
                 SingleChildScrollView(
                   scrollDirection: Axis.horizontal,

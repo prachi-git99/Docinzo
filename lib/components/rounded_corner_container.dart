@@ -5,6 +5,8 @@ Widget roundedCornerContainer({width,height,color,child,borderRadius,blur=0.0}){
     height: height,
     width: width,
     padding: EdgeInsets.symmetric(horizontal: containerHorPadd,vertical:containerVerPadd ),
+    margin: EdgeInsets.symmetric(horizontal: containerHorMargin/2,),
+    // margin: EdgeInsets.symmetric(horizontal: containerHorPadd,vertical:containerVerPadd ),
     decoration: BoxDecoration(
       borderRadius: BorderRadius.circular(borderRadius),
       color: color,
