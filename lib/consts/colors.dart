@@ -17,8 +17,8 @@ const Color secondaryColor = Color.fromRGBO(98, 158, 245, 1.0);
 // const Color secondaryColor = Color.fromRGBO(245, 194, 98, 1.0);
 
 // green
-// const Color primaryColor = Color.fromRGBO(70, 147, 42, 1.0);
-// const Color secondaryColor = Color.fromRGBO(125, 175, 105, 1.0);
+// const Color primaryColor = Color.fromRGBO(92, 241, 164, 1.0);
+// const Color secondaryColor = Color.fromRGBO(154, 239, 189, 1.0);
 
 //pink
 // const Color primaryColor = Color.fromRGBO(239, 103, 142, 1.0);

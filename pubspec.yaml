@@ -16,6 +16,10 @@ dependencies:
 
   cupertino_icons: ^1.0.2
 
+  table_calendar:
+  time_slot:
+  easy_date_timeline:
+  booking_calendar:
   fl_chart:
   pie_chart:
   auto_size_text:

@@ -25,6 +25,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.0.0"
+  booking_calendar:
+    dependency: "direct main"
+    description:
+      name: booking_calendar
+      sha256: fad54ebaab82aed865927b70d958769d7e60fb7224a0af27d241620062058022
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.1.10"
   boolean_selector:
     dependency: transitive
     description:
@@ -65,6 +73,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.6"
+  easy_date_timeline:
+    dependency: "direct main"
+    description:
+      name: easy_date_timeline
+      sha256: "645b2021f921f79f29c8ca56d7fbf93b119261bf8c62a0fa0a2ce28c4e17070d"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.3"
   equatable:
     dependency: transitive
     description:
@@ -123,6 +139,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "4.6.6"
+  intl:
+    dependency: transitive
+    description:
+      name: intl
+      sha256: "3bc132a9dbce73a7e4a21a17d06e1878839ffbf975568bc875c60537824b0c4d"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.18.1"
   lints:
     dependency: transitive
     description:
@@ -155,6 +179,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.10.0"
+  nested:
+    dependency: transitive
+    description:
+      name: nested
+      sha256: "03bac4c528c64c95c722ec99280375a6f2fc708eec17c7b3f07253b626cd2a20"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.0"
   path:
     dependency: transitive
     description:
@@ -187,6 +219,22 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "5.4.0"
+  provider:
+    dependency: transitive
+    description:
+      name: provider
+      sha256: "9a96a0a19b594dbc5bf0f1f27d2bc67d5f95957359b461cd9feb44ed6ae75096"
+      url: "https://pub.dev"
+    source: hosted
+    version: "6.1.1"
+  simple_gesture_detector:
+    dependency: transitive
+    description:
+      name: simple_gesture_detector
+      sha256: "86d08f85f1f58583b7b4b941d989f48ea6ce08c1724a1d10954a277c2ec36592"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.2.0"
   sky_engine:
     dependency: transitive
     description: flutter
@@ -224,6 +272,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.2.0"
+  table_calendar:
+    dependency: "direct main"
+    description:
+      name: table_calendar
+      sha256: "1e3521a3e6d3fc7f645a58b135ab663d458ab12504f1ea7f9b4b81d47086c478"
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.0.9"
   term_glyph:
     dependency: transitive
     description:
@@ -240,6 +296,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.6.1"
+  time_slot:
+    dependency: "direct main"
+    description:
+      name: time_slot
+      sha256: "7761103a924a3402cf22fa95165ac396126d927267d4fae8e5182c73c8f49613"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.3"
   vector_graphics:
     dependency: transitive
     description:

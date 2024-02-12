@@ -2,7 +2,6 @@ import 'package:doctor/consts/consts.dart';
 
 Widget gradientBg({context, widget}){
   var size = MediaQuery.of(context).size;
-  print(size);
   return Scaffold(
     body: Container(
       height: size.height,
