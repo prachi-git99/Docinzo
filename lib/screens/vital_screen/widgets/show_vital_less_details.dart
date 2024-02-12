@@ -46,9 +46,7 @@ Widget showVitalsLessInfo(context, index) {
                                     : index == 6
                                         ? showHeightWidget(context, index)
                                         : SizedBox.shrink(),
-            SizedBox(
-              height: 2 * containerVerMargin,
-            ),
+
             GestureDetector(
               onTap: () {},
               child: responsiveText(

@@ -49,13 +49,13 @@ const bpTitle = [
   "Diastolic"
 ];
 
-const myVitalData = [
-  {"name":"Blood Pressure","image":icBp,"value":"--/--","unit":"mmHg","date":"No data"},
-  {"name":"Weight","image":icweight,"value":"--","unit":"Kg","date":"No data"},
-  {"name":"Pulse Rate","image":icpulse,"value":"--","unit":"bpm","date":"No data"},
-  {"name":"Blood Sugar Level","image":icsugar,"value":"--","unit":"mg/dL","date":"No data"},
-  {"name":"Body Temperature","image":ictemp,"value":"--","unit":"F","date":"No data"},
-  {"name":"Oxygen Saturation","image":icoxygen,"value":"--","unit":"SpO","date":"No data"},
-  {"name":"Height","image":icheight,"value":"--","unit":"cm","date":"No data"},
-  {"name":"Menstrual Cycle","image":icperiod,"value":"--","unit":"days","date":"No data"},
-];
+// const myVitalData = [
+//   {"name":"Blood Pressure","image":icBp,"value":"--/--","unit":"mmHg","date":"No data"},
+//   {"name":"Weight","image":icweight,"value":"--","unit":"Kg","date":"No data"},
+//   {"name":"Pulse Rate","image":icpulse,"value":"--","unit":"bpm","date":"No data"},
+//   {"name":"Blood Sugar Level","image":icsugar,"value":"--","unit":"mg/dL","date":"No data"},
+//   {"name":"Body Temperature","image":ictemp,"value":"--","unit":"F","date":"No data"},
+//   {"name":"Oxygen Saturation","image":icoxygen,"value":"--","unit":"SpO","date":"No data"},
+//   {"name":"Height","image":icheight,"value":"--","unit":"cm","date":"No data"},
+//   {"name":"Menstrual Cycle","image":icperiod,"value":"--","unit":"days","date":"No data"},
+// ];

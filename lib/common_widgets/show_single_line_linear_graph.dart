@@ -1,17 +1,13 @@
 
 import 'package:doctor/consts/consts.dart';
 import 'package:fl_chart/fl_chart.dart';
+import 'package:get/get.dart';
 
+import '../controllers/vitals_controller.dart';
 
-const style = TextStyle(
-    color: black,
-    fontWeight: FontWeight.w400,
-    fontFamily: poppins,
-    fontSize: 14.0
-);
-
-
-Widget showSingleLinesLinearGraph(context,showingBarGroups,id,maxLimit,interval){
+var controller = Get.find<VitalsController>();
+Widget showSingleLinesLinearGraph(context, showingBarGroups, maxLimit,minLimit, interval){
+  var size = MediaQuery.of(context).size;
   return AspectRatio(
     aspectRatio: 1,
     child: Column(
@@ -24,6 +20,7 @@ Widget showSingleLinesLinearGraph(context,showingBarGroups,id,maxLimit,interval)
           child: BarChart(
             BarChartData(
               maxY: maxLimit,
+              minY: minLimit,
               titlesData: FlTitlesData(
                 show: true,
                 rightTitles: const AxisTitles(
@@ -35,16 +32,16 @@ Widget showSingleLinesLinearGraph(context,showingBarGroups,id,maxLimit,interval)
                 bottomTitles: AxisTitles(
                   sideTitles: SideTitles(
                     showTitles: true,
-                    getTitlesWidget: bottomTitles,
-                    reservedSize: 42,
+                    getTitlesWidget: controller.bottomTitles,
+                    reservedSize: size.height * 0.1,
                   ),
                 ),
                 leftTitles: AxisTitles(
                   sideTitles: SideTitles(
                     showTitles: true,
-                    reservedSize: 28,
+                    reservedSize:  size.width * 0.12,
                     interval: interval,
-                    getTitlesWidget: leftTitles,
+                    getTitlesWidget: controller.leftTitles,
                   ),
                 ),
               ),
@@ -60,33 +57,6 @@ Widget showSingleLinesLinearGraph(context,showingBarGroups,id,maxLimit,interval)
 
       ],
     ),
-  );
-}
-
-Widget leftTitles(double value, TitleMeta meta) {
-
-  return SideTitleWidget(
-      axisSide: meta.axisSide,
-      space: 0,
-      child: Text("${value.toInt()}",style: style,)
-  );
-}
-
-Widget bottomTitles(double value, TitleMeta meta) {
-  final weekTitles = <String>['Mon', 'Tue', 'Wed', 'Thus', 'Fri', 'Sat', 'Sun'];
-  final monthTitles = <String>['Jan', 'Mar', 'May', 'July', 'Sept', 'Nov'];
-  final yearTitles = <String>['2018', '2019', '2020', '2021', '2022', '2023', '2024'];
-
-  final Widget text = Text(
-    weekTitles[value.toInt()],
-    // myId==0?weekTitles[value.toInt()]:myId==1?monthTitles[value.toInt()]:myId==2?yearTitles[value.toInt()]:weekTitles[value.toInt()],
-    style: style ,
-  );
-
-  return SideTitleWidget(
-    axisSide: meta.axisSide,
-    space: containerVerPadd, //margin top
-    child: text,
   );
 }
 

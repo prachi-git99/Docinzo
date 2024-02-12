@@ -20,13 +20,13 @@ Widget showVitalvaluesDropdown(context,index){
               responsiveText(
                   context: context,
                   textColor: black,
-                  text: myVitalData[index]['value'],
+                  text: controller.myVitalData[index]['value'],
                   fontWeight: FontWeight.w600,
                   size: 20.0),
               responsiveText(
                   context: context,
                   textColor: black,
-                  text: " ${myVitalData[index]['unit']}",
+                  text: " ${controller.myVitalData[index]['unit']}",
                   fontWeight: FontWeight.w300,
                   size: 13.0),
             ],
@@ -35,7 +35,7 @@ Widget showVitalvaluesDropdown(context,index){
           responsiveText(
               context: context,
               textColor: primaryColor,
-              text: "${myVitalData[index]['date']}",
+              text: "${controller.myVitalData[index]['date']}",
               fontWeight: FontWeight.w400,
               size: 13.0),
         ],

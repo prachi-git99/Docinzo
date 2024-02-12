@@ -2,11 +2,13 @@ import 'package:doctor/common_widgets/custom_appbar.dart';
 import 'package:doctor/components/responsive_text.dart';
 import 'package:doctor/components/rounded_corner_container.dart';
 import 'package:doctor/consts/consts.dart';
+import 'package:doctor/controllers/vitals_controller.dart';
 import 'package:doctor/screens/vital_screen/vitals/blood_pressure/show_blood_pressure_widget.dart';
 import 'package:doctor/screens/vital_screen/widgets/show_vitalvalues_and_dropdown.dart';
 import 'package:doctor/screens/vital_screen/widgets/show_dropdown_widget.dart';
 import 'package:doctor/screens/vital_screen/widgets/show_vital_less_details.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 
 
 class VitalScreen extends StatefulWidget {
@@ -18,7 +20,9 @@ class VitalScreen extends StatefulWidget {
 
 class _VitalScreenState extends State<VitalScreen> {
 
-  List<bool> showVitalInfo = List.generate(myVitalData.length, (index) => false);
+  VitalsController controller = Get.put(VitalsController());
+
+  List<bool> showVitalInfo = List.generate(8, (index) => false);
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +35,7 @@ class _VitalScreenState extends State<VitalScreen> {
           physics: AlwaysScrollableScrollPhysics(),
             scrollDirection: Axis.vertical,
             shrinkWrap: true,
-            itemCount: myVitalData.length,
+            itemCount: controller.myVitalData.length,
             itemBuilder: (context,index){
               return Column(
                 children: [
@@ -50,7 +54,7 @@ class _VitalScreenState extends State<VitalScreen> {
                           Row(
                             children: [
                               SvgPicture.asset(
-                                "assets/images/icons/vitals_icons/${myVitalData[index]['image']}",
+                                "assets/images/icons/vitals_icons/${controller.myVitalData[index]['image']}",
                                 width: size.width * 0.1,
                                 height: size.height * 0.03,
                                 color: primaryColor,
@@ -61,7 +65,7 @@ class _VitalScreenState extends State<VitalScreen> {
                               responsiveText(
                                   context: context,
                                   textColor: black,
-                                  text: myVitalData[index]['name'],
+                                  text: controller.myVitalData[index]['name'],
                                   fontWeight: FontWeight.w500,
                                   size: 18.0),
                             ],
