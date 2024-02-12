@@ -12,3 +12,6 @@ const serviceSectionTitle = "Our Services";
 const hintText = "Search here...";
 const viewAll = "View All";
 const lastUpdate = "Updated at:";
+
+//button
+const appointmentButtonText = "Book Appointment";

@@ -18,7 +18,9 @@ Widget customScheduleCalender(){
         monthStyle:TextStyle(fontFamily: poppins,fontSize: 14.0,fontWeight: FontWeight.w500) ,
         selectedDateStyle: TextStyle(fontFamily: poppins,fontSize: 12.0)
       ),
+
       dayProps:  EasyDayProps(
+
         dayStructure: DayStructure.dayStrDayNum,
         inactiveDayStyle: DayStyle(
           decoration: BoxDecoration(

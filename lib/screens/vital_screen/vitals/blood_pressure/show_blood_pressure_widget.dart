@@ -1,4 +1,3 @@
-import "dart:ffi";
 
 import "package:doctor/consts/consts.dart";
 import "package:doctor/controllers/vitals_controller.dart";

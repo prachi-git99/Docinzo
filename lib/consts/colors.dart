@@ -24,6 +24,10 @@ const Color secondaryColor = Color.fromRGBO(98, 158, 245, 1.0);
 // const Color primaryColor = Color.fromRGBO(239, 103, 142, 1.0);
 // const Color secondaryColor = Color.fromRGBO(248, 133, 171, 1.0);
 
+//peach
+// const Color primaryColor = Color.fromRGBO(255, 187, 187, 1.0);
+// const Color secondaryColor = Color.fromRGBO(232, 190, 187, 1.0);
+
 //purple
 // const Color primaryColor = Color.fromRGBO(165, 92, 241, 1.0);
 // const Color secondaryColor = Color.fromRGBO(195, 131, 238, 1.0);
