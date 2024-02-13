@@ -13,6 +13,7 @@ class ScheduleScreen extends StatelessWidget {
 
   var controller = Get.put(ScheduleController());
 
+
   @override
   Widget build(BuildContext context) {
 

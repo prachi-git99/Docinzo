@@ -24,9 +24,8 @@ class VitalsController extends GetxController{
       "YEARLY",
   ]);
 
-  List<String> weekTitles = [];
-  List<String> monthTitles = [];
-  List<String> yearTitles = [];
+
+  List<String> bottomTitleList = [];
 
 
 
@@ -37,6 +36,7 @@ class VitalsController extends GetxController{
       fontSize: 14.0);
 
   Widget leftTitles(double value, TitleMeta meta) {
+    
     return SideTitleWidget(
         axisSide: meta.axisSide,
         space: containerHorPadd,
@@ -49,15 +49,10 @@ class VitalsController extends GetxController{
   Widget bottomTitles(double value, TitleMeta meta) {
 
     final Widget text = Text(
-      dropDownValue[0] == 'WEEKLY'
-          ? weekTitles[value.toInt()]
-          : dropDownValue[0] == 'MONTHLY'
-          ? monthTitles[value.toInt()]
-          : dropDownValue[0] == 'YEARLY'
-          ? yearTitles[value.toInt()]
-          : weekTitles[value.toInt()],
+      bottomTitleList[value.toInt()],
       style: style,
     );
+
     return SideTitleWidget(
       axisSide: meta.axisSide,
       space: containerVerPadd, //margin top

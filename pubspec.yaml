@@ -16,6 +16,9 @@ dependencies:
 
   cupertino_icons: ^1.0.2
 
+  open_file:
+  file_picker:
+  dotted_border:
   table_calendar:
   time_slot:
   easy_date_timeline:
@@ -40,6 +43,7 @@ flutter:
     - assets/
     - assets/images/
     - assets/images/icons/
+    - assets/images/gif/
     - assets/images/icons/vitals_icons/
     - assets/images/icons/navbar_icons/
 

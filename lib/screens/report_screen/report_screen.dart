@@ -1,15 +1,43 @@
-import 'package:doctor/consts/consts.dart';
+import 'dart:io';
 
-import '../../common_widgets/gradient_background.dart';
+import 'package:doctor/common_widgets/custom_appbar.dart';
+import 'package:doctor/consts/consts.dart';
+import 'package:doctor/screens/report_screen/add_report_screen.dart';
+import 'package:doctor/screens/report_screen/widgets/show_upload_file_section.dart';
+import 'package:get/get.dart';
+
+import '../../components/responsive_text.dart';
+import '../../controllers/report_controller.dart';
+
 
 class ReportScreen extends StatelessWidget {
-  const ReportScreen({Key? key}) : super(key: key);
+   ReportScreen({Key? key}) : super(key: key);
+
+  var controller = Get.put(ReportController());
 
   @override
   Widget build(BuildContext context) {
-    return gradientBg(
-        context:context,
-        widget:Container()
+    var size = MediaQuery.of(context).size;
+
+    return Scaffold(
+      appBar: customAppbar(context,"My Reports"),
+      backgroundColor: white,
+      floatingActionButton: CircleAvatar(
+        radius: size.width*0.1,
+        backgroundColor: secondaryColor,
+        child: IconButton(
+          icon: Icon(Icons.add,size: size.width*0.1,color:white,),
+          onPressed: (){
+            Navigator.of(context).push(MaterialPageRoute(builder: (context) => AddReportScreen() ));
+          },
+        ),
+      ),
+      body: Column(
+        children: [
+
+        ],
+      ),
+
     );
   }
 }

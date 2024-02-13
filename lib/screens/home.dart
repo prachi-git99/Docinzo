@@ -66,7 +66,7 @@ class Home extends StatelessWidget {
           label: "Notification"),
     ];
     var navBody = [
-      const HomeScreen(),
+       HomeScreen(),
       ScheduleScreen(),
       const VitalScreen(),
       const NotificationScreen(),

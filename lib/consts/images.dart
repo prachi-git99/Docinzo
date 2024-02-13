@@ -5,8 +5,10 @@ const reportIcon = "report.svg";
 const scheduleIcon = "schedule.svg";
 const vitalIcon = "vitals.svg";
 
-//homepage
+//icons
 const user = "user.svg";
+const uploadIcon = "upload.png";
+const pdfIcon = "pdf.png";
 
 //health tracker
 const bldGrpImg = "blood_grp.png";
@@ -29,3 +31,7 @@ const ictemp = "temprature.svg";
 const icoxygen = "oxygen.svg";
 const icheight = "height.svg";
 const icperiod = "period.svg";
+
+//gifs
+const firstAidGif = "mygif.gif";
+const comingSoonGif = "comingSoon.gif";

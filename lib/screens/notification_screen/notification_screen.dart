@@ -1,5 +1,6 @@
 import 'package:doctor/consts/consts.dart';
 
+import '../../common_widgets/custom_loading_widget.dart';
 import '../../common_widgets/gradient_background.dart';
 
 class NotificationScreen extends StatelessWidget {
@@ -7,9 +8,6 @@ class NotificationScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return gradientBg(
-        context:context,
-        widget:Container()
-    );
+    return customLoadingWidget(context,comingSoonGif);
   }
 }

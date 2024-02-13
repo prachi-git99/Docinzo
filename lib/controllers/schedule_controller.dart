@@ -5,6 +5,7 @@ class ScheduleController extends GetxController {
   var selectedTime = DateTime.now().obs;
   var scheduleTime = DateTime.now().obs ;
 
+
   void setSelectedDate(DateTime value) {
     selectedDate.value = value;
   }
@@ -19,5 +20,6 @@ class ScheduleController extends GetxController {
       selectedTime.value.millisecond,
     );
   }
+
 
 }

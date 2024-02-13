@@ -10,7 +10,7 @@ const Color glassWhite = Color.fromRGBO(255,255,255,0.75);
 const Color unselectedNavbarIcon = Color.fromRGBO(171, 171, 171, 1.0);
 //blue
 const Color primaryColor = Color.fromRGBO(45,120,233, 1);
-const Color secondaryColor = Color.fromRGBO(98, 158, 245, 1.0);
+const Color secondaryColor = Color.fromRGBO(129, 173, 236, 1.0);
 
 //yellow
 // const Color primaryColor = Color.fromRGBO(227, 153, 63, 1.0);
@@ -42,10 +42,10 @@ const Color unselectedPieChart = Color.fromRGBO(170, 198, 238, 1.0);
 const myGradient = LinearGradient(
   colors: [
     secondaryColor,
-   primaryColor
+   primaryColor,
   ],
-  begin: Alignment.centerLeft,
-  end: Alignment.centerRight,
+  begin: Alignment.topLeft,
+  end: Alignment.bottomRight,
 );
 const bgGradient = LinearGradient(
   colors: [

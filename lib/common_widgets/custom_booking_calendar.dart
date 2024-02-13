@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:doctor/consts/consts.dart';
 import 'package:easy_date_timeline/easy_date_timeline.dart';
 import 'package:get/get.dart';
@@ -5,10 +7,26 @@ import '../controllers/schedule_controller.dart';
 
 var controller = Get.put(ScheduleController());
 
+List<DateTime> generatePreviousDates() {
+  List<DateTime> previousDates = [];
+  DateTime today = DateTime.now();
+
+  // Start from yesterday and loop through each date until reaching a start date
+  DateTime currentDate = today.subtract(Duration(days: 1)); // Start from yesterday
+  while (currentDate.isAfter(DateTime(1900))) { // Specify a start date (e.g., 1900)
+    previousDates.add(currentDate);
+    currentDate = currentDate.subtract(Duration(days: 1)); // Move to the previous day
+  }
+
+  return previousDates;
+}
+
 Widget customScheduleCalender(){
+  // print(disable);
   return EasyDateTimeLine(
+    disabledDates:generatePreviousDates(),
       initialDate: controller.selectedDate.value,
-      locale: 'en_IN',
+      locale:'en_IN',
       onDateChange: (selectedDate) {
         controller.setSelectedDate(selectedDate);
       },
@@ -24,19 +42,19 @@ Widget customScheduleCalender(){
         dayStructure: DayStructure.dayStrDayNum,
         inactiveDayStyle: DayStyle(
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.all(Radius.circular(mediumBorderRadius)),
+            borderRadius: const BorderRadius.all(Radius.circular(smallBorderRadius)),
             border: Border.all(color: borderGrey)
           ),
         ),
         todayStyle: DayStyle(
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.all(Radius.circular(mediumBorderRadius)),
+            borderRadius: const BorderRadius.all(Radius.circular(smallBorderRadius)),
               border: Border.all(color: primaryColor)
           ),
         ),
-        activeDayStyle: DayStyle(
+        activeDayStyle: const DayStyle(
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.all(Radius.circular(mediumBorderRadius)),
+            borderRadius: BorderRadius.all(Radius.circular(smallBorderRadius)),
             gradient: LinearGradient(
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,

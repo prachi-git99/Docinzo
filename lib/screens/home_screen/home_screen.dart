@@ -1,18 +1,19 @@
-import 'dart:math';
-
 import 'package:doctor/common_widgets/gradient_background.dart';
-import 'package:doctor/components/gradient_rounded_container.dart';
 import 'package:doctor/components/responsive_text.dart';
 import 'package:doctor/consts/consts.dart';
+import 'package:doctor/controllers/home_controller.dart';
 import 'package:doctor/screens/home_screen/widgets/show_appointment_section.dart';
 import 'package:doctor/screens/home_screen/widgets/show_header_widget.dart';
 import 'package:doctor/screens/home_screen/widgets/show_health_tracker_section.dart';
 import 'package:doctor/screens/home_screen/widgets/show_search_widget.dart';
 import 'package:doctor/screens/home_screen/widgets/show_service_section.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+   HomeScreen({Key? key}) : super(key: key);
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -54,12 +55,18 @@ class HomeScreen extends StatelessWidget {
                         textColor: black,
                         fontWeight: FontWeight.w500,
                         size: 18.0),
-                    responsiveText(
-                        context: context,
-                        text: viewAll,
-                        textColor: black,
-                        fontWeight: FontWeight.w300,
-                        size: 12.0),
+                    GestureDetector(
+                      onTap: (){
+                        var controller = Get.find<HomeController>();
+                        controller.currentNavIndex.value = 2;
+                      },
+                      child: responsiveText(
+                          context: context,
+                          text: viewAll,
+                          textColor: black,
+                          fontWeight: FontWeight.w300,
+                          size: 12.0),
+                    ),
                   ],
                 ),
                 SizedBox(
