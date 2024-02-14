@@ -18,10 +18,7 @@ var size = MediaQuery.of(context).size;
           services.length,
           (index) => GestureDetector(
             onTap: (){
-              index == 0 ? Navigator.of(context).push(MaterialPageRoute(builder: (context) => AppointmentScreen())):
-              index == 1 ? Navigator.of(context).push(MaterialPageRoute(builder: (context) => LabTestScreen())):
-              index == 2 ? Navigator.of(context).push(MaterialPageRoute(builder: (context) => ReportScreen())):
-              index == 3 ? Navigator.of(context).push(MaterialPageRoute(builder: (context) => AmbulanceScreen())):null;
+              Navigator.of(context).push(MaterialPageRoute(builder: (context) => services[index]["screen"] as Widget));
             },
             child: Container(
               width:size.width * 0.3,

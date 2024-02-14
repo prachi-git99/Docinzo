@@ -9,7 +9,7 @@ Widget customLoadingWidget(context,gif){
       gradient: bgGradient
     ),
     child: Center(
-      child: Image.asset("assets/images/gif/$gif",fit: BoxFit.contain,width: size.width*0.4,height: size.height*0.2,),
+      child: Image.asset("assets/images/gif/$gif",fit: BoxFit.contain,width: size.width*0.4,height: size.height*0.3,),
     ),
   );
 }

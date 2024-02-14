@@ -2,6 +2,7 @@
 const homeIcon = "homepage.svg";
 const notifyIcon = "notification.svg";
 const reportIcon = "report.svg";
+const recordIcon = "record.svg";
 const scheduleIcon = "schedule.svg";
 const vitalIcon = "vitals.svg";
 

@@ -6,6 +6,7 @@ import '../../../controllers/dropdown_controller.dart';
 class RecordTypeController extends DropDownController {
 
 
+
   Future<List<String>> getRecordTypeList() async {
 
     List<Map<String, dynamic>> finalResponse = [
@@ -28,7 +29,7 @@ class RecordTypeController extends DropDownController {
 
   void setdropDownData()async{
     dropDownList.value = await getRecordTypeList();
-    currentValue.value = dropDownList[0];
+    currentValue.value = dropDownList.length==0 ? "val":dropDownList[0];
   }
 
 

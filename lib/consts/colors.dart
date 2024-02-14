@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
 
-
 const Color shadow = Color.fromRGBO(0, 0, 0, 0.07058823529411765);
 const Color white = Colors.white;
 const Color black = Colors.black;
-const Color bgColor = Color.fromRGBO(248,248,248, 1);
-const Color glassWhite = Color.fromRGBO(255,255,255,0.75);
+const Color bgColor = Color.fromRGBO(248, 248, 248, 1);
+const Color glassWhite = Color.fromRGBO(255, 255, 255, 0.75);
 
 const Color unselectedNavbarIcon = Color.fromRGBO(171, 171, 171, 1.0);
 //blue
-const Color primaryColor = Color.fromRGBO(45,120,233, 1);
-const Color secondaryColor = Color.fromRGBO(129, 173, 236, 1.0);
+const Color primaryColor = Color.fromRGBO(45, 120, 233, 1);
+const Color secondaryColor = Color.fromRGBO(117, 164, 231, 1.0);
 
 //yellow
 // const Color primaryColor = Color.fromRGBO(227, 153, 63, 1.0);
@@ -36,13 +35,12 @@ const Color secondaryColor = Color.fromRGBO(129, 173, 236, 1.0);
 // const Color primaryColor = Color.fromRGBO(241, 91, 91, 1.0);
 // const Color secondaryColor = Color.fromRGBO(236, 126, 126, 1.0);
 
-
 const Color unselectedPieChart = Color.fromRGBO(170, 198, 238, 1.0);
 
 const myGradient = LinearGradient(
   colors: [
     secondaryColor,
-   primaryColor,
+    primaryColor,
   ],
   begin: Alignment.topLeft,
   end: Alignment.bottomRight,
@@ -57,8 +55,7 @@ const bgGradient = LinearGradient(
   end: Alignment.center,
 );
 
-const Color fontGrey = Color.fromRGBO(166,167,176, 1);
-
+const Color fontGrey = Color.fromRGBO(166, 167, 176, 1);
 
 const Color borderGrey = Color.fromRGBO(232, 231, 231, 1.0);
 
@@ -71,13 +68,3 @@ const unselectedPieChartGradient = [
   Color.fromRGBO(192, 205, 217, 0.615686274509804),
   Color.fromRGBO(197, 202, 218, 0.615686274509804),
 ];
-
-
-
-
-
-
-
-
-
-

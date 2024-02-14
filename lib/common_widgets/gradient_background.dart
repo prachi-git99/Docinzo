@@ -6,7 +6,7 @@ Widget gradientBg({context, widget}){
     body: Container(
       height: size.height,
       width: size.width,
-      padding: EdgeInsets.symmetric(horizontal: appHorizontalPadding,vertical: appVerticalPadding),
+      // padding: EdgeInsets.symmetric(horizontal: appHorizontalPadding,vertical: appVerticalPadding),
       decoration: BoxDecoration(
         // color: white
         gradient: bgGradient

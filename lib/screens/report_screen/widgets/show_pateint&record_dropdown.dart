@@ -17,7 +17,6 @@ Widget showPatientRecordWidget(context){
         () => Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        // Obx(()=>Text('${recordTypeController.currentValue.value}')),
         Expanded(
             child: showCustomDropdown(
               context: context,

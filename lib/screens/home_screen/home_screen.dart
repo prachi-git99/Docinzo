@@ -13,8 +13,6 @@ import 'package:get/get.dart';
 class HomeScreen extends StatelessWidget {
    HomeScreen({Key? key}) : super(key: key);
 
-
-
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
@@ -24,82 +22,86 @@ class HomeScreen extends StatelessWidget {
           top: true,
           child: SingleChildScrollView(
             physics: BouncingScrollPhysics(),
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: appHorizontalPadding,vertical: appVerticalPadding),
+
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                //intro
-                showHeaderWidget(context),
-                //search section
-                showSearchWidget(ontap: () {}, context: context),
-                //service section
-                responsiveText(
-                    context: context,
-                    text: serviceSectionTitle,
-                    textColor: black,
-                    fontWeight: FontWeight.w500,
-                    size: 18.0),
-                SizedBox(
-                  height: containerVerMargin,
-                ),
-                showServicesSection(context),
-                //appointment
-                SizedBox(
-                  height: 2*containerVerMargin,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    responsiveText(
-                        context: context,
-                        text: appointmentSectionTitle,
-                        textColor: black,
-                        fontWeight: FontWeight.w500,
-                        size: 18.0),
-                  ],
-                ),
-                SizedBox(height: containerVerMargin,),
-                SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  physics: ScrollPhysics(),
-                  child: Row(
-                      children: List.generate(3,
-                              (index) => showAppointmentSection(context: context))),
-                ),
-                //health section
-                SizedBox(
-                  height: 2*containerVerMargin,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    responsiveText(
-                        context: context,
-                        text: trackerSectionTitle,
-                        textColor: black,
-                        fontWeight: FontWeight.w500,
-                        size: 18.0),
-                    GestureDetector(
-                      onTap: (){
-                        var controller = Get.find<HomeController>();
-                        controller.currentNavIndex.value = 2;
-                      },
-                      child: responsiveText(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  //intro
+                  showHeaderWidget(context),
+                  //search section
+                  showSearchWidget(ontap: () {}, context: context),
+                  //service section
+                  responsiveText(
+                      context: context,
+                      text: serviceSectionTitle,
+                      textColor: black,
+                      fontWeight: FontWeight.w500,
+                      size: 18.0),
+                  SizedBox(
+                    height: containerVerMargin,
+                  ),
+                  showServicesSection(context),
+                  //appointment
+                  SizedBox(
+                    height: 2*containerVerMargin,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      responsiveText(
                           context: context,
-                          text: viewAll,
+                          text: appointmentSectionTitle,
                           textColor: black,
-                          fontWeight: FontWeight.w300,
-                          size: 12.0),
-                    ),
-                  ],
-                ),
-                SizedBox(
-                  height: containerVerMargin,
-                ),
-                showHealthTrackerSection(context),
+                          fontWeight: FontWeight.w500,
+                          size: 18.0),
+                    ],
+                  ),
+                  SizedBox(height: containerVerMargin,),
+                  SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    physics: ScrollPhysics(),
+                    child: Row(
+                        children: List.generate(3,
+                                (index) => showAppointmentSection(context: context))),
+                  ),
+                  //health section
+                  SizedBox(
+                    height: 2*containerVerMargin,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      responsiveText(
+                          context: context,
+                          text: trackerSectionTitle,
+                          textColor: black,
+                          fontWeight: FontWeight.w500,
+                          size: 18.0),
+                      GestureDetector(
+                        onTap: (){
+                          var controller = Get.find<HomeController>();
+                          controller.currentNavIndex.value = 2;
+                        },
+                        child: responsiveText(
+                            context: context,
+                            text: viewAll,
+                            textColor: black,
+                            fontWeight: FontWeight.w300,
+                            size: 12.0),
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: containerVerMargin,
+                  ),
+                  showHealthTrackerSection(context),
 
 
-                SizedBox(height: 10*containerVerMargin,),
-              ],
+                  SizedBox(height: 10*containerVerMargin,),
+                ],
+              ),
             ),
           ),
         ));
