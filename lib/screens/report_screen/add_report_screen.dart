@@ -11,8 +11,9 @@ import 'package:get/get.dart';
 
 import '../../common_widgets/custom_appbar.dart';
 import '../../common_widgets/custom_botton_widget.dart';
-import '../../components/responsive_text.dart';
-import '../../controllers/report_controller.dart';
+import 'controller/labname_controller.dart';
+import 'controller/patient_controller.dart';
+
 
 class AddReportScreen extends StatelessWidget {
   const AddReportScreen({Key? key}) : super(key: key);
@@ -20,7 +21,9 @@ class AddReportScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    RecordTypeController recordTypeController = Get.find<RecordTypeController>();
+    RecordTypeController recordTypeController = Get.put(RecordTypeController());
+
+
 
 
     return Scaffold(
