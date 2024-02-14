@@ -1,8 +1,8 @@
 import 'package:doctor/screens/schedule_screen/schedule_screen.dart';
 import 'package:doctor/screens/vital_screen/vital_screen.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+
 import '../consts/consts.dart';
 import '../controllers/home_controller.dart';
 import 'home_screen/home_screen.dart';
@@ -11,62 +11,37 @@ import 'notification_screen/notification_screen.dart';
 class Home extends StatelessWidget {
   const Home({Key? key}) : super(key: key);
 
+  buildBottomNavigationBarItem(name, icon, controller, currentNavIndex) {
+    return BottomNavigationBarItem(
+        icon: Obx(
+          () => SvgPicture.asset(
+            icon,
+            width: navBarIconSize,
+            height: navBarIconSize,
+            color: controller.currentNavIndex.value == currentNavIndex
+                ? primaryColor
+                : unselectedNavbarIcon,
+          ),
+        ),
+        label: name);
+  }
+
   @override
   Widget build(BuildContext context) {
     var controller = Get.put(HomeController());
 
-    var navbarItem = [
-      BottomNavigationBarItem(
-          icon: Obx(
-            () => SvgPicture.asset(
-              "assets/images/icons/navbar_icons/$homeIcon",
-              width: navBarIconSize,
-              height: navBarIconSize,
-              color: controller.currentNavIndex.value == 0
-                  ? primaryColor
-                  : unselectedNavbarIcon,
-            ),
-          ),
-          label: "Home"),
-      BottomNavigationBarItem(
-          icon: Obx(
-            () => SvgPicture.asset(
-              "assets/images/icons/navbar_icons/$scheduleIcon",
-              width: navBarIconSize,
-              height: navBarIconSize,
-              color: controller.currentNavIndex.value == 1
-                  ? primaryColor
-                  : unselectedNavbarIcon,
-            ),
-          ),
-          label: "Schedule"),
-      BottomNavigationBarItem(
-          icon: Obx(
-            () => SvgPicture.asset(
-              "assets/images/icons/navbar_icons/$vitalIcon",
-              width: navBarIconSize,
-              height: navBarIconSize,
-              color: controller.currentNavIndex.value == 2
-                  ? primaryColor
-                  : unselectedNavbarIcon,
-            ),
-          ),
-          label: "Vitals"),
-      BottomNavigationBarItem(
-          icon: Obx(
-            () => SvgPicture.asset(
-              "assets/images/icons/navbar_icons/$notifyIcon",
-              width: navBarIconSize,
-              height: navBarIconSize,
-              color: controller.currentNavIndex.value == 3
-                  ? primaryColor
-                  : unselectedNavbarIcon,
-            ),
-          ),
-          label: "Notification"),
+    List<BottomNavigationBarItem> navbarItem = [
+      buildBottomNavigationBarItem(
+          "Home", "assets/images/icons/navbar_icons/$homeIcon", controller, 0),
+      buildBottomNavigationBarItem("Schedule",
+          "assets/images/icons/navbar_icons/$scheduleIcon", controller, 1),
+      buildBottomNavigationBarItem("Vitals",
+          "assets/images/icons/navbar_icons/$vitalIcon", controller, 2),
+      buildBottomNavigationBarItem("Notification",
+          "assets/images/icons/navbar_icons/$notifyIcon", controller, 3),
     ];
     var navBody = [
-       HomeScreen(),
+      HomeScreen(),
       ScheduleScreen(),
       const VitalScreen(),
       const NotificationScreen(),
@@ -92,13 +67,12 @@ class Home extends StatelessWidget {
                 alignment: Alignment.bottomCenter,
                 child: ClipRRect(
                   borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(mediumBorderRadius),
-                      topRight: Radius.circular(mediumBorderRadius),
-                      // bottomRight: Radius.circular(mediumBorderRadius),
-                      // bottomLeft: Radius.circular(mediumBorderRadius),
+                    topLeft: Radius.circular(mediumBorderRadius),
+                    topRight: Radius.circular(mediumBorderRadius),
+                    // bottomRight: Radius.circular(mediumBorderRadius),
+                    // bottomLeft: Radius.circular(mediumBorderRadius),
                   ),
                   child: SizedBox(
-
                     height: MediaQuery.of(context).size.height * 0.09,
                     child: BottomNavigationBar(
                         elevation: 5.0,
@@ -111,7 +85,8 @@ class Home extends StatelessWidget {
                             fontFamily: poppins,
                             fontWeight: FontWeight.w400,
                             fontSize: 10),
-                        unselectedLabelStyle: TextStyle(fontFamily: poppins, fontSize: 10),
+                        unselectedLabelStyle:
+                            TextStyle(fontFamily: poppins, fontSize: 10),
                         onTap: (value) {
                           controller.currentNavIndex.value = value;
                         },
