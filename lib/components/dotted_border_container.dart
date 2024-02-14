@@ -5,8 +5,7 @@ import 'package:dotted_border/dotted_border.dart';
 Widget dottedBorderContainer({color, context, child}) {
   var size = MediaQuery.of(context).size;
   return Container(
-    margin: EdgeInsets.symmetric(
-        horizontal: appHorizontalMargin, vertical: appVerticalMargin),
+    margin: EdgeInsets.symmetric( vertical: appVerticalMargin),
     child: DottedBorder(
         borderType: BorderType.RRect,
         radius: Radius.circular(mediumBorderRadius),

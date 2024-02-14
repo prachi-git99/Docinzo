@@ -1,10 +1,16 @@
 import 'dart:io';
+import 'package:doctor/screens/report_screen/controller/type_record_controller.dart';
+import 'package:doctor/screens/report_screen/widgets/show_lab_detail_form.dart';
+import 'package:doctor/screens/report_screen/widgets/show_pateint&record_dropdown.dart';
 
 import 'package:doctor/consts/consts.dart';
+import 'package:doctor/screens/report_screen/widgets/show_prescription_form.dart';
 import 'package:doctor/screens/report_screen/widgets/show_upload_file_section.dart';
+import 'package:doctor/screens/report_screen/widgets/show_uploaded_media.dart';
 import 'package:get/get.dart';
 
 import '../../common_widgets/custom_appbar.dart';
+import '../../common_widgets/custom_botton_widget.dart';
 import '../../components/responsive_text.dart';
 import '../../controllers/report_controller.dart';
 
@@ -13,62 +19,41 @@ class AddReportScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var controller = Get.find<ReportController>();
-    var size = MediaQuery.of(context).size;
+
+    RecordTypeController recordTypeController = Get.find<RecordTypeController>();
+
+
     return Scaffold(
-      appBar: customAppbar(context, "My Reports"),
+      resizeToAvoidBottomInset: false,
+      appBar: customAppbar(context, "Add Report"),
       backgroundColor: white,
-      body: Container(
-        child: Column(
-          children: [
-            Obx(() => Container(
-                  padding: EdgeInsets.symmetric(
-                      horizontal: containerHorMargin,
-                      vertical: containerVerMargin),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      controller.filePath.length == 0
-                          ? SizedBox.shrink()
-                          : responsiveText(
-                              context: context,
-                              text:
-                                  "${controller.filePath.length} files selected",
-                              textColor: primaryColor,
-                              fontWeight: FontWeight.normal,
-                              size: 14.0),
-                      Wrap(
-                        children:
-                            List.generate(controller.filePath.length, (index) {
-                          var file = controller.filePath[index];
-                          return file.extension == 'pdf'
-                              ? Image.asset(
-                                  "assets/images/icons/$pdfIcon",
-                                  height: size.height * 0.1,
-                                  width: size.width * 0.2,
-                                )
-                              : Padding(
-                                  padding: const EdgeInsets.symmetric(
-                                      horizontal: 3.0, vertical: 5.0),
-                                  child: ClipRRect(
-                                      borderRadius: BorderRadius.circular(
-                                          smallBorderRadius),
-                                      child: Image.file(
-                                        File(
-                                            "${controller.filePath[index].path}"),
-                                        fit: BoxFit.fill,
-                                        height: size.height * 0.1,
-                                        width: size.width * 0.2,
-                                      )),
-                                );
-                        }),
-                      ),
-                    ],
-                  ),
-                )),
-            Spacer(),
-            showUploadFileSection(context),
-          ],
+      body: SingleChildScrollView(
+        child: Container(
+          padding: EdgeInsets.symmetric(
+              vertical: appVerticalPadding, horizontal: appHorizontalPadding),
+          child: Column(
+            children: [
+              //upload media
+              showUploadFileSection(context),
+              //dropdown
+              SizedBox(height: containerVerMargin,),
+              showPatientRecordWidget(context),
+
+              //textfeild
+              Obx(
+                  ()=> Container(
+                  margin: EdgeInsets.symmetric(vertical: containerVerMargin),
+                  child:recordTypeController.currentValue.value == "Prescription" ?
+                  showPrescriptionForm(context): showLabDetailForm(context) ,
+                ),
+              ),
+              //get uploaded media
+              showUploadedMedia(context),
+              customButtonWidget(context,'Add Report',white,18.0,(){
+
+              }),
+            ],
+          ),
         ),
       ),
     );

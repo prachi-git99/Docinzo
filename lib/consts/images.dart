@@ -10,6 +10,8 @@ const user = "user.svg";
 const uploadIcon = "upload.png";
 const pdfIcon = "pdf.png";
 
+const noReportsFoundImg = "noReport.svg";
+
 //health tracker
 const bldGrpImg = "blood_grp.png";
 const weightImg = "weight.png";

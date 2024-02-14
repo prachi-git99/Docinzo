@@ -42,6 +42,29 @@ class HomeScreen extends StatelessWidget {
                   height: containerVerMargin,
                 ),
                 showServicesSection(context),
+                //appointment
+                SizedBox(
+                  height: 2*containerVerMargin,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    responsiveText(
+                        context: context,
+                        text: appointmentSectionTitle,
+                        textColor: black,
+                        fontWeight: FontWeight.w500,
+                        size: 18.0),
+                  ],
+                ),
+                SizedBox(height: containerVerMargin,),
+                SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  physics: ScrollPhysics(),
+                  child: Row(
+                      children: List.generate(3,
+                              (index) => showAppointmentSection(context: context))),
+                ),
                 //health section
                 SizedBox(
                   height: 2*containerVerMargin,
@@ -73,35 +96,8 @@ class HomeScreen extends StatelessWidget {
                   height: containerVerMargin,
                 ),
                 showHealthTrackerSection(context),
-                SizedBox(
-                  height: 2*containerVerMargin,
-                ),
-                //appointment
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    responsiveText(
-                        context: context,
-                        text: appointmentSectionTitle,
-                        textColor: black,
-                        fontWeight: FontWeight.w500,
-                        size: 18.0),
-                    responsiveText(
-                        context: context,
-                        text: viewAll,
-                        textColor: black,
-                        fontWeight: FontWeight.w300,
-                        size: 12.0),
-                  ],
-                ),
-                SizedBox(height: containerVerMargin,),
-                SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  physics: ScrollPhysics(),
-                  child: Row(
-                      children: List.generate(3,
-                          (index) => showAppointmentSection(context: context))),
-                ),
+
+
                 SizedBox(height: 10*containerVerMargin,),
               ],
             ),

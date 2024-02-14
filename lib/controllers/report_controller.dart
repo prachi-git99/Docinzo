@@ -4,9 +4,26 @@ import 'package:open_file/open_file.dart';
 import 'package:doctor/consts/consts.dart';
 
 
+
+
+
+
+
+// List patientList = get_patient_list(request_data);
+// List labList = get_lab_list(request_data);
+//
+// DropDownController patientDropdownConstroller = DropDownController(reco = patientList, cuv = patientList[0]);
+// DropDownController labDropdownConstroller = DropDownController(reco = patientList, cuv = patientList[0]);
+//
+
+
 class ReportController extends GetxController {
 
   RxList filePath = [].obs;
+
+  TextEditingController nameController = TextEditingController();
+  TextEditingController priscribedDoctorNameController = TextEditingController();
+
 
   void openFile(PlatformFile file) {
     OpenFile.open(file.path);
@@ -21,6 +38,7 @@ class ReportController extends GetxController {
     print("file");
     print(filePath);
   }
+
 
 
 }

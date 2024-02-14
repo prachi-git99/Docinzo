@@ -18,7 +18,6 @@ Widget showDropdown(context,index){
       onChanged: (newValue) {
         controller.setSelected(newValue!,index);
       },
-      elevation: 0,
       underline: SizedBox.shrink(),
       iconEnabledColor: primaryColor,
       alignment: Alignment.bottomRight,
