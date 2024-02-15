@@ -2,6 +2,7 @@
 const homeIcon = "homepage.svg";
 const notifyIcon = "notification.svg";
 const reportIcon = "report.svg";
+const recordIcon = "record.svg";
 const scheduleIcon = "schedule.svg";
 const vitalIcon = "vitals.svg";
 
@@ -23,6 +24,7 @@ const icAppointment = "appointment.png";
 const icLab = "lab.png";
 const icReport = "reports.png";
 const icAmbulance = "ambulance.png";
+const vitalImg = "vitals.png";
 
 //vital icons
 const icBp = "bp.svg";

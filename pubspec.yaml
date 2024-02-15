@@ -16,6 +16,7 @@ dependencies:
 
   cupertino_icons: ^1.0.2
 
+  random_avatar: ^0.0.8
   scroll_date_picker:
   open_file:
   file_picker:

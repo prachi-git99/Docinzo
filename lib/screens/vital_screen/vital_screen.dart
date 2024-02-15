@@ -3,13 +3,9 @@ import 'package:doctor/components/responsive_text.dart';
 import 'package:doctor/components/rounded_corner_container.dart';
 import 'package:doctor/consts/consts.dart';
 import 'package:doctor/controllers/vitals_controller.dart';
-import 'package:doctor/screens/vital_screen/vitals/blood_pressure/show_blood_pressure_widget.dart';
-import 'package:doctor/screens/vital_screen/widgets/show_vitalvalues_and_dropdown.dart';
-import 'package:doctor/screens/vital_screen/widgets/show_dropdown_widget.dart';
 import 'package:doctor/screens/vital_screen/widgets/show_vital_less_details.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-
 
 class VitalScreen extends StatefulWidget {
   const VitalScreen({Key? key}) : super(key: key);
@@ -19,7 +15,6 @@ class VitalScreen extends StatefulWidget {
 }
 
 class _VitalScreenState extends State<VitalScreen> {
-
   VitalsController controller = Get.put(VitalsController());
 
   List<bool> showVitalInfo = List.generate(8, (index) => false);
@@ -28,21 +23,20 @@ class _VitalScreenState extends State<VitalScreen> {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Scaffold(
-      appBar: customAppbar(context, "My Health Vitals"),
+      appBar: customAppbar(context, "Health Vitals"),
       body: SizedBox(
-        height: size.height*0.8,
+        height: size.height * 0.8,
         child: ListView.builder(
-          physics: AlwaysScrollableScrollPhysics(),
+            physics: AlwaysScrollableScrollPhysics(),
             scrollDirection: Axis.vertical,
             shrinkWrap: true,
             itemCount: controller.myVitalData.length,
-            itemBuilder: (context,index){
+            itemBuilder: (context, index) {
               return Column(
                 children: [
                   Container(
                     margin: EdgeInsets.symmetric(vertical: containerVerMargin),
-                    padding: EdgeInsets.symmetric(
-                        horizontal: containerHorPadd),
+                    padding: EdgeInsets.symmetric(horizontal: containerHorPadd),
                     child: roundedCornerContainer(
                       width: size.width,
                       color: glassWhite,
@@ -59,9 +53,7 @@ class _VitalScreenState extends State<VitalScreen> {
                                 height: size.height * 0.03,
                                 color: primaryColor,
                               ),
-                              SizedBox(
-                                width: containerHorMargin,
-                              ),
+                              SizedBox(width: containerHorMargin),
                               responsiveText(
                                   context: context,
                                   textColor: black,
@@ -72,7 +64,9 @@ class _VitalScreenState extends State<VitalScreen> {
                           ),
                           IconButton(
                             icon: Icon(
-                              showVitalInfo[index] ? Icons.keyboard_arrow_up :Icons.keyboard_arrow_down,
+                              showVitalInfo[index]
+                                  ? Icons.keyboard_arrow_up
+                                  : Icons.keyboard_arrow_down,
                               size: 20,
                             ),
                             onPressed: () {
@@ -85,11 +79,12 @@ class _VitalScreenState extends State<VitalScreen> {
                       ),
                     ),
                   ),
-                  showVitalInfo[index] ? showVitalsLessInfo(context, index) : SizedBox.shrink()
+                  showVitalInfo[index]
+                      ? showVitalsLessInfo(context, index)
+                      : SizedBox.shrink()
                 ],
               );
-            }
-        ),
+            }),
       ),
     );
   }

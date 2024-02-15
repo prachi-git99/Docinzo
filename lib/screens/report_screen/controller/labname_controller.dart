@@ -24,7 +24,7 @@ class LabNameController extends DropDownController {
 
   void setdropDownData()async{
     dropDownList.value = await getLabNameList();
-    currentValue.value = dropDownList[0];
+    currentValue.value = dropDownList.length==0 ? "val":dropDownList[0];
   }
 
 

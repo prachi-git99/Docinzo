@@ -1,10 +1,10 @@
-import 'package:doctor/screens/schedule_screen/schedule_screen.dart';
 import 'package:doctor/screens/vital_screen/vital_screen.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
 import '../consts/consts.dart';
 import '../controllers/home_controller.dart';
+import 'health_record_screen/health_record_screen.dart';
 import 'home_screen/home_screen.dart';
 import 'notification_screen/notification_screen.dart';
 
@@ -40,9 +40,10 @@ class Home extends StatelessWidget {
       buildBottomNavigationBarItem("Notification",
           "assets/images/icons/navbar_icons/$notifyIcon", controller, 3),
     ];
+
     var navBody = [
       HomeScreen(),
-      ScheduleScreen(),
+      HealthScreen(),
       const VitalScreen(),
       const NotificationScreen(),
     ];

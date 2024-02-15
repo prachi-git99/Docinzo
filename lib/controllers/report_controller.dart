@@ -3,6 +3,10 @@ import 'package:file_picker/file_picker.dart';
 import 'package:open_file/open_file.dart';
 import 'package:doctor/consts/consts.dart';
 
+import '../screens/report_screen/controller/labname_controller.dart';
+import '../screens/report_screen/controller/patient_controller.dart';
+import '../screens/report_screen/controller/type_record_controller.dart';
+
 
 
 
@@ -18,6 +22,18 @@ import 'package:doctor/consts/consts.dart';
 
 
 class ReportController extends GetxController {
+
+  @override
+  void onInit() {
+    // TODO: implement onInit
+    PatientController patientController = Get.put(PatientController());
+    RecordTypeController recordTypeController = Get.put(RecordTypeController());
+    LabNameController labNameController = Get.put(LabNameController());
+    patientController.setdropDownData();
+    recordTypeController.setdropDownData();
+    labNameController.setdropDownData();
+    super.onInit();
+  }
 
   RxList filePath = [].obs;
 

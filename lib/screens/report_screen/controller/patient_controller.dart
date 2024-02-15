@@ -26,14 +26,10 @@ class PatientController extends DropDownController {
 
   void setdropDownData()async{
     dropDownList.value = await getPatientList();
-    currentValue.value = dropDownList[0];
+    currentValue.value = dropDownList.length == 0 ? "val":dropDownList[0];
   }
 
 
-
-  // void setSelected(String value){
-  //   currentValue.value = value;
-  // }
 @override
   void setSelected(String value) {
     // TODO: implement setSelected
