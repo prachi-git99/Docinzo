@@ -7,11 +7,10 @@ import 'package:doctor/screens/home_screen/widgets/show_header_widget.dart';
 import 'package:doctor/screens/home_screen/widgets/show_health_tracker_section.dart';
 import 'package:doctor/screens/home_screen/widgets/show_search_widget.dart';
 import 'package:doctor/screens/home_screen/widgets/show_service_section.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
 class HomeScreen extends StatelessWidget {
-   HomeScreen({Key? key}) : super(key: key);
+  HomeScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -23,9 +22,10 @@ class HomeScreen extends StatelessWidget {
           child: SingleChildScrollView(
             physics: BouncingScrollPhysics(),
             child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: appHorizontalPadding,vertical: appVerticalPadding),
-
-            child: Column(
+              padding: EdgeInsets.symmetric(
+                  horizontal: appHorizontalPadding,
+                  vertical: appVerticalPadding),
+              child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   //intro
@@ -45,7 +45,7 @@ class HomeScreen extends StatelessWidget {
                   showServicesSection(context),
                   //appointment
                   SizedBox(
-                    height: 2*containerVerMargin,
+                    height: 2 * containerVerMargin,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -58,17 +58,21 @@ class HomeScreen extends StatelessWidget {
                           size: 18.0),
                     ],
                   ),
-                  SizedBox(height: containerVerMargin,),
+                  SizedBox(
+                    height: containerVerMargin,
+                  ),
                   SingleChildScrollView(
                     scrollDirection: Axis.horizontal,
                     physics: ScrollPhysics(),
                     child: Row(
-                        children: List.generate(3,
-                                (index) => showAppointmentSection(context: context))),
+                        children: List.generate(
+                            3,
+                            (index) =>
+                                showAppointmentSection(context: context))),
                   ),
                   //health section
                   SizedBox(
-                    height: 2*containerVerMargin,
+                    height: 2 * containerVerMargin,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -80,7 +84,7 @@ class HomeScreen extends StatelessWidget {
                           fontWeight: FontWeight.w500,
                           size: 18.0),
                       GestureDetector(
-                        onTap: (){
+                        onTap: () {
                           var controller = Get.find<HomeController>();
                           controller.currentNavIndex.value = 2;
                         },
@@ -93,13 +97,10 @@ class HomeScreen extends StatelessWidget {
                       ),
                     ],
                   ),
-                  SizedBox(
-                    height: containerVerMargin,
-                  ),
+                  SizedBox(height: containerVerMargin),
                   showHealthTrackerSection(context),
 
-
-                  SizedBox(height: 10*containerVerMargin,),
+                  SizedBox(height: 10 * containerVerMargin)
                 ],
               ),
             ),

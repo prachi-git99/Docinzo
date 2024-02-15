@@ -56,6 +56,7 @@ const bgGradient = LinearGradient(
 );
 
 const Color fontGrey = Color.fromRGBO(166, 167, 176, 1);
+const Color lightfontGrey = Color.fromRGBO(203, 202, 202, 1.0);
 
 const Color borderGrey = Color.fromRGBO(232, 231, 231, 1.0);
 
