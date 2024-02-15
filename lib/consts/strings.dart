@@ -3,7 +3,7 @@ const appname = "UHI";
 //homepage
 const greetText = "Hello 👋";
 const userName = "Anuj Sharma";
-const doctorName = "Prachi Verma";
+const doctorName = "Dr. Prachi Sharma";
 const userPhone = "8400892707";
 const userBloodGrp = "O+";
 const userUHID = "4adb75gjtxgbjy";

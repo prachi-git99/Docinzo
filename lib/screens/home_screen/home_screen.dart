@@ -1,8 +1,8 @@
 import 'package:doctor/common_widgets/gradient_background.dart';
+import 'package:doctor/common_widgets/show_appointment_section.dart';
 import 'package:doctor/components/responsive_text.dart';
 import 'package:doctor/consts/consts.dart';
 import 'package:doctor/controllers/home_controller.dart';
-import 'package:doctor/screens/home_screen/widgets/show_appointment_section.dart';
 import 'package:doctor/screens/home_screen/widgets/show_header_widget.dart';
 import 'package:doctor/screens/home_screen/widgets/show_health_tracker_section.dart';
 import 'package:doctor/screens/home_screen/widgets/show_search_widget.dart';
@@ -58,17 +58,15 @@ class HomeScreen extends StatelessWidget {
                           size: 18.0),
                     ],
                   ),
-                  SizedBox(
-                    height: containerVerMargin,
-                  ),
+
                   SingleChildScrollView(
                     scrollDirection: Axis.horizontal,
                     physics: ScrollPhysics(),
                     child: Row(
                         children: List.generate(
                             3,
-                            (index) =>
-                                showAppointmentSection(context: context))),
+                            (index) => showAppointmentSection(
+                                context: context, width: size.width * 0.8))),
                   ),
                   //health section
                   SizedBox(

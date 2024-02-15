@@ -1,11 +1,10 @@
 import 'package:doctor/consts/consts.dart';
 import 'package:doctor/screens/appointment_screen/appointment_screen.dart';
 import 'package:doctor/screens/book_ambulance_screen/book_ambulance_screen.dart';
+import 'package:doctor/screens/health_record_screen/health_record_screen.dart';
 import 'package:doctor/screens/lab_test_screen/lab_test_screen.dart';
 import 'package:doctor/screens/report_screen/add_report_screen.dart';
-import 'package:doctor/screens/report_screen/report_screen.dart';
-
-import '../screens/vital_screen/vitals/blood_pressure/show_blood_pressure_widget.dart';
+import 'package:doctor/screens/vital_screen/vital_screen.dart';
 
 const healthGrid = [
   {
@@ -32,10 +31,57 @@ const healthGrid = [
 ];
 
 final services = [
-  {"icon": icAppointment, "title": "Appointment", "color": lightYellow,"screen":AppointmentScreen()},
-  {"icon": icLab, "title": "Lab test", "color": lightGreen,"screen":LabTestScreen()},
-  {"icon": icReport, "title": "Reports", "color": lightPurple,"screen":AddReportScreen()},
-  {"icon": icAmbulance, "title": "Ambulance", "color": lightOrange,"screen":AmbulanceScreen()},
+  {
+    "icon": icAppointment,
+    "title": "Appointment",
+    "color": lightYellow,
+    "screen": AppointmentScreen()
+  },
+  {
+    "icon": icLab,
+    "title": "Lab Tests",
+    "color": lightGreen,
+    "screen": LabTestScreen()
+  },
+  {
+    "icon": icReport,
+    "title": "Reports",
+    "color": lightPurple,
+    "screen": AddReportScreen()
+  },
+  {
+    "icon": icAmbulance,
+    "title": "Ambulance",
+    "color": lightOrange,
+    "screen": AmbulanceScreen()
+  },
+];
+
+final familyMemberServices = [
+  {
+    "icon": icAppointment,
+    "title": "Book Appointment",
+    "color": glassWhite,
+    "screen": AppointmentScreen()
+  },
+  {
+    "icon": icLab,
+    "title": "Book Lab Tests",
+    "color": glassWhite,
+    "screen": LabTestScreen()
+  },
+  {
+    "icon": icReport,
+    "title": "Records",
+    "color": glassWhite,
+    "screen": HealthScreen()
+  },
+  {
+    "icon": vitalImg,
+    "title": "Vitals",
+    "color": glassWhite,
+    "screen": VitalScreen()
+  },
 ];
 
 const bloodPressureDataMap = [
@@ -43,8 +89,4 @@ const bloodPressureDataMap = [
   {"total": 290.0, "value": 60.0}
 ];
 
-
-const bpTitle = [
-  "Systolic",
-  "Diastolic"
-];
+const bpTitle = ["Systolic", "Diastolic"];

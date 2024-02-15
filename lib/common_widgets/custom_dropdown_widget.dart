@@ -1,12 +1,13 @@
 import 'package:doctor/consts/consts.dart';
-import 'package:get/get.dart';
 
 import '../../../components/responsive_text.dart';
 
-Widget showCustomDropdown(
-    {context, controller, required List<String> items, required String title,}) {
-
-
+Widget showCustomDropdown({
+  context,
+  controller,
+  required List<String> items,
+  required String title,
+}) {
   return Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
@@ -48,9 +49,7 @@ Widget showCustomDropdown(
             onChanged: (newValue) {
               controller.setSelected(newValue!);
             },
-          )
-
-          ),
+          )),
     ],
   );
 }

@@ -1,21 +1,22 @@
 import "package:doctor/consts/consts.dart";
 import "package:flutter_svg/svg.dart";
 
-import "../../../components/gradient_rounded_container.dart";
-import "../../../components/responsive_text.dart";
+import '../components/gradient_rounded_container.dart';
+import '../components/responsive_text.dart';
 
-Widget showAppointmentSection({context}) {
+Widget showAppointmentSection({context, width}) {
   var size = MediaQuery.of(context).size;
 
   return Padding(
-    padding: EdgeInsets.symmetric(horizontal: containerHorMargin),
+    padding: EdgeInsets.symmetric(
+        horizontal: containerHorMargin / 2, vertical: containerVerMargin),
     child: Stack(
       children: [
         gradientRoundedContainer(
           //blue container
           context: context,
           borderRadius: smallBorderRadius,
-          width: size.width * 0.8,
+          width: width,
           blur: 12.0,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,

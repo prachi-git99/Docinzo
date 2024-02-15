@@ -22,10 +22,11 @@ class HealthScreen extends StatelessWidget {
           title: responsiveText(
               context: context,
               textColor: white,
-              text: "My Health Records",
+              text: "Health Records",
               fontWeight: FontWeight.w500,
               size: 18.0),
           centerTitle: true,
+          iconTheme: IconThemeData(color: white),
           flexibleSpace: Container(
             decoration: BoxDecoration(
                 gradient: myGradient,

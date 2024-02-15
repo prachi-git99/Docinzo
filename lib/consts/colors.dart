@@ -55,6 +55,12 @@ const bgGradient = LinearGradient(
   end: Alignment.center,
 );
 
+final themeGradient = LinearGradient(
+  colors: [lightPurple, lightGreen],
+  begin: Alignment.topLeft,
+  end: Alignment.bottomRight,
+);
+
 const Color fontGrey = Color.fromRGBO(166, 167, 176, 1);
 const Color lightfontGrey = Color.fromRGBO(203, 202, 202, 1.0);
 
