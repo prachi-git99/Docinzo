@@ -11,59 +11,89 @@ import 'notification_screen/notification_screen.dart';
 class Home extends StatelessWidget {
   const Home({Key? key}) : super(key: key);
 
+  buildBottomNavigationBarItem(name, icon, controller, currentNavIndex) {
+    return BottomNavigationBarItem(
+        icon: Obx(
+          () => SvgPicture.asset(
+            icon,
+            width: navBarIconSize,
+            height: navBarIconSize,
+            color: controller.currentNavIndex.value == currentNavIndex
+                ? primaryColor
+                : unselectedNavbarIcon,
+          ),
+        ),
+        label: name);
+  }
+
   @override
   Widget build(BuildContext context) {
     var controller = Get.put(HomeController());
 
-    var navbarItem = [
-      BottomNavigationBarItem(
-          icon: Obx(
-            () => SvgPicture.asset(
-              "assets/images/icons/navbar_icons/$homeIcon",
-              width: navBarIconSize,
-              height: navBarIconSize,
-              color: controller.currentNavIndex.value == 0
-                  ? primaryColor
-                  : unselectedNavbarIcon,
-            ),
-          ),
-          label: "Home"),
-      BottomNavigationBarItem(
-          icon: Obx(
-            () => SvgPicture.asset(
-              "assets/images/icons/navbar_icons/$reportIcon",
-              width: navBarIconSize,
-              height: navBarIconSize,
-              color: controller.currentNavIndex.value == 1
-                  ? primaryColor
-                  : unselectedNavbarIcon,
-            ),
-          ),
-          label: "Records"),
-      BottomNavigationBarItem(
-          icon: Obx(
-            () => SvgPicture.asset(
-              "assets/images/icons/navbar_icons/$vitalIcon",
-              width: navBarIconSize,
-              height: navBarIconSize,
-              color: controller.currentNavIndex.value == 2
-                  ? primaryColor
-                  : unselectedNavbarIcon,
-            ),
-          ),
-          label: "Vitals"),
-      BottomNavigationBarItem(
-          icon: Obx(
-            () => SvgPicture.asset(
-              "assets/images/icons/navbar_icons/$notifyIcon",
-              width: navBarIconSize,
-              height: navBarIconSize,
-              color: controller.currentNavIndex.value == 3
-                  ? primaryColor
-                  : unselectedNavbarIcon,
-            ),
-          ),
-          label: "Notification"),
+// <<<<<<< HEAD
+//     var navbarItem = [
+//       BottomNavigationBarItem(
+//           icon: Obx(
+//             () => SvgPicture.asset(
+//               "assets/images/icons/navbar_icons/$homeIcon",
+//               width: navBarIconSize,
+//               height: navBarIconSize,
+//               color: controller.currentNavIndex.value == 0
+//                   ? primaryColor
+//                   : unselectedNavbarIcon,
+//             ),
+//           ),
+//           label: "Home"),
+//       BottomNavigationBarItem(
+//           icon: Obx(
+//             () => SvgPicture.asset(
+//               "assets/images/icons/navbar_icons/$reportIcon",
+//               width: navBarIconSize,
+//               height: navBarIconSize,
+//               color: controller.currentNavIndex.value == 1
+//                   ? primaryColor
+//                   : unselectedNavbarIcon,
+//             ),
+//           ),
+//           label: "Records"),
+//       BottomNavigationBarItem(
+//           icon: Obx(
+//             () => SvgPicture.asset(
+//               "assets/images/icons/navbar_icons/$vitalIcon",
+//               width: navBarIconSize,
+//               height: navBarIconSize,
+//               color: controller.currentNavIndex.value == 2
+//                   ? primaryColor
+//                   : unselectedNavbarIcon,
+//             ),
+//           ),
+//           label: "Vitals"),
+//       BottomNavigationBarItem(
+//           icon: Obx(
+//             () => SvgPicture.asset(
+//               "assets/images/icons/navbar_icons/$notifyIcon",
+//               width: navBarIconSize,
+//               height: navBarIconSize,
+//               color: controller.currentNavIndex.value == 3
+//                   ? primaryColor
+//                   : unselectedNavbarIcon,
+//             ),
+//           ),
+//           label: "Notification"),
+//     ];
+//     var navBody = [
+//       HomeScreen(),
+//       HealthScreen(),
+// =======
+    List<BottomNavigationBarItem> navbarItem = [
+      buildBottomNavigationBarItem(
+          "Home", "assets/images/icons/navbar_icons/$homeIcon", controller, 0),
+      buildBottomNavigationBarItem("Schedule",
+          "assets/images/icons/navbar_icons/$scheduleIcon", controller, 1),
+      buildBottomNavigationBarItem("Vitals",
+          "assets/images/icons/navbar_icons/$vitalIcon", controller, 2),
+      buildBottomNavigationBarItem("Notification",
+          "assets/images/icons/navbar_icons/$notifyIcon", controller, 3),
     ];
     var navBody = [
       HomeScreen(),
