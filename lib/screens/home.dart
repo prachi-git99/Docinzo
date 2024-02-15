@@ -30,61 +30,6 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     var controller = Get.put(HomeController());
 
-// <<<<<<< HEAD
-//     var navbarItem = [
-//       BottomNavigationBarItem(
-//           icon: Obx(
-//             () => SvgPicture.asset(
-//               "assets/images/icons/navbar_icons/$homeIcon",
-//               width: navBarIconSize,
-//               height: navBarIconSize,
-//               color: controller.currentNavIndex.value == 0
-//                   ? primaryColor
-//                   : unselectedNavbarIcon,
-//             ),
-//           ),
-//           label: "Home"),
-//       BottomNavigationBarItem(
-//           icon: Obx(
-//             () => SvgPicture.asset(
-//               "assets/images/icons/navbar_icons/$reportIcon",
-//               width: navBarIconSize,
-//               height: navBarIconSize,
-//               color: controller.currentNavIndex.value == 1
-//                   ? primaryColor
-//                   : unselectedNavbarIcon,
-//             ),
-//           ),
-//           label: "Records"),
-//       BottomNavigationBarItem(
-//           icon: Obx(
-//             () => SvgPicture.asset(
-//               "assets/images/icons/navbar_icons/$vitalIcon",
-//               width: navBarIconSize,
-//               height: navBarIconSize,
-//               color: controller.currentNavIndex.value == 2
-//                   ? primaryColor
-//                   : unselectedNavbarIcon,
-//             ),
-//           ),
-//           label: "Vitals"),
-//       BottomNavigationBarItem(
-//           icon: Obx(
-//             () => SvgPicture.asset(
-//               "assets/images/icons/navbar_icons/$notifyIcon",
-//               width: navBarIconSize,
-//               height: navBarIconSize,
-//               color: controller.currentNavIndex.value == 3
-//                   ? primaryColor
-//                   : unselectedNavbarIcon,
-//             ),
-//           ),
-//           label: "Notification"),
-//     ];
-//     var navBody = [
-//       HomeScreen(),
-//       HealthScreen(),
-// =======
     List<BottomNavigationBarItem> navbarItem = [
       buildBottomNavigationBarItem(
           "Home", "assets/images/icons/navbar_icons/$homeIcon", controller, 0),
@@ -95,6 +40,7 @@ class Home extends StatelessWidget {
       buildBottomNavigationBarItem("Notification",
           "assets/images/icons/navbar_icons/$notifyIcon", controller, 3),
     ];
+
     var navBody = [
       HomeScreen(),
       HealthScreen(),

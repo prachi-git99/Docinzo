@@ -53,9 +53,7 @@ class _VitalScreenState extends State<VitalScreen> {
                                 height: size.height * 0.03,
                                 color: primaryColor,
                               ),
-                              SizedBox(
-                                width: containerHorMargin,
-                              ),
+                              SizedBox(width: containerHorMargin),
                               responsiveText(
                                   context: context,
                                   textColor: black,

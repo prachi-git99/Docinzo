@@ -28,9 +28,7 @@ Widget showVitalsLessInfo(context, index) {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             showVitalvaluesDropdown(context, index),
-            SizedBox(
-              height: 2 * containerVerMargin,
-            ),
+            SizedBox(height: 2 * containerVerMargin),
             index == 0
                 ? showBloodPressureWidget(context, index)
                 : index == 1
@@ -46,7 +44,6 @@ Widget showVitalsLessInfo(context, index) {
                                     : index == 6
                                         ? showHeightWidget(context, index)
                                         : SizedBox.shrink(),
-
             GestureDetector(
               onTap: () {},
               child: responsiveText(
