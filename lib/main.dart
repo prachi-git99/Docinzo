@@ -2,6 +2,7 @@ import 'package:doctor/screens/home.dart';
 import 'package:flutter/material.dart';
 
 import 'consts/colors.dart';
+import 'env.dart';
 
 void main() {
 
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Doctor',
+      title: APP_NAME,
       debugShowCheckedModeBanner: false,
       themeMode: ThemeMode.system,
       theme: ThemeData(
