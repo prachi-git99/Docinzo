@@ -11,7 +11,7 @@ Widget showFamilyProfileSection(context) {
   FamilyController familyController = Get.find<FamilyController>();
 
   var size = MediaQuery.of(context).size;
-  int familyCount = 1;
+
   return Column(
     children: [
       roundedCornerContainer(

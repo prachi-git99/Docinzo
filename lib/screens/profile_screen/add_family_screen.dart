@@ -36,24 +36,28 @@ class AddFamilyMemberScreen extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  SizedBox(height: 2 * containerVerMargin),
                   customTextField(
                       title: "Name",
                       hintText: "Enter Family Member Name",
                       context: context,
                       keytype: TextInputType.name,
                       controller: familyController.nameController),
+                  SizedBox(height: containerVerMargin),
                   customTextField(
                       title: "Age",
                       hintText: "Enter Family Member Age",
                       context: context,
                       keytype: TextInputType.number,
                       controller: familyController.ageController),
+                  SizedBox(height: containerVerMargin),
                   customTextField(
                       title: "Phone",
                       hintText: "Enter Family Member Phone",
                       context: context,
                       keytype: TextInputType.number,
                       controller: familyController.phoneController),
+                  SizedBox(height: containerVerMargin),
                   Wrap(
                     children: [
                       Obx(
@@ -61,11 +65,10 @@ class AddFamilyMemberScreen extends StatelessWidget {
                           margin: EdgeInsets.symmetric(
                               vertical: containerVerMargin, horizontal: 5.0),
                           child: showCustomDropdown(
-                            context: context,
-                            controller: familyRelationController,
-                            items: familyRelationController.dropDownList,
-                            title: "Relation",
-                          ),
+                              context: context,
+                              controller: familyRelationController,
+                              items: familyRelationController.dropDownList,
+                              title: "Relation"),
                         ),
                       ),
                       Obx(
@@ -73,11 +76,10 @@ class AddFamilyMemberScreen extends StatelessWidget {
                           margin: EdgeInsets.symmetric(
                               vertical: containerVerMargin, horizontal: 5.0),
                           child: showCustomDropdown(
-                            context: context,
-                            controller: genderController,
-                            items: genderController.dropDownList,
-                            title: "Gender",
-                          ),
+                              context: context,
+                              controller: genderController,
+                              items: genderController.dropDownList,
+                              title: "Gender"),
                         ),
                       ),
                       Obx(
@@ -85,15 +87,15 @@ class AddFamilyMemberScreen extends StatelessWidget {
                           margin: EdgeInsets.symmetric(
                               vertical: containerVerMargin, horizontal: 5.0),
                           child: showCustomDropdown(
-                            context: context,
-                            controller: bloodGrpController,
-                            items: bloodGrpController.dropDownList,
-                            title: "Blood Group",
-                          ),
+                              context: context,
+                              controller: bloodGrpController,
+                              items: bloodGrpController.dropDownList,
+                              title: "Blood Group"),
                         ),
                       ),
                     ],
                   ),
+                  SizedBox(height: 2 * containerVerMargin),
                   customButtonWidget(context, "Add Family Member", white, 14.0,
                       () {
                     familyController.setFamilyData(

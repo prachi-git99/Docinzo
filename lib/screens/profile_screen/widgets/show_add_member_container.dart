@@ -21,7 +21,6 @@ Widget showAddMemberContainer(context) {
       children: [
         GestureDetector(
           onTap: () {
-            print(familyController.myFamily);
             FamilyRelationController familyRelationController =
                 Get.put(FamilyRelationController());
             familyRelationController.setdropDownData();
@@ -43,24 +42,20 @@ Widget showAddMemberContainer(context) {
               height: size.width * 0.13,
               context: context,
               borderRadius: largeBorderRadius,
-              child: Icon(
-                Icons.add,
-                color: white,
-              ),
+              child: Icon(Icons.add, color: white),
             ),
           ),
         ),
         Container(
-          alignment: Alignment.center,
-          padding: EdgeInsets.only(left: 5.0),
-          width: size.width * 0.22,
-          child: responsiveText(
-              context: context,
-              text: "Add Family",
-              textColor: black,
-              fontWeight: FontWeight.w400,
-              size: 12.0),
-        )
+            alignment: Alignment.center,
+            padding: EdgeInsets.only(left: 5.0),
+            width: size.width * 0.22,
+            child: responsiveText(
+                context: context,
+                text: "Add Family",
+                textColor: black,
+                fontWeight: FontWeight.w400,
+                size: 12.0))
       ],
     ),
   );

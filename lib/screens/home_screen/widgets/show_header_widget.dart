@@ -18,11 +18,10 @@ Widget showHeaderWidget(context) {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               responsiveText(
-                context: context,
-                text: greetText,
-                textColor: black,
-                fontWeight: FontWeight.w500,
-              ),
+                  context: context,
+                  text: greetText,
+                  textColor: black,
+                  fontWeight: FontWeight.w500),
               responsiveText(
                   context: context,
                   text: userName,
@@ -41,10 +40,8 @@ Widget showHeaderWidget(context) {
             child: gradientRoundedContainer(
                 context: context,
                 borderRadius: smallBorderRadius,
-                child: SvgPicture.asset(
-                  "assets/images/icons/$user",
-                  color: Colors.white,
-                )),
+                child: SvgPicture.asset("assets/images/icons/$user",
+                    color: Colors.white)),
           ),
         ),
       ],

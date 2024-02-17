@@ -39,14 +39,10 @@ class HomeScreen extends StatelessWidget {
                       textColor: black,
                       fontWeight: FontWeight.w500,
                       size: 18.0),
-                  SizedBox(
-                    height: containerVerMargin,
-                  ),
+                  SizedBox(height: containerVerMargin),
                   showServicesSection(context),
                   //appointment
-                  SizedBox(
-                    height: 2 * containerVerMargin,
-                  ),
+                  SizedBox(height: 2 * containerVerMargin),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -55,7 +51,7 @@ class HomeScreen extends StatelessWidget {
                           text: appointmentSectionTitle,
                           textColor: black,
                           fontWeight: FontWeight.w500,
-                          size: 18.0),
+                          size: 18.0)
                     ],
                   ),
 
@@ -69,9 +65,7 @@ class HomeScreen extends StatelessWidget {
                                 context: context, width: size.width * 0.8))),
                   ),
                   //health section
-                  SizedBox(
-                    height: 2 * containerVerMargin,
-                  ),
+                  SizedBox(height: 2 * containerVerMargin),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -82,17 +76,16 @@ class HomeScreen extends StatelessWidget {
                           fontWeight: FontWeight.w500,
                           size: 18.0),
                       GestureDetector(
-                        onTap: () {
-                          var controller = Get.find<HomeController>();
-                          controller.currentNavIndex.value = 2;
-                        },
-                        child: responsiveText(
-                            context: context,
-                            text: viewAll,
-                            textColor: black,
-                            fontWeight: FontWeight.w300,
-                            size: 12.0),
-                      ),
+                          onTap: () {
+                            var controller = Get.find<HomeController>();
+                            controller.currentNavIndex.value = 2;
+                          },
+                          child: responsiveText(
+                              context: context,
+                              text: viewAll,
+                              textColor: black,
+                              fontWeight: FontWeight.w300,
+                              size: 12.0)),
                     ],
                   ),
                   SizedBox(height: containerVerMargin),

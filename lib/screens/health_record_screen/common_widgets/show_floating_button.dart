@@ -10,11 +10,7 @@ Widget showFloatingButton({context, ontap}) {
       radius: size.width * 0.08,
       backgroundColor: secondaryColor,
       child: IconButton(
-          icon: Icon(
-            Icons.add,
-            size: size.width * 0.1,
-            color: white,
-          ),
+          icon: Icon(Icons.add, size: size.width * 0.1, color: white),
           onPressed: ontap),
     ),
   );

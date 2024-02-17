@@ -22,12 +22,10 @@ class AppointmentTabScreen extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    SvgPicture.asset(
-                      "assets/images/$noReportsFoundImg",
-                      fit: BoxFit.contain,
-                      width: size.width,
-                      height: size.height * 0.3,
-                    ),
+                    SvgPicture.asset("assets/images/$noReportsFoundImg",
+                        fit: BoxFit.contain,
+                        width: size.width,
+                        height: size.height * 0.3),
                     responsiveText(
                         context: context,
                         textColor: secondaryColor,

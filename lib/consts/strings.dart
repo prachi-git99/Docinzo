@@ -10,8 +10,8 @@ const userUHID = "4adb75gjtxgbjy";
 const greetUser = "How are you feeling today ?";
 
 //homepage static text
-const appointmentSectionTitle = "Upcoming appointments";
-const trackerSectionTitle = "Track your health";
+const appointmentSectionTitle = "Upcoming Appointments";
+const trackerSectionTitle = "Track Your Health";
 const serviceSectionTitle = "Our Services";
 const hintText = "Search here...";
 const viewAll = "View All";

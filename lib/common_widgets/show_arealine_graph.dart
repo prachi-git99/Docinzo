@@ -21,56 +21,43 @@ Widget showAreaLineGraph(
     showArea}) {
   var size = MediaQuery.of(context).size;
   return Padding(
-    padding: const EdgeInsets.symmetric(vertical: containerVerPadd),
-    child: AspectRatio(
-      aspectRatio: 1.2,
-      child: LineChart(LineChartData(
-        minY: minY,
-        maxY: maxY,
-        titlesData: FlTitlesData(
-          show: true,
-          rightTitles: const AxisTitles(
-            sideTitles: SideTitles(showTitles: false),
-          ),
-          topTitles: const AxisTitles(
-            sideTitles: SideTitles(showTitles: false),
-          ),
-          bottomTitles: AxisTitles(
-            sideTitles: SideTitles(
-              showTitles: true,
-              reservedSize: size.height * 0.1,
-              getTitlesWidget: controller.bottomTitles,
-            ),
-          ),
-          leftTitles: AxisTitles(
-            sideTitles: SideTitles(
-              showTitles: true,
-              interval: interval,
-              getTitlesWidget: controller.leftTitles,
-              reservedSize: size.width * 0.12,
-            ),
-          ),
-        ),
-        borderData: FlBorderData(show: false),
-        lineBarsData: [
-          LineChartBarData(
-            spots: pointsList,
-            belowBarData: BarAreaData(
-              show: showArea,
-              gradient: LinearGradient(
-                colors: gradientColors
-                    .map((color) => color.withOpacity(0.3))
-                    .toList(),
-              ),
-            ),
-            gradient: LinearGradient(colors: gradientColors),
-            barWidth: lineWidth,
-            isCurved: true,
-            isStrokeCapRound: true,
-            dotData: FlDotData(show: showDots),
-          ),
-        ],
-      )),
-    ),
-  );
+      padding: const EdgeInsets.symmetric(vertical: containerVerPadd),
+      child: AspectRatio(
+          aspectRatio: 1.2,
+          child: LineChart(LineChartData(
+              minY: minY,
+              maxY: maxY,
+              titlesData: FlTitlesData(
+                  show: true,
+                  rightTitles: const AxisTitles(
+                      sideTitles: SideTitles(showTitles: false)),
+                  topTitles: const AxisTitles(
+                      sideTitles: SideTitles(showTitles: false)),
+                  bottomTitles: AxisTitles(
+                      sideTitles: SideTitles(
+                          showTitles: true,
+                          reservedSize: size.height * 0.1,
+                          getTitlesWidget: controller.bottomTitles)),
+                  leftTitles: AxisTitles(
+                      sideTitles: SideTitles(
+                          showTitles: true,
+                          interval: interval,
+                          getTitlesWidget: controller.leftTitles,
+                          reservedSize: size.width * 0.12))),
+              borderData: FlBorderData(show: false),
+              lineBarsData: [
+                LineChartBarData(
+                    spots: pointsList,
+                    belowBarData: BarAreaData(
+                        show: showArea,
+                        gradient: LinearGradient(
+                            colors: gradientColors
+                                .map((color) => color.withOpacity(0.3))
+                                .toList())),
+                    gradient: LinearGradient(colors: gradientColors),
+                    barWidth: lineWidth,
+                    isCurved: true,
+                    isStrokeCapRound: true,
+                    dotData: FlDotData(show: showDots))
+              ]))));
 }

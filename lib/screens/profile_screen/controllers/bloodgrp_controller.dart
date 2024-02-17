@@ -10,7 +10,7 @@ class BloodGrpController extends DropDownController {
       {"name": "B+"},
       {"name": "B-"},
       {"name": "AB+"},
-      {"name": "AB-"},
+      {"name": "AB-"}
     ];
 
     List<String> bloodGrpList = [];

@@ -1,6 +1,5 @@
 import 'package:doctor/consts/consts.dart';
 import 'package:get/get.dart';
-import 'package:random_avatar/random_avatar.dart';
 
 import '../../../controllers/family_controller.dart';
 import '../family_member_details_screens/family_member_detail_screen.dart';
@@ -25,9 +24,9 @@ Widget showFamilyMemberContainer(context, index) {
             child: Container(
               width: size.width * 0.1,
               height: size.width * 0.1,
-              child: RandomAvatar(
-                DateTime.now().toIso8601String(),
-                fit: BoxFit.fill,
+              child: Icon(
+                Icons.person_outline_outlined,
+                color: primaryColor,
               ),
             ),
           ),

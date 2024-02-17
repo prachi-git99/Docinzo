@@ -31,9 +31,7 @@ Widget showServicesSection(context) {
                                   "assets/images/${services[index]['icon']}",
                                   fit: BoxFit.contain,
                                 )),
-                            SizedBox(
-                              height: containerVerMargin / 2,
-                            ),
+                            SizedBox(height: containerVerMargin / 2),
                             responsiveText(
                                 context: context,
                                 text: index == 2 ? 'Add' : 'Book',
