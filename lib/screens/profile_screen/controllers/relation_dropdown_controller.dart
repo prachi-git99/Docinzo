@@ -11,7 +11,7 @@ class FamilyRelationController extends DropDownController {
       {"name": "SISTER"},
       {"name": "DAUGHTER"},
       {"name": "SON"},
-      {"name": "OTHER"},
+      {"name": "OTHER"}
     ];
 
     List<String> relationList = [];

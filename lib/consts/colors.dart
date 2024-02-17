@@ -38,28 +38,20 @@ const Color secondaryColor = Color.fromRGBO(117, 164, 231, 1.0);
 const Color unselectedPieChart = Color.fromRGBO(170, 198, 238, 1.0);
 
 const myGradient = LinearGradient(
-  colors: [
-    secondaryColor,
-    primaryColor,
-  ],
-  begin: Alignment.topLeft,
-  end: Alignment.bottomRight,
-);
-const bgGradient = LinearGradient(
-  colors: [
-    Color.fromRGBO(204, 204, 204, 0.4745098039215686),
-    Color.fromRGBO(252, 252, 252, 0.49411764705882355),
-    Colors.white,
-  ],
-  begin: Alignment.bottomCenter,
-  end: Alignment.center,
-);
+    colors: [secondaryColor, primaryColor],
+    begin: Alignment.topLeft,
+    end: Alignment.bottomRight);
+
+const bgGradient = LinearGradient(colors: [
+  Color.fromRGBO(204, 204, 204, 0.4745098039215686),
+  Color.fromRGBO(252, 252, 252, 0.49411764705882355),
+  Colors.white
+], begin: Alignment.bottomCenter, end: Alignment.center);
 
 final themeGradient = LinearGradient(
-  colors: [lightPurple, lightGreen],
-  begin: Alignment.topLeft,
-  end: Alignment.bottomRight,
-);
+    colors: [lightPurple, lightGreen],
+    begin: Alignment.topLeft,
+    end: Alignment.bottomRight);
 
 const Color fontGrey = Color.fromRGBO(166, 167, 176, 1);
 const Color lightfontGrey = Color.fromRGBO(203, 202, 202, 1.0);
@@ -73,5 +65,5 @@ const Color lightPurple = Color.fromRGBO(243, 232, 255, 1);
 
 const unselectedPieChartGradient = [
   Color.fromRGBO(192, 205, 217, 0.615686274509804),
-  Color.fromRGBO(197, 202, 218, 0.615686274509804),
+  Color.fromRGBO(197, 202, 218, 0.615686274509804)
 ];

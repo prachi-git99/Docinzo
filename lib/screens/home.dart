@@ -33,8 +33,8 @@ class Home extends StatelessWidget {
     List<BottomNavigationBarItem> navbarItem = [
       buildBottomNavigationBarItem(
           "Home", "assets/images/icons/navbar_icons/$homeIcon", controller, 0),
-      buildBottomNavigationBarItem("Schedule",
-          "assets/images/icons/navbar_icons/$scheduleIcon", controller, 1),
+      buildBottomNavigationBarItem("Records",
+          "assets/images/icons/navbar_icons/$reportIcon", controller, 1),
       buildBottomNavigationBarItem("Vitals",
           "assets/images/icons/navbar_icons/$vitalIcon", controller, 2),
       buildBottomNavigationBarItem("Notification",
@@ -60,9 +60,7 @@ class Home extends StatelessWidget {
       child: Scaffold(
         body: Stack(
           children: [
-            Obx(
-              () => navBody.elementAt(controller.currentNavIndex.value),
-            ),
+            Obx(() => navBody.elementAt(controller.currentNavIndex.value)),
             Obx(
               () => Container(
                 alignment: Alignment.bottomCenter,
@@ -88,9 +86,8 @@ class Home extends StatelessWidget {
                             fontSize: 10),
                         unselectedLabelStyle:
                             TextStyle(fontFamily: poppins, fontSize: 10),
-                        onTap: (value) {
-                          controller.currentNavIndex.value = value;
-                        },
+                        onTap: (value) =>
+                            controller.currentNavIndex.value = value,
                         items: navbarItem),
                   ),
                 ),

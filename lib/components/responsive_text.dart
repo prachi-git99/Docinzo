@@ -15,11 +15,9 @@ Widget responsiveText({context, text, textColor, fontWeight, size}) {
   return Text("${text[0].toUpperCase()}${text.substring(1)}",
       textScaleFactor: ScaleSize.textScaleFactor(context),
       softWrap: true,
-      maxLines: 3,
       style: TextStyle(
           color: textColor,
           fontSize: size,
-          overflow: TextOverflow.ellipsis,
           fontFamily: poppins,
           fontWeight: fontWeight));
 }

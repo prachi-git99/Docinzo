@@ -29,15 +29,13 @@ Widget showUserProfileSection(context) {
                       height: size.width * 0.2,
                       context: context,
                       borderRadius: largeBorderRadius,
-                      child: SvgPicture.asset(
-                        "assets/images/icons/$user",
-                        color: Colors.white,
-                      )),
+                      child: SvgPicture.asset("assets/images/icons/$user",
+                          color: Colors.white)),
                 ),
                 SizedBox(width: containerHorMargin),
                 //user info
                 Container(
-                  width: size.width * 0.55,
+                  width: size.width * 0.52,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,

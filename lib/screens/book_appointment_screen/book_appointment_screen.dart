@@ -24,22 +24,14 @@ class AppointmentScreen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(
-                  height: 2 * containerVerMargin,
-                ),
+                SizedBox(height: 2 * containerVerMargin),
                 customScheduleCalender(),
-                SizedBox(
-                  height: 2 * containerVerMargin,
-                ),
+                SizedBox(height: 2 * containerVerMargin),
                 customSlotBooking(),
-                SizedBox(
-                  height: 4 * containerVerMargin,
-                ),
+                SizedBox(height: 4 * containerVerMargin),
                 customButtonWidget(
                     context, appointmentButtonText, white, 18.0, () {}),
-                SizedBox(
-                  height: 6 * containerVerMargin,
-                ),
+                SizedBox(height: 6 * containerVerMargin),
               ],
             ),
           ),

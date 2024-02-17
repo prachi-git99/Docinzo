@@ -61,8 +61,6 @@ class FamilyController extends GetxController {
     };
 
     myFamily.add(data);
-
-    // myFamily.value = await getMyFamily();
   }
 
   void getData() async {

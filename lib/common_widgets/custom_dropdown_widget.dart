@@ -11,21 +11,17 @@ Widget showCustomDropdown({
   return Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
-      Text(
-        title,
-        style: TextStyle(
-          color: primaryColor,
-          fontSize: 12.0,
-          fontWeight: FontWeight.w400,
-          fontFamily: poppins,
-        ),
-      ),
+      Text(title,
+          style: TextStyle(
+              color: primaryColor,
+              fontSize: 12.0,
+              fontWeight: FontWeight.w400,
+              fontFamily: poppins)),
       Container(
           padding: EdgeInsets.symmetric(horizontal: 10.0),
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(smallBorderRadius),
-            border: Border.all(color: borderGrey, style: BorderStyle.solid),
-          ),
+              borderRadius: BorderRadius.circular(smallBorderRadius),
+              border: Border.all(color: borderGrey, style: BorderStyle.solid)),
           child: DropdownButton<String>(
             underline: SizedBox.shrink(),
             iconEnabledColor: primaryColor,
@@ -37,14 +33,13 @@ Widget showCustomDropdown({
             value: controller.currentValue.value,
             items: items.map((String value) {
               return DropdownMenuItem<String>(
-                value: value,
-                child: responsiveText(
-                    context: context,
-                    textColor: black,
-                    text: value,
-                    fontWeight: FontWeight.w500,
-                    size: 14.0),
-              );
+                  value: value,
+                  child: responsiveText(
+                      context: context,
+                      textColor: black,
+                      text: value,
+                      fontWeight: FontWeight.w500,
+                      size: 14.0));
             }).toList(),
             onChanged: (newValue) {
               controller.setSelected(newValue!);

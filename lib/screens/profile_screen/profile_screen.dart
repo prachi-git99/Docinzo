@@ -44,10 +44,7 @@ class ProfileScreen extends StatelessWidget {
                             textColor: Colors.red,
                             fontWeight: FontWeight.w500,
                             size: 16.0),
-                        Icon(
-                          Icons.logout,
-                          color: Colors.red,
-                        )
+                        Icon(Icons.logout, color: Colors.red)
                       ],
                     ),
                   ),

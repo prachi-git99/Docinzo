@@ -13,6 +13,16 @@ import 'show_vitalvalues_and_dropdown.dart';
 
 Widget showVitalsLessInfo(context, index) {
   var size = MediaQuery.of(context).size;
+
+  Map<int, dynamic> VITAL_MAP = {
+    0: showBloodPressureWidget(context, index),
+    1: showWeightWidget(context, index),
+    2: showPulseWidget(context, index),
+    3: showSugarLevelWidget(context, index),
+    4: showTemperatureWidget(context, index),
+    5: showOxygenWidget(context, index),
+    6: showHeightWidget(context, index)
+  };
   return Container(
     margin: EdgeInsets.only(bottom: 2 * containerVerMargin),
     padding: EdgeInsets.symmetric(horizontal: containerHorPadd),
@@ -29,30 +39,15 @@ Widget showVitalsLessInfo(context, index) {
           children: [
             showVitalvaluesDropdown(context, index),
             SizedBox(height: 2 * containerVerMargin),
-            index == 0
-                ? showBloodPressureWidget(context, index)
-                : index == 1
-                    ? showWeightWidget(context, index)
-                    : index == 2
-                        ? showPulseWidget(context, index)
-                        : index == 3
-                            ? showSugarLevelWidget(context, index)
-                            : index == 4
-                                ? showTemperatureWidget(context, index)
-                                : index == 5
-                                    ? showOxygenWidget(context, index)
-                                    : index == 6
-                                        ? showHeightWidget(context, index)
-                                        : SizedBox.shrink(),
+            (index >= 0 && index <= 6) ? VITAL_MAP[index] : SizedBox.shrink(),
             GestureDetector(
-              onTap: () {},
-              child: responsiveText(
-                  context: context,
-                  textColor: primaryColor,
-                  text: "View Details",
-                  fontWeight: FontWeight.w500,
-                  size: 14.0),
-            ),
+                onTap: () {},
+                child: responsiveText(
+                    context: context,
+                    textColor: primaryColor,
+                    text: "View Details",
+                    fontWeight: FontWeight.w500,
+                    size: 14.0)),
           ],
         ),
       ),

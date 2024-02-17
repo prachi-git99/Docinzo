@@ -30,17 +30,12 @@ Widget showAppointmentSection({context, width}) {
                     color: white,
                     boxShadow: [
                       BoxShadow(
-                        color: shadow,
-                        spreadRadius: 0,
-                        blurRadius: 15.0,
-                      ),
+                          color: shadow, spreadRadius: 0, blurRadius: 15.0)
                     ]),
                 child: Row(
                   children: [
                     SvgPicture.asset("assets/images/icons/$user"),
-                    SizedBox(
-                      width: containerHorMargin,
-                    ),
+                    SizedBox(width: containerHorMargin),
                     SizedBox(
                       width: size.width * 0.45,
                       child: Column(
@@ -64,9 +59,7 @@ Widget showAppointmentSection({context, width}) {
                   ],
                 ),
               ),
-              SizedBox(
-                height: containerVerMargin,
-              ),
+              SizedBox(height: containerVerMargin),
               Container(
                 padding: EdgeInsets.only(
                     left: containerHorPadd, bottom: containerVerPadd),
@@ -91,9 +84,7 @@ Widget showAppointmentSection({context, width}) {
                             size: 12.0),
                       ],
                     ),
-                    SizedBox(
-                      width: 3 * containerHorMargin,
-                    ),
+                    SizedBox(width: 3 * containerHorMargin),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -130,10 +121,7 @@ Widget showAppointmentSection({context, width}) {
               child: gradientRoundedContainer(
                   context: context,
                   borderRadius: largeBorderRadius,
-                  child: Icon(
-                    Icons.call,
-                    color: white,
-                  ),
+                  child: Icon(Icons.call, color: white),
                   blur: 12.0),
             ),
           ),

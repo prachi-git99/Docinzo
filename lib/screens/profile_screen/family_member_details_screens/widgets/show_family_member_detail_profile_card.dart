@@ -1,6 +1,7 @@
 import 'package:doctor/consts/consts.dart';
-import 'package:random_avatar/random_avatar.dart';
+import 'package:flutter_svg/svg.dart';
 
+import '../../../../components/gradient_rounded_container.dart';
 import '../../../../components/responsive_text.dart';
 import '../../../../components/rounded_corner_container.dart';
 
@@ -20,14 +21,13 @@ Widget showFamilyMemberDetailProfileCard(context, data) {
             //user photo
             CircleAvatar(
               radius: size.width * 0.12,
-              child: Container(
-                width: size.width * 0.2,
-                height: size.width * 0.2,
-                child: RandomAvatar(
-                  DateTime.now().toIso8601String(),
-                  fit: BoxFit.fill,
-                ),
-              ),
+              child: gradientRoundedContainer(
+                  width: size.width * 0.2,
+                  height: size.width * 0.2,
+                  context: context,
+                  borderRadius: largeBorderRadius,
+                  child: SvgPicture.asset("assets/images/icons/$user",
+                      color: Colors.white)),
             ),
             SizedBox(width: containerHorMargin),
             //user info

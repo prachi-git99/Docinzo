@@ -5,7 +5,7 @@ class GenderController extends DropDownController {
     List<Map<String, dynamic>> finalResponse = [
       {"name": "FEMALE"},
       {"name": "MALE"},
-      {"name": "OTHERS"},
+      {"name": "OTHERS"}
     ];
 
     List<String> genderList = [];

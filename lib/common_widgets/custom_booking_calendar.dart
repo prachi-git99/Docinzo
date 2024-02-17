@@ -1,8 +1,7 @@
-
-
 import 'package:doctor/consts/consts.dart';
 import 'package:easy_date_timeline/easy_date_timeline.dart';
 import 'package:get/get.dart';
+
 import '../controllers/schedule_controller.dart';
 
 var controller = Get.put(ScheduleController());
@@ -12,64 +11,58 @@ List<DateTime> generatePreviousDates() {
   DateTime today = DateTime.now();
 
   // Start from yesterday and loop through each date until reaching a start date
-  DateTime currentDate = today.subtract(Duration(days: 1)); // Start from yesterday
-  while (currentDate.isAfter(DateTime(1900))) { // Specify a start date (e.g., 1900)
+  DateTime currentDate =
+      today.subtract(Duration(days: 1)); // Start from yesterday
+  while (currentDate.isAfter(DateTime(1900))) {
+    // Specify a start date (e.g., 1900)
     previousDates.add(currentDate);
-    currentDate = currentDate.subtract(Duration(days: 1)); // Move to the previous day
+    currentDate =
+        currentDate.subtract(Duration(days: 1)); // Move to the previous day
   }
 
   return previousDates;
 }
 
-Widget customScheduleCalender(){
+Widget customScheduleCalender() {
   // print(disable);
   return EasyDateTimeLine(
-    disabledDates:generatePreviousDates(),
-      initialDate: controller.selectedDate.value,
-      locale:'en_IN',
-      onDateChange: (selectedDate) {
-        controller.setSelectedDate(selectedDate);
-      },
-      headerProps: const EasyHeaderProps(
+    disabledDates: generatePreviousDates(),
+    initialDate: controller.selectedDate.value,
+    locale: 'en_IN',
+    onDateChange: (selectedDate) => controller.setSelectedDate(selectedDate),
+    headerProps: const EasyHeaderProps(
         monthPickerType: MonthPickerType.switcher,
         dateFormatter: DateFormatter.fullDateDMonthAsStrY(),
-        monthStyle:TextStyle(fontFamily: poppins,fontSize: 14.0,fontWeight: FontWeight.w500) ,
-        selectedDateStyle: TextStyle(fontFamily: poppins,fontSize: 12.0)
+        monthStyle: TextStyle(
+            fontFamily: poppins, fontSize: 14.0, fontWeight: FontWeight.w500),
+        selectedDateStyle: TextStyle(fontFamily: poppins, fontSize: 12.0)),
+    dayProps: EasyDayProps(
+      dayStructure: DayStructure.dayStrDayNum,
+      inactiveDayStyle: DayStyle(
+        decoration: BoxDecoration(
+            borderRadius:
+                const BorderRadius.all(Radius.circular(smallBorderRadius)),
+            border: Border.all(color: borderGrey)),
       ),
-
-      dayProps:  EasyDayProps(
-
-        dayStructure: DayStructure.dayStrDayNum,
-        inactiveDayStyle: DayStyle(
-          decoration: BoxDecoration(
-            borderRadius: const BorderRadius.all(Radius.circular(smallBorderRadius)),
-            border: Border.all(color: borderGrey)
-          ),
-        ),
-        todayStyle: DayStyle(
-          decoration: BoxDecoration(
-            borderRadius: const BorderRadius.all(Radius.circular(smallBorderRadius)),
-              border: Border.all(color: primaryColor)
-          ),
-        ),
-        activeDayStyle: const DayStyle(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.all(Radius.circular(smallBorderRadius)),
-            gradient: LinearGradient(
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-              colors: [
-                primaryColor,
-                secondaryColor,
-              ],
-            ),
+      todayStyle: DayStyle(
+        decoration: BoxDecoration(
+            borderRadius:
+                const BorderRadius.all(Radius.circular(smallBorderRadius)),
+            border: Border.all(color: primaryColor)),
+      ),
+      activeDayStyle: const DayStyle(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.all(Radius.circular(smallBorderRadius)),
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [primaryColor, secondaryColor],
           ),
         ),
       ),
-    );
+    ),
+  );
 }
-
-
 
 //
 //

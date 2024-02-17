@@ -17,11 +17,8 @@ class FamilyMemberDetailScreen extends StatelessWidget {
     FamilyController familyController = Get.find<FamilyController>();
 
     dynamic data = familyController.myFamily[index];
-    print("data");
-    print(data);
-    var size = MediaQuery.of(context).size;
 
-    var index2 = 0;
+    var size = MediaQuery.of(context).size;
 
     return Scaffold(
       appBar: customAppbar(context, "${data['name']}"),
@@ -41,14 +38,13 @@ class FamilyMemberDetailScreen extends StatelessWidget {
                   showFamilyMemberHealthRecord(context, data),
                   SizedBox(height: 2 * containerVerMargin),
                   Align(
-                    alignment: Alignment.centerLeft,
-                    child: responsiveText(
-                        context: context,
-                        text: appointmentSectionTitle,
-                        textColor: black,
-                        fontWeight: FontWeight.w500,
-                        size: 14.0),
-                  ),
+                      alignment: Alignment.centerLeft,
+                      child: responsiveText(
+                          context: context,
+                          text: appointmentSectionTitle,
+                          textColor: black,
+                          fontWeight: FontWeight.w500,
+                          size: 14.0)),
                   showAppointmentSection(context: context),
                 ],
               ),

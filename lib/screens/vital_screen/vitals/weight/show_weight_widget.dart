@@ -2,8 +2,8 @@ import "package:doctor/consts/consts.dart";
 import "package:doctor/controllers/vitals_controller.dart";
 import "package:fl_chart/fl_chart.dart";
 import "package:get/get.dart";
+
 import "../../../../common_widgets/show_arealine_graph.dart";
-import "../../../../common_widgets/show_twoLines_linear_graph.dart";
 
 Map<String, dynamic> DATA = {
   "x_axis": ['M', 'T', 'W', 'Th', 'F', 'Sa', 'Su'],
@@ -25,41 +25,28 @@ VitalsController controller = Get.find<VitalsController>();
 
 Widget showWeightWidget(context, index) {
   bool showArea = false;
-
   showGraph(dropDownValue) {
-
     controller.bottomTitleList = DATA['x_axis'];
-    // print(controller.bottomTitleList);
 
     List<FlSpot> points = [];
-    for (int index =  0; index < DATA['x_axis'].length; index++) {
-
-      if(DATA['data'][DATA["x_axis"][index]]['value'] == 0.0){
+    for (int index = 0; index < DATA['x_axis'].length; index++) {
+      if (DATA['data'][DATA["x_axis"][index]]['value'] == 0.0) {
+        points.add(FlSpot(index.toDouble(), 0.0));
+      } else {
         points.add(FlSpot(
-          index.toDouble(),
-         0.0,
-        ));
-      }else{
-        points.add(FlSpot(
-          index.toDouble(),
-          DATA['data'][DATA["x_axis"][index]]['value'],
-        ));
+            index.toDouble(), DATA['data'][DATA["x_axis"][index]]['value']));
       }
     }
-// print(points);
     return showAreaLineGraph(
-      context: context,
+        context: context,
         showDots: true,
         lineWidth: 0.0,
         pointsList: points,
         showArea: showArea,
-        interval:DATA['y_axis_interval'],
+        interval: DATA['y_axis_interval'],
         minY: DATA['y_axis_min'],
-        maxY: DATA['y_axis_max'],
-        // maxX: double.parse("${WEEKLY_DATA['x_axis'].length}"),
-    );
+        maxY: DATA['y_axis_max']);
   }
 
   return Obx(() => showGraph(controller.dropDownValue[index]));
-
 }

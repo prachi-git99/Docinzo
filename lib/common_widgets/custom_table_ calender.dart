@@ -29,38 +29,35 @@ class _showTableCalenderState extends State<showTableCalender> {
       child: TableCalendar(
           focusedDay: _focusDay,
           firstDay: DateTime.now(),
-          lastDay: DateTime(2030,12,31),
+          lastDay: DateTime(2030, 12, 31),
           calendarFormat: _format,
           currentDay: _currentDay,
-          rowHeight: size.height*0.06,
-          daysOfWeekHeight: size.height*0.04,
-          calendarStyle:  CalendarStyle(
-            todayDecoration: BoxDecoration(color: primaryColor,shape: BoxShape.circle),
+          rowHeight: size.height * 0.06,
+          daysOfWeekHeight: size.height * 0.04,
+          calendarStyle: CalendarStyle(
+            todayDecoration:
+                BoxDecoration(color: primaryColor, shape: BoxShape.circle),
           ),
-          availableCalendarFormats: {
-            CalendarFormat.month:'Month',
-          },
-          onFormatChanged: (format){
+          availableCalendarFormats: {CalendarFormat.month: 'Month'},
+          onFormatChanged: (format) {
             setState(() {
               _format = format;
             });
           },
-          onDaySelected: ((selectedDay,focusedDay){
+          onDaySelected: ((selectedDay, focusedDay) {
             setState(() {
               _currentDay = selectedDay;
               _focusDay = focusedDay;
               _dateSelected = true;
-              if(selectedDay.weekday == 6 || selectedDay.weekday == 7){
-                _isWeekend =true;
-                _timeSelected =false;
+              if (selectedDay.weekday == 6 || selectedDay.weekday == 7) {
+                _isWeekend = true;
+                _timeSelected = false;
                 _currentIndex = null;
-              }else{
-                _isWeekend =false;
+              } else {
+                _isWeekend = false;
               }
             });
-          })
-
-      ),
+          })),
     );
   }
 }
