@@ -54,20 +54,10 @@ class LoginScreen extends StatelessWidget {
                 hintText: "+91 78*******9",
                 context: context,
                 keytype: TextInputType.phone,
-                onchange: (input) => controller.validateInput(input),
                 controller: phoneController),
-            controller.errorText.value != " "
-                ? responsiveText(
-                    context: context,
-                    text: controller.errorText.value,
-                    textColor: Colors.red,
-                    fontWeight: FontWeight.w400,
-                    size: 12.0)
-                : SizedBox.shrink(),
             SizedBox(height: appVerticalMargin),
             customButtonWidget(context, "Verify Your Phone", white, 16.0, () {
-              if (phoneController.text.length == 10 &&
-                  controller.errorText.value == " ") {
+              if (phoneController.text.length == 10) {
                 Navigator.of(context).push(MaterialPageRoute(
                     builder: (context) => PhoneOtpScreen(
                           phone: phoneController.text,

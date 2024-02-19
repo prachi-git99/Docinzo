@@ -56,14 +56,4 @@ class AuthController extends GetxController {
     }
     _mobileNumber.value = mobileNumber;
   }
-
-  RxString errorText = " ".obs;
-
-  void validateInput(String input) {
-    if (!['6', '7', '8', '9'].contains(input[0])) {
-      errorText.value = 'Invalid phone number';
-    } else {
-      errorText.value = " ";
-    }
-  }
 }

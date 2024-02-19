@@ -82,25 +82,23 @@ class _PhoneOtpScreenState extends State<PhoneOtpScreen> {
                         fontFamily: poppins),
                   ),
                   TextSpan(
-                    text: '${widget.phone}',
-                    style: TextStyle(
-                        fontSize: 16.0,
-                        fontWeight: FontWeight.w400,
-                        color: primaryColor,
-                        fontFamily: poppins),
-                  ),
+                      text: '${widget.phone}',
+                      style: TextStyle(
+                          fontSize: 16.0,
+                          fontWeight: FontWeight.w400,
+                          color: primaryColor,
+                          fontFamily: poppins)),
                 ],
               ),
             ),
             SizedBox(height: 2 * appVerticalMargin),
             Pinput(
-              length: 6,
-              pinputAutovalidateMode: PinputAutovalidateMode.onSubmit,
-              showCursor: true,
-              focusedPinTheme: focusedPinTheme,
-              controller: otpController,
-              defaultPinTheme: defaultPinTheme,
-            ),
+                length: 6,
+                pinputAutovalidateMode: PinputAutovalidateMode.onSubmit,
+                showCursor: true,
+                focusedPinTheme: focusedPinTheme,
+                controller: otpController,
+                defaultPinTheme: defaultPinTheme),
             SizedBox(height: 2 * appVerticalMargin),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -120,7 +118,7 @@ class _PhoneOtpScreenState extends State<PhoneOtpScreen> {
                     // );
                   },
                   child: const Text(
-                    "Reload",
+                    "Resend OTP",
                     style: TextStyle(
                         fontSize: 14,
                         fontWeight: FontWeight.w300,
