@@ -1,5 +1,6 @@
 import 'package:doctor/common_widgets/gradient_background.dart';
 import 'package:doctor/consts/consts.dart';
+import 'package:doctor/screens/book_appointment_screen/doctors_list_screen.dart';
 import 'package:flutter_svg/svg.dart';
 
 import '../../../components/responsive_text.dart';
@@ -35,7 +36,12 @@ class AppointmentTabScreen extends StatelessWidget {
                   ],
                 ),
               ),
-              showFloatingButton(context: context, ontap: () {}),
+              showFloatingButton(
+                  context: context,
+                  ontap: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => DoctorsListScreen()));
+                  }),
             ],
           ),
         ));

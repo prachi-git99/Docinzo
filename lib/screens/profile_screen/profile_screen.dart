@@ -5,6 +5,7 @@ import 'package:doctor/consts/consts.dart';
 import 'package:doctor/controllers/family_controller.dart';
 import 'package:doctor/screens/profile_screen/widgets/show_family_profile_section.dart';
 import 'package:doctor/screens/profile_screen/widgets/show_user_profile_section.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:get/get.dart';
 
 import '../../components/responsive_text.dart';
@@ -34,7 +35,17 @@ class ProfileScreen extends StatelessWidget {
                   //logout
                   SizedBox(height: containerVerMargin),
                   TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      const FlutterSecureStorage storage =
+                          FlutterSecureStorage();
+                      storage.deleteAll();
+                      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                        backgroundColor: primaryColor,
+                        content: Text("Logged out successfully"),
+                      ));
+                      Navigator.of(context).pushNamedAndRemoveUntil(
+                          "loginScreen", (route) => false);
+                    },
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [

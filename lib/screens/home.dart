@@ -4,12 +4,48 @@ import 'package:get/get.dart';
 
 import '../consts/consts.dart';
 import '../controllers/home_controller.dart';
+import '../local_storage/get_local_data.dart';
 import 'health_record_screen/health_record_screen.dart';
 import 'home_screen/home_screen.dart';
 import 'notification_screen/notification_screen.dart';
 
-class Home extends StatelessWidget {
+class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
+
+  @override
+  State<Home> createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+  var controller = Get.put(HomeController());
+
+  var data;
+
+  void getToken() async {
+    Map values = await getLocalData();
+    if (values['jwtToken'] == null) {
+      Navigator.pushNamedAndRemoveUntil(
+          context, "loginScreen", (route) => false);
+    } else {
+      setState(() {
+        data = values;
+      });
+      print("already logged in user id : $values");
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    getToken();
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    Get.delete<HomeController>();
+    super.dispose();
+  }
 
   buildBottomNavigationBarItem(name, icon, controller, currentNavIndex) {
     return BottomNavigationBarItem(
@@ -28,8 +64,6 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var controller = Get.put(HomeController());
-
     List<BottomNavigationBarItem> navbarItem = [
       buildBottomNavigationBarItem(
           "Home", "assets/images/icons/navbar_icons/$homeIcon", controller, 0),

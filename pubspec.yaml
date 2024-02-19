@@ -16,6 +16,10 @@ dependencies:
 
   cupertino_icons: ^1.0.2
 
+  pinput:
+  mobile_number:
+  simnumber:
+  flutter_secure_storage:
   random_avatar: ^0.0.8
   scroll_date_picker:
   open_file:

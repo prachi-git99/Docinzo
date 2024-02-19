@@ -1,3 +1,4 @@
+import 'package:doctor/screens/auth_screens/login_screen/login_screen.dart';
 import 'package:doctor/screens/home.dart';
 import 'package:flutter/material.dart';
 
@@ -21,7 +22,11 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: primaryColor),
         useMaterial3: true,
       ),
-      home: Home(),
+      routes: {
+        "loginScreen": (context) => LoginScreen(),
+        "home": (context) => const Home(),
+      },
+      home: const Home(),
     );
   }
 }

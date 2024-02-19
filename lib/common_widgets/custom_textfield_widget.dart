@@ -1,7 +1,7 @@
 import 'package:doctor/consts/consts.dart';
 
 Widget customTextField(
-    {String? title, String? hintText, context, keytype, controller}) {
+    {String? title, String? hintText, context, keytype, controller, onchange}) {
   return Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
@@ -14,8 +14,11 @@ Widget customTextField(
       TextField(
         controller: controller,
         keyboardType: keytype,
+        onChanged: onchange,
+        maxLength: keytype == TextInputType.phone ? 10 : null,
         decoration: InputDecoration(
           border: InputBorder.none,
+          counterText: " ",
           hintStyle: TextStyle(
               color: fontGrey,
               fontWeight: FontWeight.normal,
