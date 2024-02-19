@@ -37,12 +37,14 @@ class AddReportScreen extends StatelessWidget {
 
               showPatientRecordWidget(context),
               //textfeild
-              Container(
-                  margin: EdgeInsets.symmetric(vertical: containerVerMargin),
-                  child:
-                      recordTypeController.currentValue.value == "Prescription"
-                          ? showPrescriptionForm(context)
-                          : showLabDetailForm(context)),
+              Obx(
+                () => Container(
+                    margin: EdgeInsets.symmetric(vertical: containerVerMargin),
+                    child: recordTypeController.currentValue.value ==
+                            "Prescription"
+                        ? showPrescriptionForm(context)
+                        : showLabDetailForm(context)),
+              ),
               //get uploaded media
               showUploadedMedia(context),
               customButtonWidget(context, 'Add Report', white, 18.0, () {
