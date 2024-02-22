@@ -1,10 +1,13 @@
 import 'package:doctor/consts/consts.dart';
 import 'package:doctor/screens/book_ambulance_screen/book_ambulance_screen.dart';
 import 'package:doctor/screens/book_appointment_screen/doctors_list_screen.dart';
+import 'package:doctor/screens/buy_insurance_screen/buy_insurance_screen.dart';
 import 'package:doctor/screens/health_record_screen/health_record_screen.dart';
 import 'package:doctor/screens/lab_test_screen/lab_test_screen.dart';
 import 'package:doctor/screens/report_screen/add_report_screen.dart';
 import 'package:doctor/screens/vital_screen/vital_screen.dart';
+
+import '../screens/buy_medicines_screen/buy_medicines_screen.dart';
 
 const healthGrid = [
   {
@@ -48,6 +51,18 @@ final services = [
     "title": "Lab Tests",
     "color": lightGreen,
     "screen": LabTestScreen()
+  },
+  {
+    "icon": icMedicine,
+    "title": "Medicine",
+    "color": lightPurple,
+    "screen": MedicineScreen()
+  },
+  {
+    "icon": icInsurance,
+    "title": "Insurance",
+    "color": lightBlue,
+    "screen": InsuranceScreen()
   },
   {
     "icon": icAmbulance,

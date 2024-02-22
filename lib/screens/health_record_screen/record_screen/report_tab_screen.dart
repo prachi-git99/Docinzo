@@ -18,7 +18,15 @@ class ReportTabScreen extends StatelessWidget {
       "type": "LAB",
       "pateint_name": "Anuj sharma",
       "created_at": "12-03-2024",
-      "lab": {"name": "apollo pvt ltd", "image": ""},
+      "report_name": "X-ray",
+      "lab": {"name": "Apollo pvt ltd", "image": ""},
+      "file": ["sample1.jpg", "sample2.pdf"]
+    },
+    {
+      "type": "PRESCRIPTION",
+      "pateint_name": "Anuj sharma",
+      "created_at": "12-03-2024",
+      "doctor_name": "Dr. Sheesha Singh",
       "file": ["sample1.jpg", "sample2.pdf"]
     },
     {
@@ -31,6 +39,7 @@ class ReportTabScreen extends StatelessWidget {
     {
       "type": "ELSE",
       "pateint_name": "Krishna verma",
+      "report_name": "Pushpanjali Hospital bills",
       "created_at": "12-03-2024",
       "doctor_name": "Dr. Sheesha Singh",
       "file": ["sample1.jpg", "sample2.pdf"]
@@ -45,28 +54,30 @@ class ReportTabScreen extends StatelessWidget {
         context: context,
         widget: Scaffold(
           backgroundColor: white,
-          body: Stack(
-            children: [
-              // showReportsList(),
-              reportData.length != 0
-                  ? showReportsCardList(context, reportData)
-                  : showDefaultScreen(context, "Add Your First Report"),
-              showFloatingButton(
-                  context: context,
-                  ontap: () {
-                    PatientController patientController =
-                        Get.put(PatientController());
-                    RecordTypeController recordTypeController =
-                        Get.put(RecordTypeController());
-                    LabNameController labNameController =
-                        Get.put(LabNameController());
-                    patientController.setdropDownData();
-                    recordTypeController.setdropDownData();
-                    labNameController.setdropDownData();
-                    Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => AddReportScreen()));
-                  }),
-            ],
+          body: SingleChildScrollView(
+            child: Stack(
+              children: [
+                // showReportsList(),
+                reportData.length != 0
+                    ? showReportsCardList(context, reportData)
+                    : showDefaultScreen(context, "Add Your First Report"),
+                showFloatingButton(
+                    context: context,
+                    ontap: () {
+                      PatientController patientController =
+                          Get.put(PatientController());
+                      RecordTypeController recordTypeController =
+                          Get.put(RecordTypeController());
+                      LabNameController labNameController =
+                          Get.put(LabNameController());
+                      patientController.setdropDownData();
+                      recordTypeController.setdropDownData();
+                      labNameController.setdropDownData();
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => AddReportScreen()));
+                    }),
+              ],
+            ),
           ),
         ));
   }

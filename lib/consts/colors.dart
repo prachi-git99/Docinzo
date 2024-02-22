@@ -62,6 +62,8 @@ const Color lightOrange = Color.fromRGBO(255, 226, 229, 1);
 const Color lightYellow = Color.fromRGBO(255, 244, 222, 1);
 const Color lightGreen = Color.fromRGBO(220, 252, 231, 1);
 const Color lightPurple = Color.fromRGBO(243, 232, 255, 1);
+const Color lightPink = Color.fromRGBO(246, 214, 224, 1.0);
+const Color lightBlue = Color.fromRGBO(202, 250, 242, 1.0);
 
 const unselectedPieChartGradient = [
   Color.fromRGBO(192, 205, 217, 0.615686274509804),

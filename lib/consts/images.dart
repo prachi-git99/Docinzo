@@ -25,6 +25,8 @@ const icLab = "lab.png";
 const icReport = "reports.png";
 const icAmbulance = "ambulance.png";
 const vitalImg = "vitals.png";
+const icInsurance = "insurance.png";
+const icMedicine = "medicine.png";
 
 //vital icons
 const icBp = "bp.svg";

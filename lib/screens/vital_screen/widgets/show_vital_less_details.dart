@@ -4,7 +4,6 @@ import 'package:doctor/screens/vital_screen/vitals/pulse_rate/show_pulse_widget.
 import 'package:doctor/screens/vital_screen/vitals/sugar_level/show_sugar_level_widget.dart';
 import 'package:doctor/screens/vital_screen/vitals/weight/show_weight_widget.dart';
 
-import '../../../components/responsive_text.dart';
 import '../../../components/rounded_corner_container.dart';
 import '../vitals/blood_pressure/show_blood_pressure_widget.dart';
 import '../vitals/body_temp/show_temperature_widget.dart';
@@ -40,14 +39,14 @@ Widget showVitalsLessInfo(context, index) {
             showVitalvaluesDropdown(context, index),
             SizedBox(height: 2 * containerVerMargin),
             (index >= 0 && index <= 6) ? VITAL_MAP[index] : SizedBox.shrink(),
-            GestureDetector(
-                onTap: () {},
-                child: responsiveText(
-                    context: context,
-                    textColor: primaryColor,
-                    text: "View Details",
-                    fontWeight: FontWeight.w500,
-                    size: 14.0)),
+            // GestureDetector(
+            //     onTap: () {},
+            //     child: responsiveText(
+            //         context: context,
+            //         textColor: primaryColor,
+            //         text: "View Details",
+            //         fontWeight: FontWeight.w500,
+            //         size: 14.0)),
           ],
         ),
       ),

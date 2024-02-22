@@ -29,6 +29,7 @@ class AddReportScreen extends StatelessWidget {
           padding: EdgeInsets.symmetric(
               vertical: appVerticalPadding, horizontal: appHorizontalPadding),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               //upload media
               showUploadFileSection(context),

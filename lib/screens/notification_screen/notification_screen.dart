@@ -39,6 +39,23 @@ class NotificationScreen extends StatelessWidget {
                                         text: "Your Reports are ready !!",
                                         fontWeight: FontWeight.w500,
                                         size: 18.0),
+                                    Row(
+                                      children: [
+                                        responsiveText(
+                                            context: context,
+                                            textColor: fontGrey,
+                                            text: "10:20 AM  ",
+                                            fontWeight: FontWeight.w500,
+                                            size: 12.0),
+                                        responsiveText(
+                                            context: context,
+                                            textColor: fontGrey,
+                                            text: "12 Feb,2024",
+                                            fontWeight: FontWeight.w500,
+                                            size: 12.0),
+                                      ],
+                                    ),
+                                    SizedBox(height: containerVerMargin / 2),
                                     responsiveText(
                                         context: context,
                                         textColor: black,
