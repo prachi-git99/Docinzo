@@ -21,7 +21,7 @@ Widget showDoctorCard(context, doctorsList) {
         color: glassWhite,
         borderRadius: smallBorderRadius,
         blur: 12.0,
-        spread: 5.0,
+        spread: 0.0,
         child: Row(
           children: [
             CircleAvatar(

@@ -38,16 +38,16 @@ final services = [
     "screen": const DoctorsListScreen()
   },
   {
-    "icon": icLab,
-    "title": "Lab Tests",
-    "color": lightGreen,
-    "screen": LabTestScreen()
-  },
-  {
     "icon": icReport,
     "title": "Reports",
     "color": lightPurple,
     "screen": AddReportScreen()
+  },
+  {
+    "icon": icLab,
+    "title": "Lab Tests",
+    "color": lightGreen,
+    "screen": LabTestScreen()
   },
   {
     "icon": icAmbulance,

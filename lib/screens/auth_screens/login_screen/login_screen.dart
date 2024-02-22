@@ -2,12 +2,12 @@ import 'package:doctor/common_widgets/custom_botton_widget.dart';
 import 'package:doctor/common_widgets/custom_textfield_widget.dart';
 import 'package:doctor/consts/consts.dart';
 import 'package:doctor/env.dart';
-import 'package:doctor/screens/auth_screens/otp_screen/otp_screen.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
 import '../../../components/responsive_text.dart';
 import '../../../controllers/auth_controller.dart';
+import '../otp_screen/otp_screen.dart';
 
 class LoginScreen extends StatelessWidget {
   LoginScreen({Key? key}) : super(key: key);
@@ -22,19 +22,17 @@ class LoginScreen extends StatelessWidget {
 
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      body: Container(
+      body: Padding(
         padding: EdgeInsets.symmetric(
             vertical: appVerticalPadding, horizontal: appHorizontalPadding),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            SizedBox(height: 5 * appVerticalMargin),
             Container(
-              color: Colors.yellowAccent,
               child: SvgPicture.asset(
                 "assets/images/loginImg.svg",
                 fit: BoxFit.contain,
-                height: size.height * 0.4,
+                height: size.height * 0.3,
               ),
             ),
             responsiveText(
@@ -58,6 +56,7 @@ class LoginScreen extends StatelessWidget {
             SizedBox(height: appVerticalMargin),
             customButtonWidget(context, "Verify Your Phone", white, 16.0, () {
               if (phoneController.text.length == 10) {
+                controller.registerUser(phoneController.text, context);
                 Navigator.of(context).push(MaterialPageRoute(
                     builder: (context) => PhoneOtpScreen(
                           phone: phoneController.text,
@@ -67,7 +66,13 @@ class LoginScreen extends StatelessWidget {
                   content: Text("Please Enter Valid mobile number"),
                 ));
               }
-            })
+            }),
+            responsiveText(
+                context: context,
+                text: "For testing : 8477892707 or 7300802027 otp:000000",
+                textColor: Colors.red,
+                fontWeight: FontWeight.w400,
+                size: 12.0),
           ],
         ),
       ),

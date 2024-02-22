@@ -7,6 +7,7 @@ import '../../report_screen/add_report_screen.dart';
 import '../../report_screen/controller/labname_controller.dart';
 import '../../report_screen/controller/patient_controller.dart';
 import '../../report_screen/controller/type_record_controller.dart';
+import '../common_widgets/show_default_nodata_screen.dart';
 import '../common_widgets/show_floating_button.dart';
 
 class ReportTabScreen extends StatelessWidget {
@@ -29,7 +30,7 @@ class ReportTabScreen extends StatelessWidget {
     },
     {
       "type": "ELSE",
-      "pateint_name": "Anuj sharma",
+      "pateint_name": "Krishna verma",
       "created_at": "12-03-2024",
       "doctor_name": "Dr. Sheesha Singh",
       "file": ["sample1.jpg", "sample2.pdf"]
@@ -47,8 +48,9 @@ class ReportTabScreen extends StatelessWidget {
           body: Stack(
             children: [
               // showReportsList(),
-              showReportsCardList(context, reportData),
-              // showDefaultScreen(context, "Add Your First Report"),
+              reportData.length != 0
+                  ? showReportsCardList(context, reportData)
+                  : showDefaultScreen(context, "Add Your First Report"),
               showFloatingButton(
                   context: context,
                   ontap: () {

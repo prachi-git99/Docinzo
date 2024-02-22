@@ -1,6 +1,5 @@
 import 'package:doctor/common_widgets/custom_botton_widget.dart';
 import 'package:doctor/consts/consts.dart';
-import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:get/get.dart';
 import 'package:pinput/pinput.dart';
 
@@ -96,6 +95,9 @@ class _PhoneOtpScreenState extends State<PhoneOtpScreen> {
                 length: 6,
                 pinputAutovalidateMode: PinputAutovalidateMode.onSubmit,
                 showCursor: true,
+                onCompleted: (otp) {
+                  controller.verifyOTP(otp, context);
+                },
                 focusedPinTheme: focusedPinTheme,
                 controller: otpController,
                 defaultPinTheme: defaultPinTheme),
@@ -129,12 +131,9 @@ class _PhoneOtpScreenState extends State<PhoneOtpScreen> {
               ],
             ),
             SizedBox(height: 2 * appVerticalMargin),
-            customButtonWidget(context, "Verify Mobile", white, 16.0, () {
+            customButtonWidget(context, "Verify Mobile", white, 16.0, () async {
               if (otpController.text.length == 6 && otpController != null) {
-                const FlutterSecureStorage storage = FlutterSecureStorage();
-                storage.write(key: 'jwtToken', value: "valid");
-                Navigator.pushNamedAndRemoveUntil(
-                    context, "home", (route) => false);
+                controller.verifyOTP(otpController.text, context);
               } else {
                 ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                   content: Text("Please Enter Valid 6 digit Otp"),
