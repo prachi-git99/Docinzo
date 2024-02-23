@@ -44,13 +44,13 @@ class NotificationScreen extends StatelessWidget {
                                         responsiveText(
                                             context: context,
                                             textColor: fontGrey,
-                                            text: "10:20 AM  ",
+                                            text: "12 Feb,2024  ",
                                             fontWeight: FontWeight.w500,
                                             size: 12.0),
                                         responsiveText(
                                             context: context,
                                             textColor: fontGrey,
-                                            text: "12 Feb,2024",
+                                            text: "10:20 AM  ",
                                             fontWeight: FontWeight.w500,
                                             size: 12.0),
                                       ],

@@ -28,6 +28,7 @@ class AddFamilyMemberScreen extends StatelessWidget {
     return gradientBg(
         context: context,
         widget: Scaffold(
+          resizeToAvoidBottomInset: false,
           appBar: customAppbar(context, "Add Family Member"),
           body: roundedCornerContainer(
               color: glassWhite,
@@ -38,24 +39,24 @@ class AddFamilyMemberScreen extends StatelessWidget {
                 children: [
                   SizedBox(height: 2 * containerVerMargin),
                   customTextField(
-                      title: "Name",
+                      title: "Name*",
                       hintText: "Enter Family Member Name",
                       context: context,
                       keytype: TextInputType.name,
                       controller: familyController.nameController),
                   SizedBox(height: containerVerMargin),
                   customTextField(
-                      title: "Age",
+                      title: "Age*",
                       hintText: "Enter Family Member Age",
                       context: context,
                       keytype: TextInputType.number,
                       controller: familyController.ageController),
                   SizedBox(height: containerVerMargin),
                   customTextField(
-                      title: "Phone",
+                      title: "Phone*",
                       hintText: "Enter Family Member Phone",
                       context: context,
-                      keytype: TextInputType.number,
+                      keytype: TextInputType.phone,
                       controller: familyController.phoneController),
                   SizedBox(height: containerVerMargin),
                   Wrap(
@@ -98,17 +99,25 @@ class AddFamilyMemberScreen extends StatelessWidget {
                   SizedBox(height: 2 * containerVerMargin),
                   customButtonWidget(context, "Add Family Member", white, 14.0,
                       () {
-                    familyController.setFamilyData(
-                        name: familyController.nameController.text,
-                        age: familyController.ageController.text,
-                        phone: familyController.phoneController.text,
-                        relation: familyRelationController.currentValue,
-                        gender: genderController.currentValue,
-                        bloodGrp: bloodGrpController.currentValue);
-                    familyController.nameController.clear();
-                    familyController.ageController.clear();
-                    familyController.phoneController.clear();
-                    Navigator.pop(context);
+                    if (familyController.nameController.text.isNotEmpty ||
+                        familyController.ageController.text.isNotEmpty ||
+                        familyController.phoneController.text.isNotEmpty) {
+                      familyController.setFamilyData(
+                          name: familyController.nameController.text,
+                          age: familyController.ageController.text,
+                          phone: familyController.phoneController.text,
+                          relation: familyRelationController.currentValue,
+                          gender: genderController.currentValue,
+                          bloodGrp: bloodGrpController.currentValue);
+                      familyController.nameController.clear();
+                      familyController.ageController.clear();
+                      familyController.phoneController.clear();
+                      Navigator.pop(context);
+                    } else {
+                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                        content: Text("Please enter all fields"),
+                      ));
+                    }
                   }),
                 ],
               )),
