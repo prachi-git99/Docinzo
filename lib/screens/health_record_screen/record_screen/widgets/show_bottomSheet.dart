@@ -41,25 +41,27 @@ Widget showBottomSheetWidget(context) {
                                   child: Dialog(
                                     child: Row(
                                       children: List.generate(
-                                          controller.filePath.length,
-                                          (index) => file.extension == 'pdf'
-                                              ? SizedBox.shrink()
-                                              : Padding(
-                                                  padding:
-                                                      const EdgeInsets.all(8.0),
-                                                  child: ClipRRect(
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              smallBorderRadius),
-                                                      child: Image.file(
-                                                          File(
-                                                              "${controller.filePath[index].path}"),
-                                                          fit: BoxFit.contain,
-                                                          height:
-                                                              size.height * 0.8,
-                                                          width: size.width *
-                                                              0.9)),
-                                                )),
+                                          controller.filePath.length, (index) {
+                                        var file = controller.filePath[index];
+                                        return file.extension == 'pdf'
+                                            ? SizedBox.shrink()
+                                            : Padding(
+                                                padding:
+                                                    const EdgeInsets.all(8.0),
+                                                child: ClipRRect(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            smallBorderRadius),
+                                                    child: Image.file(
+                                                        File(
+                                                            "${controller.filePath[index].path}"),
+                                                        fit: BoxFit.contain,
+                                                        height:
+                                                            size.height * 0.8,
+                                                        width:
+                                                            size.width * 0.9)),
+                                              );
+                                      }),
                                     ),
                                   ),
                                 ));
