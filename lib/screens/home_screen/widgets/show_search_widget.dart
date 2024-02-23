@@ -3,7 +3,7 @@ import 'package:doctor/consts/consts.dart';
 Widget showSearchWidget({ontap, context}) {
   var size = MediaQuery.of(context).size;
   return Container(
-    margin: const EdgeInsets.only(bottom: 3 * containerVerMargin),
+    margin: const EdgeInsets.only(bottom: containerVerMargin),
     decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(smallBorderRadius),
         color: white,
