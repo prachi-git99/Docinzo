@@ -49,6 +49,7 @@ class AddReportScreen extends StatelessWidget {
               //get uploaded media
               showUploadedMedia(context),
               customButtonWidget(context, 'Add Report', white, 18.0, () {
+                //add validation for all reports
                 //delete all the controllers also
               }),
             ],
