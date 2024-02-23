@@ -32,14 +32,13 @@ dependencies:
 
   #local secure storage for token
   flutter_secure_storage:
-
   #date picker for appointment booking
   scroll_date_picker:
   #open pdf and media files
   open_file:
   #pick pdf and media files from phone
   file_picker:
-  open_filex:
+
   dotted_border:
   table_calendar:
   time_slot:

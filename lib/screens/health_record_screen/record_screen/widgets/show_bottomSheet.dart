@@ -94,8 +94,6 @@ Widget showBottomSheetWidget(context) {
           child: Row(
             children: List.generate(controller.filePath.length, (index) {
               var file = controller.filePath[index];
-              print("all filr");
-              print(controller.filePath[index].path);
               return file.extension != 'pdf'
                   ? SizedBox.shrink()
                   : GestureDetector(
