@@ -24,67 +24,79 @@ class _VitalScreenState extends State<VitalScreen> {
     var size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: customAppbar(context, "Health Vitals"),
-      body: SizedBox(
-        height: size.height * 0.8,
-        child: ListView.builder(
-            physics: AlwaysScrollableScrollPhysics(),
-            scrollDirection: Axis.vertical,
-            shrinkWrap: true,
-            itemCount: controller.myVitalData.length,
-            itemBuilder: (context, index) {
-              return Column(
-                children: [
-                  Container(
-                    margin: EdgeInsets.symmetric(vertical: containerVerMargin),
-                    padding: EdgeInsets.symmetric(horizontal: containerHorPadd),
-                    child: roundedCornerContainer(
-                      width: size.width,
-                      color: glassWhite,
-                      borderRadius: smallBorderRadius,
-                      blur: 12.0,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      body: SingleChildScrollView(
+        child: Container(
+          margin: EdgeInsets.only(bottom: 7 * containerVerMargin),
+          child: Column(
+              children: List.generate(
+                  controller.myVitalData.length,
+                  (index) => Column(
                         children: [
-                          Row(
-                            children: [
-                              SvgPicture.asset(
-                                "assets/images/icons/vitals_icons/${controller.myVitalData[index]['image']}",
-                                width: size.width * 0.1,
-                                height: size.height * 0.03,
-                                color: primaryColor,
+                          Container(
+                            margin: EdgeInsets.symmetric(
+                                vertical: containerVerMargin),
+                            padding: EdgeInsets.symmetric(
+                                horizontal: containerHorPadd),
+                            child: roundedCornerContainer(
+                              width: size.width,
+                              color: glassWhite,
+                              borderRadius: smallBorderRadius,
+                              blur: 12.0,
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Row(
+                                    children: [
+                                      SvgPicture.asset(
+                                        "assets/images/icons/vitals_icons/${controller.myVitalData[index]['image']}",
+                                        width: size.width * 0.1,
+                                        height: size.height * 0.03,
+                                        color: primaryColor,
+                                      ),
+                                      SizedBox(width: containerHorMargin),
+                                      responsiveText(
+                                          context: context,
+                                          textColor: black,
+                                          text: controller.myVitalData[index]
+                                              ['name'],
+                                          fontWeight: FontWeight.w500,
+                                          size: 18.0),
+                                    ],
+                                  ),
+                                  IconButton(
+                                    icon: Icon(
+                                      showVitalInfo[index]
+                                          ? Icons.keyboard_arrow_up
+                                          : Icons.keyboard_arrow_down,
+                                      size: 20,
+                                    ),
+                                    onPressed: () {
+                                      setState(() {
+                                        showVitalInfo[index] =
+                                            !showVitalInfo[index];
+                                      });
+                                    },
+                                  )
+                                ],
                               ),
-                              SizedBox(width: containerHorMargin),
-                              responsiveText(
-                                  context: context,
-                                  textColor: black,
-                                  text: controller.myVitalData[index]['name'],
-                                  fontWeight: FontWeight.w500,
-                                  size: 18.0),
-                            ],
-                          ),
-                          IconButton(
-                            icon: Icon(
-                              showVitalInfo[index]
-                                  ? Icons.keyboard_arrow_up
-                                  : Icons.keyboard_arrow_down,
-                              size: 20,
                             ),
-                            onPressed: () {
-                              setState(() {
-                                showVitalInfo[index] = !showVitalInfo[index];
-                              });
-                            },
-                          )
+                          ),
+                          showVitalInfo[index]
+                              ? showVitalsLessInfo(context, index)
+                              : SizedBox.shrink()
                         ],
-                      ),
-                    ),
-                  ),
-                  showVitalInfo[index]
-                      ? showVitalsLessInfo(context, index)
-                      : SizedBox.shrink()
-                ],
-              );
-            }),
+                      ))
+              // ListView.builder(
+              //     scrollDirection: Axis.vertical,
+              //     shrinkWrap: true,
+              //     itemCount: controller.myVitalData.length,
+              //     itemBuilder: (context, index) {
+              //       return ;
+              //     }),
+
+              ),
+        ),
       ),
     );
   }

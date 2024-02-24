@@ -29,6 +29,7 @@ class AddReportScreen extends StatelessWidget {
           padding: EdgeInsets.symmetric(
               vertical: appVerticalPadding, horizontal: appHorizontalPadding),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               //upload media
               showUploadFileSection(context),
@@ -37,15 +38,18 @@ class AddReportScreen extends StatelessWidget {
 
               showPatientRecordWidget(context),
               //textfeild
-              Container(
-                  margin: EdgeInsets.symmetric(vertical: containerVerMargin),
-                  child:
-                      recordTypeController.currentValue.value == "Prescription"
-                          ? showPrescriptionForm(context)
-                          : showLabDetailForm(context)),
+              Obx(
+                () => Container(
+                    margin: EdgeInsets.symmetric(vertical: containerVerMargin),
+                    child: recordTypeController.currentValue.value ==
+                            "Prescription"
+                        ? showPrescriptionForm(context)
+                        : showLabDetailForm(context)),
+              ),
               //get uploaded media
               showUploadedMedia(context),
               customButtonWidget(context, 'Add Report', white, 18.0, () {
+                //add validation for all reports
                 //delete all the controllers also
               }),
             ],

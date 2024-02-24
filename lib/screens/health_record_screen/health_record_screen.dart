@@ -25,7 +25,7 @@ class HealthScreen extends StatelessWidget {
                 textColor: white,
                 text: "Health Records",
                 fontWeight: FontWeight.w500,
-                size: 18.0),
+                size: 22.0),
             centerTitle: true,
             iconTheme: IconThemeData(color: white),
             flexibleSpace: Container(

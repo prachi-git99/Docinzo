@@ -16,10 +16,29 @@ dependencies:
 
   cupertino_icons: ^1.0.2
 
-  random_avatar: ^0.0.8
+
+#  firebase setup
+  cloud_firestore:
+  firebase_storage:
+  firebase_auth:
+  firebase_core: ^2.25.4
+
+#  otp input boxes
+  pinput:
+
+#  auto phone number
+  mobile_number:
+  simnumber:
+
+  #local secure storage for token
+  flutter_secure_storage:
+  #date picker for appointment booking
   scroll_date_picker:
+  #open pdf and media files
   open_file:
+  #pick pdf and media files from phone
   file_picker:
+
   dotted_border:
   table_calendar:
   time_slot:
