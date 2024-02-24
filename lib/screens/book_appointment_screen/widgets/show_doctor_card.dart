@@ -50,22 +50,22 @@ Widget showDoctorCard(context, doctorsList) {
                       textColor: black,
                       fontWeight: FontWeight.w500,
                       size: 12.0),
+                  Row(
+                      children: List.generate(
+                    doctorsList['degree'].length,
+                    (i) => responsiveText(
+                        context: context,
+                        text: "${doctorsList['degree'][i]}, ",
+                        textColor: black,
+                        fontWeight: FontWeight.w500,
+                        size: 12.0),
+                  )),
                   responsiveText(
                       context: context,
                       text: "${doctorsList['exp']} years Exp",
                       textColor: black,
                       fontWeight: FontWeight.w500,
                       size: 12.0),
-                  Row(
-                      children: List.generate(
-                    doctorsList['degree'].length,
-                    (i) => responsiveText(
-                        context: context,
-                        text: "${doctorsList['degree'][i]} ",
-                        textColor: black,
-                        fontWeight: FontWeight.w500,
-                        size: 12.0),
-                  )),
                 ],
               ),
             ),

@@ -27,6 +27,9 @@ Widget showAreaLineGraph(
           child: LineChart(LineChartData(
               minY: minY,
               maxY: maxY,
+              lineTouchData: LineTouchData(
+                  touchTooltipData:
+                      LineTouchTooltipData(tooltipBgColor: glassWhite)),
               titlesData: FlTitlesData(
                   show: true,
                   rightTitles: const AxisTitles(

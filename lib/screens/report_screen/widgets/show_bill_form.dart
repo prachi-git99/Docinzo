@@ -7,7 +7,7 @@ import '../../../common_widgets/custom_textfield_widget.dart';
 import '../../../controllers/report_controller.dart';
 import '../../../controllers/scrollCalender_controller.dart';
 
-Widget showPrescriptionForm(context) {
+Widget showBillForm(context) {
   var size = MediaQuery.of(context).size;
   var controller = Get.find<ReportController>();
   ScrollCalenderController scrollCalenderController =
@@ -19,11 +19,11 @@ Widget showPrescriptionForm(context) {
     children: [
       Expanded(
         child: customTextField(
-          title: "Prescribed by",
+          title: "Bill Name",
           context: context,
           keytype: TextInputType.name,
           controller: controller.priscribedDoctorNameController,
-          hintText: "Enter doctor name",
+          hintText: "Enter bill name",
         ),
       ),
       SizedBox(width: containerHorMargin),

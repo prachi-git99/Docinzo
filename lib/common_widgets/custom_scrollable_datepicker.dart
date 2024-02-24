@@ -14,7 +14,7 @@ final unselectedStyle = TextStyle(
 const selectedStyle = TextStyle(
     fontFamily: poppins,
     fontWeight: FontWeight.w500,
-    fontSize: 12.0,
+    fontSize: 14.0,
     color: primaryColor);
 
 ScrollCalenderController scrollCalenderController =
@@ -28,13 +28,16 @@ Widget customScrollableDatepicker(context) {
       width: size.width,
       color: glassWhite,
       child: ScrollDatePicker(
+          indicator: Container(height: size.height * 0.05),
           scrollViewOptions: DatePickerScrollViewOptions(
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
               crossAxisAlignment: CrossAxisAlignment.center,
               year: ScrollViewDetailOptions(
                   textStyle: unselectedStyle, selectedTextStyle: selectedStyle),
               month: ScrollViewDetailOptions(
-                  textStyle: unselectedStyle, selectedTextStyle: selectedStyle),
+                  label: "   ",
+                  textStyle: unselectedStyle,
+                  selectedTextStyle: selectedStyle),
               day: ScrollViewDetailOptions(
                   textStyle: unselectedStyle,
                   selectedTextStyle: selectedStyle)),

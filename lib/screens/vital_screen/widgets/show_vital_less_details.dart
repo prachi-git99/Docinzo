@@ -7,8 +7,8 @@ import 'package:doctor/screens/vital_screen/vitals/weight/show_weight_widget.dar
 import '../../../components/rounded_corner_container.dart';
 import '../vitals/blood_pressure/show_blood_pressure_widget.dart';
 import '../vitals/body_temp/show_temperature_widget.dart';
+import '../vitals/menstrual/show_menstrual_widget.dart';
 import '../vitals/oxygen/show_oxygen_widget.dart';
-import 'show_vitalvalues_and_dropdown.dart';
 
 Widget showVitalsLessInfo(context, index) {
   var size = MediaQuery.of(context).size;
@@ -20,7 +20,8 @@ Widget showVitalsLessInfo(context, index) {
     3: showSugarLevelWidget(context, index),
     4: showTemperatureWidget(context, index),
     5: showOxygenWidget(context, index),
-    6: showHeightWidget(context, index)
+    6: showHeightWidget(context, index),
+    7: showMenstrualWidget(context, index)
   };
   return Container(
     margin: EdgeInsets.only(bottom: 2 * containerVerMargin),
@@ -33,22 +34,9 @@ Widget showVitalsLessInfo(context, index) {
       child: Padding(
         padding: const EdgeInsets.symmetric(
             horizontal: containerHorPadd, vertical: containerVerPadd),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            showVitalvaluesDropdown(context, index),
-            SizedBox(height: 2 * containerVerMargin),
-            (index >= 0 && index <= 6) ? VITAL_MAP[index] : SizedBox.shrink(),
-            // GestureDetector(
-            //     onTap: () {},
-            //     child: responsiveText(
-            //         context: context,
-            //         textColor: primaryColor,
-            //         text: "View Details",
-            //         fontWeight: FontWeight.w500,
-            //         size: 14.0)),
-          ],
-        ),
+        child: (index >= 0 && index <= VITAL_MAP.length - 1)
+            ? VITAL_MAP[index]
+            : SizedBox.shrink(),
       ),
     ),
   );

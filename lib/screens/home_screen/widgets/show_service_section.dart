@@ -34,7 +34,7 @@ Widget showServicesSection(context) {
                             children: [
                               responsiveText(
                                   context: context,
-                                  text: index == 2
+                                  text: index == 1
                                       ? 'Add'
                                       : (index == 3 || index == 4)
                                           ? "Buy"

@@ -4,6 +4,7 @@ import "package:fl_chart/fl_chart.dart";
 import "package:get/get.dart";
 
 import "../../../../common_widgets/show_arealine_graph.dart";
+import "../../widgets/show_vitalvalues_and_dropdown.dart";
 
 Map<String, dynamic> DATA = {
   "x_axis": ['M', 'T', 'W', 'Th', 'F', 'Sa', 'Su'],
@@ -50,5 +51,11 @@ Widget showOxygenWidget(context, index) {
         maxY: DATA['y_axis_max']);
   }
 
-  return Obx(() => showGraph(controller.dropDownValue[index]));
+  return Column(
+    children: [
+      showVitalvaluesDropdown(context, index),
+      SizedBox(height: 2 * containerVerMargin),
+      Obx(() => showGraph(controller.dropDownValue[index])),
+    ],
+  );
 }

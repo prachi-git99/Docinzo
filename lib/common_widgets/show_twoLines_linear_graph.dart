@@ -20,6 +20,9 @@ Widget showTwoLinesLinearGraph(
             BarChartData(
               maxY: maxLimit,
               minY: minLimit,
+              barTouchData: BarTouchData(
+                  touchTooltipData:
+                      BarTouchTooltipData(tooltipBgColor: glassWhite)),
               titlesData: FlTitlesData(
                   show: true,
                   rightTitles: const AxisTitles(
