@@ -50,6 +50,11 @@ class ReportTabScreen extends StatelessWidget {
               "https://m.media-amazon.com/images/I/71v2-pt1EdL._AC_UF1000,1000_QL80_.jpg"
         },
         {
+          "type": "image",
+          "link":
+              "https://m.media-amazon.com/images/I/71v2-pt1EdL._AC_UF1000,1000_QL80_.jpg"
+        },
+        {
           "type": "document",
           "link":
               "https://drive.google.com/file/d/1vEq9y1D6oMmoYI_O-tBynr9azderbLOP/view"
@@ -62,6 +67,11 @@ class ReportTabScreen extends StatelessWidget {
       "created_at": "12-03-2024",
       "doctor_name": "Dr. Sheesha Singh",
       "file": [
+        {
+          "type": "image",
+          "link":
+              "https://m.media-amazon.com/images/I/71v2-pt1EdL._AC_UF1000,1000_QL80_.jpg"
+        },
         {
           "type": "image",
           "link":

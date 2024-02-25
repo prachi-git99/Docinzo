@@ -8,6 +8,19 @@ import '../screens/report_screen/controller/patient_controller.dart';
 import '../screens/report_screen/controller/type_record_controller.dart';
 
 class ReportController extends GetxController {
+  RxBool imageExist = false.obs;
+  RxBool docExist = false.obs;
+
+  getReportType(data) {
+    for (int index = 0; index < data['file'].length; index++) {
+      if (data['file'][index]['type'] == 'image') {
+        imageExist.value = true;
+      } else if (data['file'][index]['type'] == 'document') {
+        docExist.value = true;
+      }
+    }
+  }
+
   @override
   void onInit() {
     // TODO: implement onInit
@@ -17,6 +30,7 @@ class ReportController extends GetxController {
     patientController.setdropDownData();
     recordTypeController.setdropDownData();
     labNameController.setdropDownData();
+
     super.onInit();
   }
 

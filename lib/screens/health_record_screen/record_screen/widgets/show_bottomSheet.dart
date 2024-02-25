@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:doctor/consts/consts.dart';
 import 'package:get/get.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -10,6 +8,21 @@ import '../../../../controllers/report_controller.dart';
 Widget showBottomSheetWidget(context, data) {
   var size = MediaQuery.of(context).size;
   var controller = Get.put(ReportController());
+
+  // bool imageExist = false;
+  // bool docExist = false;
+
+  // getReportType(data) {
+  //   for (int index = 0; index < data['file'].length; index++) {
+  //     if (data['file'][index]['type'] == 'image') {
+  //       imageExist = true;
+  //     } else if (data['file'][index]['type'] == 'document') {
+  //       docExist = true;
+  //     }
+  //   }
+  // }
+
+  Future.delayed(Duration.zero, () => controller.getReportType(data));
 
   print(data);
   print("oinnajs");
@@ -23,14 +36,16 @@ Widget showBottomSheetWidget(context, data) {
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        data['file'][0]['type'] == 'image'
-            ? responsiveText(
-                context: context,
-                textColor: black,
-                text: "Images",
-                fontWeight: FontWeight.w500,
-                size: 16.0)
-            : SizedBox.shrink(),
+        Obx(
+          () => controller.imageExist.value
+              ? responsiveText(
+                  context: context,
+                  textColor: black,
+                  text: "Images",
+                  fontWeight: FontWeight.w500,
+                  size: 16.0)
+              : SizedBox.shrink(),
+        ),
         SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           child: Row(
@@ -57,9 +72,8 @@ Widget showBottomSheetWidget(context, data) {
                                                     borderRadius:
                                                         BorderRadius.circular(
                                                             smallBorderRadius),
-                                                    child: Image.file(
-                                                        File(
-                                                            "${data['file'][index]['link']}"),
+                                                    child: Image.network(
+                                                        "${data['file'][index]['link']}",
                                                         fit: BoxFit.contain,
                                                         height:
                                                             size.height * 0.8,
@@ -90,14 +104,14 @@ Widget showBottomSheetWidget(context, data) {
           ),
         ),
         SizedBox(height: appVerticalMargin),
-        data['file'][2]['type'] == 'document'
+        Obx(() => controller.docExist.value
             ? responsiveText(
                 context: context,
                 textColor: black,
                 text: "documents",
                 fontWeight: FontWeight.w500,
                 size: 16.0)
-            : SizedBox.shrink(),
+            : SizedBox.shrink()),
         SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           child: Row(
@@ -106,12 +120,8 @@ Widget showBottomSheetWidget(context, data) {
                   ? SizedBox.shrink()
                   : GestureDetector(
                       onTap: () {
-                        Future.delayed(
-                            Duration.zero,
-                            () => launch(
-                                "https://drive.google.com/file/d/1vEq9y1D6oMmoYI_O-tBynr9azderbLOP/view")
-                            // OpenFile.open(data['file'][index]['link'])
-                            );
+                        Future.delayed(Duration.zero,
+                            () => launch(data['file'][index]['link']));
                       },
                       child: Container(
                         width: size.width * 0.25,
