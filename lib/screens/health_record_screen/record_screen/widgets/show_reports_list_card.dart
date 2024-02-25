@@ -12,8 +12,6 @@ Widget showReportsCardList(context, data) {
 
   var controller = Get.put(RecordController());
 
-  // var ChipSelected = List.generate(items.length, (index) => false);
-
   return Container(
     margin: EdgeInsets.only(bottom: 8 * containerVerMargin),
     padding: EdgeInsets.symmetric(
@@ -71,7 +69,8 @@ Widget showReportsCardList(context, data) {
                         showModalBottomSheet(
                             context: context,
                             builder: (_) {
-                              return showBottomSheetWidget(context);
+                              return showBottomSheetWidget(
+                                  context, data[index]);
                             });
                       },
                       child: Container(

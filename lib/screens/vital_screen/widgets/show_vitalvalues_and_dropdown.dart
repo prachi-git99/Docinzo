@@ -41,34 +41,42 @@ Widget showVitalvaluesDropdown(context, index) {
         ],
       ),
       //drop down
-      Container(
-        padding: EdgeInsets.symmetric(horizontal: 10.0),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(smallBorderRadius),
-          border: Border.all(color: borderGrey, style: BorderStyle.solid),
-        ),
-        child: Obx(
-          () => DropdownButton(
-            onChanged: (newValue) => controller.setSelected(newValue!, index),
-            elevation: 0,
-            underline: SizedBox.shrink(),
-            iconEnabledColor: primaryColor,
-            alignment: Alignment.bottomRight,
-            borderRadius: BorderRadius.circular(smallBorderRadius),
-            value: controller.dropDownValue[index],
-            items: controller.dropDownList[index].map((value) {
-              return DropdownMenuItem(
-                  value: value,
-                  child: responsiveText(
-                      context: context,
-                      textColor: primaryColor,
-                      text: value,
-                      fontWeight: FontWeight.w500,
-                      size: 16.0));
-            }).toList(),
+      Row(
+        children: [
+          Container(
+            padding: EdgeInsets.symmetric(horizontal: 10.0),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(smallBorderRadius),
+              border: Border.all(color: borderGrey, style: BorderStyle.solid),
+            ),
+            child: Obx(
+              () => DropdownButton(
+                onChanged: (newValue) =>
+                    controller.setSelected(newValue!, index),
+                elevation: 0,
+                underline: SizedBox.shrink(),
+                iconEnabledColor: primaryColor,
+                alignment: Alignment.bottomRight,
+                borderRadius: BorderRadius.circular(smallBorderRadius),
+                value: controller.dropDownValue[index],
+                items: controller.dropDownList[index].map((value) {
+                  return DropdownMenuItem(
+                      value: value,
+                      child: responsiveText(
+                          context: context,
+                          textColor: primaryColor,
+                          text: value,
+                          fontWeight: FontWeight.w500,
+                          size: 16.0));
+                }).toList(),
+              ),
+            ),
           ),
-        ),
+          SizedBox(width: containerHorMargin),
+          GestureDetector(onTap: () {}, child: Icon(Icons.add, size: 25.0)),
+        ],
       ),
+      //add button
     ],
   );
 }

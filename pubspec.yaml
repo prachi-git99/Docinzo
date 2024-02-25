@@ -38,7 +38,7 @@ dependencies:
   open_file:
   #pick pdf and media files from phone
   file_picker:
-
+  url_launcher:
   dotted_border:
   table_calendar:
   time_slot:

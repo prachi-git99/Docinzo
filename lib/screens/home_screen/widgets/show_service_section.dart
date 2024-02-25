@@ -7,6 +7,8 @@ Widget showServicesSection(context) {
   var size = MediaQuery.of(context).size;
 
   return Wrap(
+    alignment: WrapAlignment.center,
+    crossAxisAlignment: WrapCrossAlignment.center,
     children: List.generate(
         services.length,
         (index) => GestureDetector(

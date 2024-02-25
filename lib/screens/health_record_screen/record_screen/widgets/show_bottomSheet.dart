@@ -2,14 +2,18 @@ import 'dart:io';
 
 import 'package:doctor/consts/consts.dart';
 import 'package:get/get.dart';
-import 'package:open_file/open_file.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../../../components/responsive_text.dart';
 import '../../../../controllers/report_controller.dart';
 
-Widget showBottomSheetWidget(context) {
+Widget showBottomSheetWidget(context, data) {
   var size = MediaQuery.of(context).size;
   var controller = Get.put(ReportController());
+
+  print(data);
+  print("oinnajs");
+  print("${data['file'][0]['type']}");
 
   return Container(
     height: size.height * 0.4,
@@ -19,18 +23,19 @@ Widget showBottomSheetWidget(context) {
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        responsiveText(
-            context: context,
-            textColor: black,
-            text: "Images",
-            fontWeight: FontWeight.w500,
-            size: 16.0),
+        data['file'][0]['type'] == 'image'
+            ? responsiveText(
+                context: context,
+                textColor: black,
+                text: "Images",
+                fontWeight: FontWeight.w500,
+                size: 16.0)
+            : SizedBox.shrink(),
         SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           child: Row(
-            children: List.generate(controller.filePath.length, (index) {
-              var file = controller.filePath[index];
-              return file.extension == 'pdf'
+            children: List.generate(data['file'].length, (index) {
+              return data['file'][index]['type'] == 'document'
                   ? SizedBox.shrink()
                   : GestureDetector(
                       onTap: () {
@@ -41,9 +46,9 @@ Widget showBottomSheetWidget(context) {
                                   child: Dialog(
                                     child: Row(
                                       children: List.generate(
-                                          controller.filePath.length, (index) {
-                                        var file = controller.filePath[index];
-                                        return file.extension == 'pdf'
+                                          data['file'].length, (index) {
+                                        return data['file'][index]['type'] ==
+                                                'document'
                                             ? SizedBox.shrink()
                                             : Padding(
                                                 padding:
@@ -54,7 +59,7 @@ Widget showBottomSheetWidget(context) {
                                                             smallBorderRadius),
                                                     child: Image.file(
                                                         File(
-                                                            "${controller.filePath[index].path}"),
+                                                            "${data['file'][index]['link']}"),
                                                         fit: BoxFit.contain,
                                                         height:
                                                             size.height * 0.8,
@@ -73,8 +78,8 @@ Widget showBottomSheetWidget(context) {
                         child: ClipRRect(
                             borderRadius:
                                 BorderRadius.circular(smallBorderRadius),
-                            child: Image.file(
-                              File("${controller.filePath[index].path}"),
+                            child: Image.network(
+                              data['file'][index]['link'],
                               fit: BoxFit.fill,
                               height: size.height * 0.1,
                               width: size.width * 0.2,
@@ -85,25 +90,28 @@ Widget showBottomSheetWidget(context) {
           ),
         ),
         SizedBox(height: appVerticalMargin),
-        responsiveText(
-            context: context,
-            textColor: black,
-            text: "Documents",
-            fontWeight: FontWeight.w500,
-            size: 16.0),
+        data['file'][2]['type'] == 'document'
+            ? responsiveText(
+                context: context,
+                textColor: black,
+                text: "documents",
+                fontWeight: FontWeight.w500,
+                size: 16.0)
+            : SizedBox.shrink(),
         SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           child: Row(
-            children: List.generate(controller.filePath.length, (index) {
-              var file = controller.filePath[index];
-              return file.extension != 'pdf'
+            children: List.generate(data['file'].length, (index) {
+              return data['file'][index]['type'] != 'document'
                   ? SizedBox.shrink()
                   : GestureDetector(
                       onTap: () {
                         Future.delayed(
                             Duration.zero,
-                            () =>
-                                OpenFile.open(controller.filePath[index].path));
+                            () => launch(
+                                "https://drive.google.com/file/d/1vEq9y1D6oMmoYI_O-tBynr9azderbLOP/view")
+                            // OpenFile.open(data['file'][index]['link'])
+                            );
                       },
                       child: Container(
                         width: size.width * 0.25,
@@ -114,10 +122,6 @@ Widget showBottomSheetWidget(context) {
                               "assets/images/icons/$pdfIcon",
                               height: size.height * 0.1,
                               width: size.width * 0.2,
-                            ),
-                            Text(
-                              controller.filePath[index].name,
-                              overflow: TextOverflow.ellipsis,
                             )
                           ],
                         ),
