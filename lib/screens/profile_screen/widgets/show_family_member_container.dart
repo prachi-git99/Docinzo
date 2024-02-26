@@ -9,7 +9,6 @@ Widget showFamilyMemberContainer(context, index) {
   FamilyController familyController = Get.find<FamilyController>();
   return GestureDetector(
     onTap: () {
-      familyController.getData();
       Navigator.of(context).push(MaterialPageRoute(
           builder: (context) => FamilyMemberDetailScreen(index: index)));
     },

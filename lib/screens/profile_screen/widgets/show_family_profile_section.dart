@@ -37,8 +37,6 @@ Widget showFamilyProfileSection(context) {
                         familyController.myFamily.length + 1,
                         (index) => index == (familyController.myFamily.length)
                             ? showAddMemberContainer(context)
-                            // : index == 0
-                            //     ? SizedBox.shrink()
                             : showFamilyMemberContainer(context, index)),
                   ),
                 ),

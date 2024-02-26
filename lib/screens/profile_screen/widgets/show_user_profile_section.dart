@@ -35,7 +35,7 @@ Widget showUserProfileSection(context) {
                 SizedBox(width: containerHorMargin),
                 //user info
                 Container(
-                  width: size.width * 0.52,
+                  width: size.width * 0.48,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -67,6 +67,7 @@ Widget showUserProfileSection(context) {
                     ],
                   ),
                 ),
+                GestureDetector(onTap: () {}, child: Icon(Icons.edit)),
               ],
             )),
       ],

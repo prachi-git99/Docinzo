@@ -3,6 +3,13 @@ import 'package:get/get.dart';
 import '../consts/consts.dart';
 
 class FamilyController extends GetxController {
+  @override
+  void onInit() {
+    // TODO: implement onInit
+    getData();
+    super.onInit();
+  }
+
   TextEditingController nameController = TextEditingController();
   TextEditingController ageController = TextEditingController();
   TextEditingController phoneController = TextEditingController();
