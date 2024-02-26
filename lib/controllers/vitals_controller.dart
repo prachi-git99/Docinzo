@@ -62,7 +62,7 @@ class VitalsController extends GetxController {
       "date": "No data"
     }
   ];
-
+  List<bool> showVitalInfo = List.generate(8, (index) => false);
   var dropDownValue = List.generate(8, (index) => "WEEKLY").obs;
 
   final dropDownList =

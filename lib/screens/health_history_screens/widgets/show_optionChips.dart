@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 
 import '../../../components/responsive_text.dart';
 
-Widget showOptionList(context, List items, chipSelected, controller) {
+Widget showOptionList(context, List items, selected, controller) {
   return Wrap(
     alignment: WrapAlignment.center,
     children: [
@@ -24,24 +24,15 @@ Widget showOptionList(context, List items, chipSelected, controller) {
                   side: BorderSide(color: secondaryColor),
                   borderRadius: BorderRadius.circular(smallBorderRadius)),
               elevation: 2,
-              // side: BorderSide(color: primaryBlueColor),
-              selected: chipSelected[i],
+              selected: selected.value == i,
               selectedColor: secondaryColor,
               labelStyle: TextStyle(
-                  color: chipSelected[i] == true ? white : primaryColor,
+                  color: selected.value == i ? white : primaryColor,
                   fontFamily: poppins,
                   fontWeight: FontWeight.w300,
                   fontSize: 12),
               onSelected: (bool value) {
-                // for (int index = 0; i < chipSelected.length; i++) {
-                //   if (chipSelected[i] == chipSelected[index]) {
-                //     chipSelected[index] = value;
-                //   } else {
-                //     chipSelected[index] = false;
-                //   }
-                // }
-                print(chipSelected);
-                chipSelected[i] = value;
+                selected.value = value ? i : null;
               },
             ),
           ),

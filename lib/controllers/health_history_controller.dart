@@ -30,14 +30,20 @@ class HealthHistoryController extends GetxController {
   ];
 
   var dietList = ["Veg", "Non-veg"];
+
   var alcoholList = ["Yes,Regularly", "Yes, Occasionally", "Never"];
   var eyeSightList = ["Yes", "No"];
   var smokeList = ["Yes,Regularly", "Yes, Occasionally", "Never"];
 
   var allergyListChips = List.generate(12, (index) => false).obs;
   var familyHistoryListChips = List.generate(8, (index) => false).obs;
-  var dietListChips = List.generate(2, (index) => false).obs;
-  var eyeSightListChips = List.generate(2, (index) => false).obs;
-  var smokeListChips = List.generate(3, (index) => false).obs;
-  var alcoholListChips = List.generate(3, (index) => false).obs;
+  var chipSelected = 0.obs;
+  var dietChipSelected = 0.obs;
+  var smokeChipSelected = 0.obs;
+  var eyeChipSelected = 0.obs;
+  var alcoholChipSelected = 0.obs;
+
+  printvalue() {
+    print(chipSelected);
+  }
 }

@@ -17,8 +17,6 @@ class VitalScreen extends StatefulWidget {
 class _VitalScreenState extends State<VitalScreen> {
   VitalsController controller = Get.put(VitalsController());
 
-  List<bool> showVitalInfo = List.generate(8, (index) => false);
-
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
@@ -66,15 +64,15 @@ class _VitalScreenState extends State<VitalScreen> {
                                   ),
                                   IconButton(
                                     icon: Icon(
-                                      showVitalInfo[index]
+                                      controller.showVitalInfo[index]
                                           ? Icons.keyboard_arrow_up
                                           : Icons.keyboard_arrow_down,
                                       size: 20,
                                     ),
                                     onPressed: () {
                                       setState(() {
-                                        showVitalInfo[index] =
-                                            !showVitalInfo[index];
+                                        controller.showVitalInfo[index] =
+                                            !controller.showVitalInfo[index];
                                       });
                                     },
                                   )
@@ -82,7 +80,7 @@ class _VitalScreenState extends State<VitalScreen> {
                               ),
                             ),
                           ),
-                          showVitalInfo[index]
+                          controller.showVitalInfo[index]
                               ? showVitalsLessInfo(context, index)
                               : SizedBox.shrink()
                         ],

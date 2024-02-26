@@ -19,8 +19,8 @@ Widget showSmokeForm(context) {
           fontWeight: FontWeight.w500,
           size: 22.0),
       SizedBox(height: appVerticalMargin),
-      showOptionList(
-          context, controller.smokeList, controller.smokeListChips, controller),
+      showOptionList(context, controller.smokeList,
+          controller.smokeChipSelected, controller),
       customButtonWidget(context, "Add Health History", white, 14.0, () {
         Navigator.pushNamedAndRemoveUntil(context, "home", (route) => false);
         controller.index.value = 0;
