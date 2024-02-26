@@ -22,7 +22,8 @@ dependencies:
   firebase_storage:
   firebase_auth:
   firebase_core: ^2.25.4
-
+  #  crash analytics
+  firebase_crashlytics:
 #  otp input boxes
   pinput:
 

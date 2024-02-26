@@ -67,7 +67,8 @@ Widget showUserProfileSection(context) {
                     ],
                   ),
                 ),
-                GestureDetector(onTap: () {}, child: Icon(Icons.edit)),
+                GestureDetector(
+                    onTap: () {}, child: Icon(Icons.edit, color: black)),
               ],
             )),
       ],

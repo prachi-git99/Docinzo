@@ -8,7 +8,6 @@ import "../../../controllers/vitals_controller.dart";
 
 Widget showHealthTrackerSection(context) {
   var size = MediaQuery.of(context).size;
-  // var aspectRatio = (size.width * 0.41)/(size.height * 0.31);
   var controller = Get.find<HomeController>();
   VitalsController vitalController = Get.put(VitalsController());
 

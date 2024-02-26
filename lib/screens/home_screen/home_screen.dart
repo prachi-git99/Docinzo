@@ -79,7 +79,7 @@ class HomeScreen extends StatelessWidget {
                           size: 18.0),
                       GestureDetector(
                           onTap: () {
-                            var controller = Get.find<HomeController>();
+                            var controller = Get.put(HomeController());
                             controller.currentNavIndex.value = 2;
                           },
                           child: responsiveText(
