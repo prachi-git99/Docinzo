@@ -15,6 +15,9 @@ const trackerSectionTitle = "Track Your Health";
 const serviceSectionTitle = "Our Services";
 const hintText = "Search here...";
 const viewAll = "View All";
+const healthHistory = "Your Health History";
+const healthHistoryDesc = "Add your health history to monitor your progress";
+
 const lastUpdate = "Updated at:";
 
 //button

@@ -1,5 +1,6 @@
 import 'package:doctor/consts/consts.dart';
 import 'package:doctor/screens/report_screen/controller/type_record_controller.dart';
+import 'package:doctor/screens/report_screen/widgets/show_bill_form.dart';
 import 'package:doctor/screens/report_screen/widgets/show_lab_detail_form.dart';
 import 'package:doctor/screens/report_screen/widgets/show_pateint&record_dropdown.dart';
 import 'package:doctor/screens/report_screen/widgets/show_prescription_form.dart';
@@ -44,7 +45,9 @@ class AddReportScreen extends StatelessWidget {
                     child: recordTypeController.currentValue.value ==
                             "Prescription"
                         ? showPrescriptionForm(context)
-                        : showLabDetailForm(context)),
+                        : recordTypeController.currentValue.value == "Bill"
+                            ? showBillForm(context)
+                            : showLabDetailForm(context)),
               ),
               //get uploaded media
               showUploadedMedia(context),

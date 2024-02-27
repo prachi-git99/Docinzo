@@ -20,65 +20,102 @@ class ReportTabScreen extends StatelessWidget {
       "created_at": "12-03-2024",
       "report_name": "X-ray",
       "lab": {"name": "Apollo pvt ltd", "image": ""},
-      "file": ["sample1.jpg", "sample2.pdf"]
+      "file": [
+        {
+          "type": "image",
+          "link":
+              "https://m.media-amazon.com/images/I/71v2-pt1EdL._AC_UF1000,1000_QL80_.jpg"
+        },
+        {
+          "type": "image",
+          "link":
+              "https://m.media-amazon.com/images/I/71v2-pt1EdL._AC_UF1000,1000_QL80_.jpg"
+        },
+        {
+          "type": "document",
+          "link":
+              "https://drive.google.com/file/d/1vEq9y1D6oMmoYI_O-tBynr9azderbLOP/view"
+        }
+      ]
     },
     {
       "type": "PRESCRIPTION",
       "pateint_name": "Anuj sharma",
       "created_at": "12-03-2024",
       "doctor_name": "Dr. Sheesha Singh",
-      "file": ["sample1.jpg", "sample2.pdf"]
+      "file": [
+        {
+          "type": "image",
+          "link":
+              "https://m.media-amazon.com/images/I/71v2-pt1EdL._AC_UF1000,1000_QL80_.jpg"
+        },
+        {
+          "type": "image",
+          "link":
+              "https://m.media-amazon.com/images/I/71v2-pt1EdL._AC_UF1000,1000_QL80_.jpg"
+        },
+        {
+          "type": "document",
+          "link":
+              "https://drive.google.com/file/d/1vEq9y1D6oMmoYI_O-tBynr9azderbLOP/view"
+        }
+      ]
     },
     {
       "type": "PRESCRIPTION",
       "pateint_name": "Anuj sharma",
       "created_at": "12-03-2024",
       "doctor_name": "Dr. Sheesha Singh",
-      "file": ["sample1.jpg", "sample2.pdf"]
-    },
-    {
-      "type": "ELSE",
-      "pateint_name": "Krishna verma",
-      "report_name": "Pushpanjali Hospital bills",
-      "created_at": "12-03-2024",
-      "doctor_name": "Dr. Sheesha Singh",
-      "file": ["sample1.jpg", "sample2.pdf"]
+      "file": [
+        {
+          "type": "image",
+          "link":
+              "https://m.media-amazon.com/images/I/71v2-pt1EdL._AC_UF1000,1000_QL80_.jpg"
+        },
+        {
+          "type": "image",
+          "link":
+              "https://m.media-amazon.com/images/I/71v2-pt1EdL._AC_UF1000,1000_QL80_.jpg"
+        },
+        {
+          "type": "document",
+          "link":
+              "https://drive.google.com/file/d/1vEq9y1D6oMmoYI_O-tBynr9azderbLOP/view"
+        }
+      ]
     }
   ];
 
   @override
   Widget build(BuildContext context) {
-    var size = MediaQuery.of(context).size;
-
     return gradientBg(
         context: context,
-        widget: Scaffold(
-          backgroundColor: white,
-          body: SingleChildScrollView(
-            child: Stack(
-              children: [
-                // showReportsList(),
-                reportData.length != 0
+        widget: Stack(
+          children: [
+            Scaffold(
+              backgroundColor: white,
+              body: SingleChildScrollView(
+                child: reportData.length != 0
                     ? showReportsCardList(context, reportData)
                     : showDefaultScreen(context, "Add Your First Report"),
-                showFloatingButton(
-                    context: context,
-                    ontap: () {
-                      PatientController patientController =
-                          Get.put(PatientController());
-                      RecordTypeController recordTypeController =
-                          Get.put(RecordTypeController());
-                      LabNameController labNameController =
-                          Get.put(LabNameController());
-                      patientController.setdropDownData();
-                      recordTypeController.setdropDownData();
-                      labNameController.setdropDownData();
-                      Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => AddReportScreen()));
-                    }),
-              ],
+              ),
             ),
-          ),
+            showFloatingButton(
+                context: context,
+                ontap: () {
+                  PatientController patientController =
+                      Get.put(PatientController());
+                  RecordTypeController recordTypeController =
+                      Get.put(RecordTypeController());
+                  LabNameController labNameController =
+                      Get.put(LabNameController());
+                  patientController.setdropDownData();
+                  recordTypeController.setdropDownData();
+                  labNameController.setdropDownData();
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => AddReportScreen()));
+                }),
+          ],
         ));
   }
 }

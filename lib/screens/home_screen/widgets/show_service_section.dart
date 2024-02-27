@@ -7,6 +7,7 @@ Widget showServicesSection(context) {
   var size = MediaQuery.of(context).size;
 
   return Wrap(
+    alignment: WrapAlignment.center,
     children: List.generate(
         services.length,
         (index) => GestureDetector(
@@ -34,7 +35,7 @@ Widget showServicesSection(context) {
                             children: [
                               responsiveText(
                                   context: context,
-                                  text: index == 2
+                                  text: index == 1
                                       ? 'Add'
                                       : (index == 3 || index == 4)
                                           ? "Buy"

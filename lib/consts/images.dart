@@ -41,3 +41,6 @@ const icperiod = "period.svg";
 //gifs
 const firstAidGif = "mygif.gif";
 const comingSoonGif = "comingSoon.gif";
+
+// healthHistory
+const healthHistoryImg = "healthHistory.png";

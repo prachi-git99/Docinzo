@@ -101,7 +101,8 @@ class AddFamilyMemberScreen extends StatelessWidget {
                       () {
                     if (familyController.nameController.text.isNotEmpty ||
                         familyController.ageController.text.isNotEmpty ||
-                        familyController.phoneController.text.isNotEmpty) {
+                        familyController.phoneController.text.isNotEmpty ||
+                        familyController.phoneController.text.length == 10) {
                       familyController.setFamilyData(
                           name: familyController.nameController.text,
                           age: familyController.ageController.text,

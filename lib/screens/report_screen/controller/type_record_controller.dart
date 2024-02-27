@@ -5,9 +5,9 @@ class RecordTypeController extends DropDownController {
     List<Map<String, dynamic>> finalResponse = [
       {"id": 1, "name": "Lab Test"},
       {"id": 2, "name": "Prescription"},
-      {"id": 3, "name": "Bill"},
-      {"id": 4, "name": "Hospitalisation"},
-      {"id": 5, "name": "Insurance"}
+      {"id": 3, "name": "Bill"}
+      // {"id": 4, "name": "Hospitalisation"},
+      // {"id": 5, "name": "Insurance"}
     ];
 
     List<String> recordTypeNameList = [];

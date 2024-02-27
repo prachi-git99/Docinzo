@@ -23,7 +23,7 @@ Widget showPrescriptionForm(context) {
           context: context,
           keytype: TextInputType.name,
           controller: controller.priscribedDoctorNameController,
-          hintText: "Dr. Prachi Verma",
+          hintText: "Enter doctor name",
         ),
       ),
       SizedBox(width: containerHorMargin),

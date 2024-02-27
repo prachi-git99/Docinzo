@@ -7,7 +7,7 @@ class FamilyRelationController extends DropDownController {
       {"name": "MOTHER"},
       {"name": "HUSBAND"},
       {"name": "WIFE"},
-      {"name": "COUSIN"},
+      {"name": "BROTHER"},
       {"name": "SISTER"},
       {"name": "DAUGHTER"},
       {"name": "SON"},

@@ -4,6 +4,7 @@ import 'package:doctor/components/responsive_text.dart';
 import 'package:doctor/consts/consts.dart';
 import 'package:doctor/controllers/home_controller.dart';
 import 'package:doctor/screens/home_screen/widgets/show_header_widget.dart';
+import 'package:doctor/screens/home_screen/widgets/show_health_history_section.dart';
 import 'package:doctor/screens/home_screen/widgets/show_health_tracker_section.dart';
 import 'package:doctor/screens/home_screen/widgets/show_search_widget.dart';
 import 'package:doctor/screens/home_screen/widgets/show_service_section.dart';
@@ -15,6 +16,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
+
     return gradientBg(
         context: context,
         widget: SafeArea(
@@ -54,7 +56,7 @@ class HomeScreen extends StatelessWidget {
                           size: 18.0)
                     ],
                   ),
-
+                  //show appointment section
                   SingleChildScrollView(
                     scrollDirection: Axis.horizontal,
                     physics: ScrollPhysics(),
@@ -77,7 +79,7 @@ class HomeScreen extends StatelessWidget {
                           size: 18.0),
                       GestureDetector(
                           onTap: () {
-                            var controller = Get.find<HomeController>();
+                            var controller = Get.put(HomeController());
                             controller.currentNavIndex.value = 2;
                           },
                           child: responsiveText(
@@ -90,8 +92,7 @@ class HomeScreen extends StatelessWidget {
                   ),
                   SizedBox(height: containerVerMargin),
                   showHealthTrackerSection(context),
-
-                  SizedBox(height: 10 * containerVerMargin)
+                  showHealtyHistorySection(context),
                 ],
               ),
             ),

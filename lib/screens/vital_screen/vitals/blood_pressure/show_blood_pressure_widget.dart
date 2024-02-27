@@ -4,6 +4,7 @@ import "package:fl_chart/fl_chart.dart";
 import "package:get/get.dart";
 
 import "../../../../common_widgets/show_twoLines_linear_graph.dart";
+import "../../widgets/show_vitalvalues_and_dropdown.dart";
 
 Map<String, dynamic> DATA = {
   "x_axis": ['M', 'T', 'W', 'Th', 'F', 'Sa', 'Su'],
@@ -42,5 +43,11 @@ Widget showBloodPressureWidget(context, index) {
         DATA['y_axis_max'], DATA['y_axis_min'], DATA['y_axis_interval']);
   }
 
-  return Obx(() => showGraph(controller.dropDownValue[index]));
+  return Column(
+    children: [
+      showVitalvaluesDropdown(context, index),
+      SizedBox(height: 2 * containerVerMargin),
+      Obx(() => showGraph(controller.dropDownValue[index])),
+    ],
+  );
 }

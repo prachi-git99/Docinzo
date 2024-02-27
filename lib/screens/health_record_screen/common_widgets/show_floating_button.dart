@@ -5,7 +5,7 @@ Widget showFloatingButton({context, ontap}) {
 
   return Positioned(
     right: size.width * 0.05,
-    bottom: size.height * 0.1,
+    bottom: size.height * 0.12,
     child: CircleAvatar(
       radius: size.width * 0.08,
       backgroundColor: secondaryColor,
