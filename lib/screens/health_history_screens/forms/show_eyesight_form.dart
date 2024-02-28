@@ -12,9 +12,6 @@ Widget showEyeSightForm(context) {
 
   var size = MediaQuery.of(context).size;
 
-  TextEditingController leftSphController = TextEditingController();
-  TextEditingController rightSphController = TextEditingController();
-
   return Column(
     children: [
       SizedBox(height: appVerticalMargin),
@@ -27,71 +24,76 @@ Widget showEyeSightForm(context) {
       SizedBox(height: appVerticalMargin),
       showOptionList(context, controller.eyeSightList,
           controller.eyeChipSelected, controller),
-      SizedBox(height: appVerticalMargin),
-      Divider(),
-      Row(
-        children: [
-          Expanded(
-            child: customTextField(
-                title: "Left",
-                hintText: "Sph number",
-                context: context,
-                keytype: TextInputType.number,
-                controller: leftSphController),
-          ),
-          SizedBox(width: containerHorMargin),
-          Expanded(
-            child: customTextField(
-                title: "Right",
-                hintText: "Sph number",
-                context: context,
-                keytype: TextInputType.number,
-                controller: rightSphController),
-          ),
-        ],
-      ),
-      Row(
-        children: [
-          Expanded(
-            child: customTextField(
-                title: "Left",
-                hintText: "Cyl number",
-                context: context,
-                keytype: TextInputType.number,
-                controller: leftSphController),
-          ),
-          SizedBox(width: containerHorMargin),
-          Expanded(
-            child: customTextField(
-                title: "Right",
-                hintText: "Cyl number",
-                context: context,
-                keytype: TextInputType.number,
-                controller: rightSphController),
-          ),
-        ],
-      ),
-      Row(
-        children: [
-          Expanded(
-            child: customTextField(
-                title: "Left",
-                hintText: "Axis number",
-                context: context,
-                keytype: TextInputType.number,
-                controller: leftSphController),
-          ),
-          SizedBox(width: containerHorMargin),
-          Expanded(
-            child: customTextField(
-                title: "Right",
-                hintText: "Axis number",
-                context: context,
-                keytype: TextInputType.number,
-                controller: rightSphController),
-          ),
-        ],
-      ),
+      Obx(() => controller.eyeChipSelected.value == 1
+          ? Column(
+              children: [
+                SizedBox(height: 3 * appVerticalMargin),
+                Row(
+                  children: [
+                    Expanded(
+                      child: customTextField(
+                          title: "Left",
+                          hintText: "Sph number",
+                          context: context,
+                          keytype: TextInputType.number,
+                          controller: controller.leftSphController),
+                    ),
+                    SizedBox(width: containerHorMargin),
+                    Expanded(
+                      child: customTextField(
+                          title: "Right",
+                          hintText: "Sph number",
+                          context: context,
+                          keytype: TextInputType.number,
+                          controller: controller.rightSphController),
+                    ),
+                  ],
+                ),
+                Row(
+                  children: [
+                    Expanded(
+                      child: customTextField(
+                          title: "Left",
+                          hintText: "Cyl number",
+                          context: context,
+                          keytype: TextInputType.number,
+                          controller: controller.leftCylController),
+                    ),
+                    SizedBox(width: containerHorMargin),
+                    Expanded(
+                      child: customTextField(
+                          title: "Right",
+                          hintText: "Cyl number",
+                          context: context,
+                          keytype: TextInputType.number,
+                          controller: controller.rightCylController),
+                    ),
+                  ],
+                ),
+                Row(
+                  children: [
+                    Expanded(
+                      child: customTextField(
+                          title: "Left",
+                          hintText: "Axis number",
+                          context: context,
+                          keytype: TextInputType.number,
+                          controller: controller.leftAxisController),
+                    ),
+                    SizedBox(width: containerHorMargin),
+                    Expanded(
+                      child: customTextField(
+                          title: "Right",
+                          hintText: "Axis number",
+                          context: context,
+                          keytype: TextInputType.number,
+                          controller: controller.rightAxisController),
+                    ),
+                  ],
+                ),
+              ],
+            )
+          : SizedBox.shrink()),
       SizedBox(height: appVerticalMargin),
       customButtonWidget(context, "Next", white, 14.0, () {
         controller.index.value = 5;

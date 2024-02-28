@@ -34,6 +34,7 @@ class HealthHistory extends StatelessWidget {
     return gradientBg(
         context: context,
         widget: Scaffold(
+            resizeToAvoidBottomInset: false,
             appBar: customAppbar(context, "Add Your Health History"),
             body: Padding(
               padding:

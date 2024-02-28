@@ -1,7 +1,16 @@
 import 'package:get/get.dart';
 
+import '../consts/consts.dart';
+
 class HealthHistoryController extends GetxController {
   var index = 0.obs;
+
+  TextEditingController leftSphController = TextEditingController();
+  TextEditingController rightSphController = TextEditingController();
+  TextEditingController leftCylController = TextEditingController();
+  TextEditingController rightCylController = TextEditingController();
+  TextEditingController leftAxisController = TextEditingController();
+  TextEditingController rightAxisController = TextEditingController();
 
   var allergyList = [
     "Certain Medication",
@@ -32,7 +41,7 @@ class HealthHistoryController extends GetxController {
   var dietList = ["Veg", "Non-veg"];
 
   var alcoholList = ["Yes,Regularly", "Yes, Occasionally", "Never"];
-  var eyeSightList = ["Yes", "No"];
+  var eyeSightList = ["No", "Yes"];
   var smokeList = ["Yes,Regularly", "Yes, Occasionally", "Never"];
 
   var allergyListChips = List.generate(12, (index) => false).obs;
