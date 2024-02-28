@@ -8,7 +8,7 @@ import "../../../controllers/vitals_controller.dart";
 
 Widget showHealthTrackerSection(context) {
   var size = MediaQuery.of(context).size;
-  var controller = Get.find<HomeController>();
+  var controller = Get.put(HomeController());
   VitalsController vitalController = Get.put(VitalsController());
 
   return Column(
