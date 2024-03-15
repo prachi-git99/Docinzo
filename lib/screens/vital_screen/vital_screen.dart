@@ -21,8 +21,10 @@ class _VitalScreenState extends State<VitalScreen> {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: customAppbar(context, "Health Vitals"),
       body: SingleChildScrollView(
+        scrollDirection: Axis.vertical,
         child: Container(
           margin: EdgeInsets.only(bottom: 7 * containerVerMargin),
           child: Column(

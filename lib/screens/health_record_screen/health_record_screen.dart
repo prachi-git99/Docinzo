@@ -6,14 +6,23 @@ import 'package:get/get.dart';
 
 import '../../components/responsive_text.dart';
 import '../../controllers/home_controller.dart';
+import '../../controllers/report_controller.dart';
+import '../../firebase/get_reports_data_controller.dart';
 
 class HealthScreen extends StatelessWidget {
   HealthScreen({Key? key}) : super(key: key);
 
   var controller = Get.find<HomeController>();
+  GetReportsDataFromFirebase getReportsDataFromFirebase =
+      Get.put(GetReportsDataFromFirebase());
+  var reportController = Get.put(ReportController());
 
   @override
   Widget build(BuildContext context) {
+    // Future.delayed(
+    //     Duration.zero,
+    //     () => getReportsDataFromFirebase.getReportsData(
+    //         recordName: reportController.nameController.text));
     return DefaultTabController(
       initialIndex: controller.searchTabIndex.value,
       length: 2,

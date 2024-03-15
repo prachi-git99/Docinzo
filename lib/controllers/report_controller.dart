@@ -37,8 +37,6 @@ class ReportController extends GetxController {
   RxList filePath = [].obs;
 
   TextEditingController nameController = TextEditingController();
-  TextEditingController priscribedDoctorNameController =
-      TextEditingController();
 
   void openFile(PlatformFile file) => OpenFile.open(file.path);
 
@@ -48,6 +46,7 @@ class ReportController extends GetxController {
         type: FileType.custom,
         allowedExtensions: ['jpg', 'pdf', 'jpeg', 'webp', 'png']);
     if (result == null) return;
+
     final file = result.files;
     filePath.value = file;
   }

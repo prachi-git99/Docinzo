@@ -12,7 +12,7 @@ class AppointmentTabScreen extends StatelessWidget {
   List<Map<String, dynamic>> appointmentData = [
     {
       "doctor_name": "Dr.Neelu Bhatnagar",
-      "patient_name": "Anuj sharma",
+      "patient_name": "Payal sharma",
       "created_at": "12-03-2024",
       "appointment_time": "10:45",
       "appointment_date": "23-02-2024",
@@ -20,7 +20,7 @@ class AppointmentTabScreen extends StatelessWidget {
     },
     {
       "doctor_name": "Dr.Neelu Bhatnagar",
-      "patient_name": "Anuj sharma",
+      "patient_name": "Payal sharma",
       "created_at": "12-03-2024",
       "appointment_time": "10:45",
       "appointment_date": "23-02-2024",
@@ -28,7 +28,7 @@ class AppointmentTabScreen extends StatelessWidget {
     },
     {
       "doctor_name": "Dr.Neelu Bhatnagar",
-      "patient_name": "Anuj sharma",
+      "patient_name": "Payal sharma",
       "created_at": "12-03-2024",
       "appointment_time": "10:45",
       "appointment_date": "23-02-2024",
@@ -36,7 +36,7 @@ class AppointmentTabScreen extends StatelessWidget {
     },
     {
       "doctor_name": "Dr.Neelu Bhatnagar",
-      "patient_name": "Anuj sharma",
+      "patient_name": "Payal sharma",
       "created_at": "12-03-2024",
       "appointment_time": "10:45",
       "appointment_date": "23-02-2024",

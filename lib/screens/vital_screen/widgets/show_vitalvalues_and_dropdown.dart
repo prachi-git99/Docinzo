@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 
 import '../../../components/responsive_text.dart';
 import '../../../controllers/vitals_controller.dart';
+import '../../health_history_screens/widgets/add_vital_value_dialog_box.dart';
 
 Widget showVitalvaluesDropdown(context, index) {
   var controller = Get.put(VitalsController());
@@ -14,22 +15,34 @@ Widget showVitalvaluesDropdown(context, index) {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           //value and  unit
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              responsiveText(
-                  context: context,
-                  textColor: black,
-                  text: controller.myVitalData[index]['value'],
-                  fontWeight: FontWeight.w600,
-                  size: 20.0),
-              responsiveText(
-                  context: context,
-                  textColor: black,
-                  text: " ${controller.myVitalData[index]['unit']}",
-                  fontWeight: FontWeight.w300,
-                  size: 13.0),
-            ],
+          GestureDetector(
+            onTap: () {
+              showDialog(
+                context: context,
+                builder: (BuildContext dialogContext) {
+                  return addVitalValueDialog(context);
+                },
+              );
+            },
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                responsiveText(
+                    context: context,
+                    textColor: black,
+                    text: controller.myVitalData[index]['value'] == null
+                        ? "__ "
+                        : controller.myVitalData[index]['value'],
+                    fontWeight: FontWeight.w600,
+                    size: 20.0),
+                responsiveText(
+                    context: context,
+                    textColor: black,
+                    text: " ${controller.myVitalData[index]['unit']}",
+                    fontWeight: FontWeight.w300,
+                    size: 13.0),
+              ],
+            ),
           ),
           //date & time
           responsiveText(

@@ -22,7 +22,7 @@ Widget showBillForm(context) {
           title: "Bill Name",
           context: context,
           keytype: TextInputType.name,
-          controller: controller.priscribedDoctorNameController,
+          controller: controller.nameController,
           hintText: "Enter bill name",
         ),
       ),

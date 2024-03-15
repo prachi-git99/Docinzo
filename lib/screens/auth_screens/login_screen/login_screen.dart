@@ -6,7 +6,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
 import '../../../components/responsive_text.dart';
-import '../../../controllers/auth_controller.dart';
+import '../../../firebase/auth_controller.dart';
 import '../otp_screen/otp_screen.dart';
 
 class LoginScreen extends StatelessWidget {

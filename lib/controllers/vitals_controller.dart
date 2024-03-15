@@ -8,56 +8,56 @@ class VitalsController extends GetxController {
     {
       "name": "Blood Pressure",
       "image": icBp,
-      "value": "--/--",
+      "value": null,
       "unit": "mmHg",
       "date": "No data"
     },
     {
       "name": "Weight",
       "image": icweight,
-      "value": "--",
+      "value": null,
       "unit": "Kg",
       "date": "No data"
     },
     {
       "name": "Pulse Rate",
       "image": icpulse,
-      "value": "--",
+      "value": null,
       "unit": "bpm",
       "date": "No data"
     },
     {
       "name": "Blood Sugar Level",
       "image": icsugar,
-      "value": "--",
+      "value": null,
       "unit": "mg/dL",
       "date": "No data"
     },
     {
       "name": "Body Temperature",
       "image": ictemp,
-      "value": "--",
+      "value": null,
       "unit": "F",
       "date": "No data"
     },
     {
       "name": "Oxygen Saturation",
       "image": icoxygen,
-      "value": "--",
+      "value": null,
       "unit": "SpO",
       "date": "No data"
     },
     {
       "name": "Height",
       "image": icheight,
-      "value": "--",
+      "value": null,
       "unit": "cm",
       "date": "No data"
     },
     {
       "name": "Menstrual Cycle",
       "image": icperiod,
-      "value": "--",
+      "value": null,
       "unit": "days",
       "date": "No data"
     }

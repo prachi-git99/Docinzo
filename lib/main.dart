@@ -18,6 +18,7 @@ void main() async {
               apiKey: 'AIzaSyB1e8ukdlfIDBT-mBBfILbqnB0ZyE1iDK4',
               appId: '1:57349243665:android:cde199ba69c9eaed57c2b0',
               messagingSenderId: '57349243665',
+              storageBucket: 'docinzo-c5c51.appspot.com',
               projectId: 'docinzo-c5c51'))
       : await Firebase.initializeApp();
 

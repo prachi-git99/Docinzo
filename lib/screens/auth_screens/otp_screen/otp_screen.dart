@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'package:pinput/pinput.dart';
 
 import '../../../components/responsive_text.dart';
-import '../../../controllers/auth_controller.dart';
+import '../../../firebase/auth_controller.dart';
 
 class PhoneOtpScreen extends StatefulWidget {
   String? phone;

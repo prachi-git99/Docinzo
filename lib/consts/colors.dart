@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 const Color shadow = Color.fromRGBO(0, 0, 0, 0.07058823529411765);
 const Color white = Colors.white;
 const Color black = Colors.black;
+// const Color green = Colors.green.shade900;
 const Color bgColor = Color.fromRGBO(248, 248, 248, 1);
 const Color glassWhite = Color.fromRGBO(255, 255, 255, 0.75);
 

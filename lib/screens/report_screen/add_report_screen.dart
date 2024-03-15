@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:doctor/consts/consts.dart';
 import 'package:doctor/screens/report_screen/controller/type_record_controller.dart';
 import 'package:doctor/screens/report_screen/widgets/show_bill_form.dart';
@@ -11,6 +13,10 @@ import 'package:get/get.dart';
 import '../../common_widgets/custom_appbar.dart';
 import '../../common_widgets/custom_botton_widget.dart';
 import '../../controllers/report_controller.dart';
+import '../../controllers/scrollCalender_controller.dart';
+import '../../firebase/add_report_controller.dart';
+import 'controller/labname_controller.dart';
+import 'controller/patient_controller.dart';
 
 class AddReportScreen extends StatelessWidget {
   const AddReportScreen({Key? key}) : super(key: key);
@@ -20,6 +26,14 @@ class AddReportScreen extends StatelessWidget {
     var controller = Get.put(ReportController());
 
     RecordTypeController recordTypeController = Get.put(RecordTypeController());
+    AddReportInFirebase addReportInFirebase = Get.put(AddReportInFirebase());
+
+    //firebase
+
+    PatientController patientController = Get.find<PatientController>();
+    LabNameController labNameController = Get.find<LabNameController>();
+    ScrollCalenderController scrollCalenderController =
+        Get.put(ScrollCalenderController());
 
     return Scaffold(
       resizeToAvoidBottomInset: false,
@@ -36,7 +50,6 @@ class AddReportScreen extends StatelessWidget {
               showUploadFileSection(context),
               //dropdown
               SizedBox(height: containerVerMargin),
-
               showPatientRecordWidget(context),
               //textfeild
               Obx(
@@ -51,9 +64,46 @@ class AddReportScreen extends StatelessWidget {
               ),
               //get uploaded media
               showUploadedMedia(context),
-              customButtonWidget(context, 'Add Report', white, 18.0, () {
+              customButtonWidget(context, 'Add Report', white, 18.0, () async {
                 //add validation for all reports
                 //delete all the controllers also
+                try {
+                  //upload files
+
+                  print("hey");
+                  final downloadLink = await addReportInFirebase.uploadMedia(
+                      controller.filePath[0].name,
+                      File(controller.filePath[0].path!));
+                  print(downloadLink);
+
+                  addReportInFirebase.storeReportsData(
+                      files: downloadLink,
+                      patientName: patientController.currentValue.value,
+                      recordType: recordTypeController.currentValue.value,
+                      recordName: controller.nameController.text,
+                      recordDate:
+                          scrollCalenderController.currentReportTime.value,
+                      labName: labNameController.currentValue.value);
+
+                  Get.delete<ReportController>();
+                  patientController.dispose();
+                  recordTypeController.dispose();
+                  controller.nameController.dispose();
+                  labNameController.dispose();
+
+                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                    content: Text("File Uploaded"),
+                    backgroundColor: primaryColor,
+                  ));
+
+                  Navigator.pop(context);
+                } catch (error) {
+                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                    content: Text("Something went wrong"),
+                    backgroundColor: primaryColor,
+                  ));
+                  print(error);
+                }
               }),
             ],
           ),

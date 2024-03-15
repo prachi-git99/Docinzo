@@ -14,76 +14,76 @@ class ReportTabScreen extends StatelessWidget {
   ReportTabScreen({Key? key}) : super(key: key);
 
   List<Map<String, dynamic>> reportData = [
-    {
-      "type": "LAB",
-      "pateint_name": "Anuj sharma",
-      "created_at": "12-03-2024",
-      "report_name": "X-ray",
-      "lab": {"name": "Apollo pvt ltd", "image": ""},
-      "file": [
-        {
-          "type": "image",
-          "link":
-              "https://m.media-amazon.com/images/I/71v2-pt1EdL._AC_UF1000,1000_QL80_.jpg"
-        },
-        {
-          "type": "image",
-          "link":
-              "https://m.media-amazon.com/images/I/71v2-pt1EdL._AC_UF1000,1000_QL80_.jpg"
-        },
-        {
-          "type": "document",
-          "link":
-              "https://drive.google.com/file/d/1vEq9y1D6oMmoYI_O-tBynr9azderbLOP/view"
-        }
-      ]
-    },
-    {
-      "type": "PRESCRIPTION",
-      "pateint_name": "Anuj sharma",
-      "created_at": "12-03-2024",
-      "doctor_name": "Dr. Sheesha Singh",
-      "file": [
-        {
-          "type": "image",
-          "link":
-              "https://m.media-amazon.com/images/I/71v2-pt1EdL._AC_UF1000,1000_QL80_.jpg"
-        },
-        {
-          "type": "image",
-          "link":
-              "https://m.media-amazon.com/images/I/71v2-pt1EdL._AC_UF1000,1000_QL80_.jpg"
-        },
-        {
-          "type": "document",
-          "link":
-              "https://drive.google.com/file/d/1vEq9y1D6oMmoYI_O-tBynr9azderbLOP/view"
-        }
-      ]
-    },
-    {
-      "type": "PRESCRIPTION",
-      "pateint_name": "Anuj sharma",
-      "created_at": "12-03-2024",
-      "doctor_name": "Dr. Sheesha Singh",
-      "file": [
-        {
-          "type": "image",
-          "link":
-              "https://m.media-amazon.com/images/I/71v2-pt1EdL._AC_UF1000,1000_QL80_.jpg"
-        },
-        {
-          "type": "image",
-          "link":
-              "https://m.media-amazon.com/images/I/71v2-pt1EdL._AC_UF1000,1000_QL80_.jpg"
-        },
-        {
-          "type": "document",
-          "link":
-              "https://drive.google.com/file/d/1vEq9y1D6oMmoYI_O-tBynr9azderbLOP/view"
-        }
-      ]
-    }
+    // {
+    //   "type": "LAB",
+    //   "pateint_name": "Santi sharma",
+    //   "created_at": "12-03-2024",
+    //   "report_name": "X-ray",
+    //   "lab": {"name": "Apollo pvt ltd", "image": ""},
+    //   "file": [
+    //     {
+    //       "type": "image",
+    //       "link":
+    //           "https://m.media-amazon.com/images/I/71v2-pt1EdL._AC_UF1000,1000_QL80_.jpg"
+    //     },
+    //     {
+    //       "type": "image",
+    //       "link":
+    //           "https://m.media-amazon.com/images/I/71v2-pt1EdL._AC_UF1000,1000_QL80_.jpg"
+    //     },
+    //     {
+    //       "type": "document",
+    //       "link":
+    //           "https://drive.google.com/file/d/1vEq9y1D6oMmoYI_O-tBynr9azderbLOP/view"
+    //     }
+    //   ]
+    // },
+    // {
+    //   "type": "PRESCRIPTION",
+    //   "pateint_name": "Santi sharma",
+    //   "created_at": "12-03-2024",
+    //   "doctor_name": "Dr. Sheesha Singh",
+    //   "file": [
+    //     {
+    //       "type": "image",
+    //       "link":
+    //           "https://m.media-amazon.com/images/I/71v2-pt1EdL._AC_UF1000,1000_QL80_.jpg"
+    //     },
+    //     {
+    //       "type": "image",
+    //       "link":
+    //           "https://m.media-amazon.com/images/I/71v2-pt1EdL._AC_UF1000,1000_QL80_.jpg"
+    //     },
+    //     {
+    //       "type": "document",
+    //       "link":
+    //           "https://drive.google.com/file/d/1vEq9y1D6oMmoYI_O-tBynr9azderbLOP/view"
+    //     }
+    //   ]
+    // },
+    // {
+    //   "type": "PRESCRIPTION",
+    //   "pateint_name": "Santi sharma",
+    //   "created_at": "12-03-2024",
+    //   "doctor_name": "Dr. Sheesha Singh",
+    //   "file": [
+    //     {
+    //       "type": "image",
+    //       "link":
+    //           "https://m.media-amazon.com/images/I/71v2-pt1EdL._AC_UF1000,1000_QL80_.jpg"
+    //     },
+    //     {
+    //       "type": "image",
+    //       "link":
+    //           "https://m.media-amazon.com/images/I/71v2-pt1EdL._AC_UF1000,1000_QL80_.jpg"
+    //     },
+    //     {
+    //       "type": "document",
+    //       "link":
+    //           "https://drive.google.com/file/d/1vEq9y1D6oMmoYI_O-tBynr9azderbLOP/view"
+    //     }
+    //   ]
+    // }
   ];
 
   @override
@@ -94,10 +94,12 @@ class ReportTabScreen extends StatelessWidget {
           children: [
             Scaffold(
               backgroundColor: white,
-              body: SingleChildScrollView(
-                child: reportData.length != 0
-                    ? showReportsCardList(context, reportData)
-                    : showDefaultScreen(context, "Add Your First Report"),
+              body: Center(
+                child: SingleChildScrollView(
+                  child: reportData.length != 0
+                      ? showReportsCardList(context, reportData)
+                      : showDefaultScreen(context, "Add Your First Report"),
+                ),
               ),
             ),
             showFloatingButton(
