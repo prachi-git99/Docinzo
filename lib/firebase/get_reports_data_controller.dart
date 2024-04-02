@@ -13,15 +13,13 @@ class GetReportsDataFromFirebase extends GetxController {
   //       return value.docs;
   //     }
   //   });
-  //
-  //
-  //   var nameData = await firestore.collection(usersCollection).where('id',isEqualTo:currentUser!.uid).get()
-  //       .then((value){
-  //     if(value.docs.isNotEmpty){
-  //       return value.docs.single['name'];
-  //     }
-  //   });
-  //
+
+  // var nameData = await firestore.collection(usersCollection).where('id',isEqualTo:currentUser!.uid).get()
+  //     .then((value){
+  //   if(value.docs.isNotEmpty){
+  //     return value.docs.single['name'];
+  //   }
+  // });
 
   // }
 }

@@ -24,12 +24,8 @@ class AddReportScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var controller = Get.put(ReportController());
-
     RecordTypeController recordTypeController = Get.put(RecordTypeController());
     AddReportInFirebase addReportInFirebase = Get.put(AddReportInFirebase());
-
-    //firebase
-
     PatientController patientController = Get.find<PatientController>();
     LabNameController labNameController = Get.find<LabNameController>();
     ScrollCalenderController scrollCalenderController =
@@ -41,7 +37,7 @@ class AddReportScreen extends StatelessWidget {
       backgroundColor: white,
       body: SingleChildScrollView(
         child: Container(
-          padding: EdgeInsets.symmetric(
+          padding: const EdgeInsets.symmetric(
               vertical: appVerticalPadding, horizontal: appHorizontalPadding),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -49,7 +45,7 @@ class AddReportScreen extends StatelessWidget {
               //upload media
               showUploadFileSection(context),
               //dropdown
-              SizedBox(height: containerVerMargin),
+              const SizedBox(height: containerVerMargin),
               showPatientRecordWidget(context),
               //textfeild
               Obx(
@@ -66,15 +62,17 @@ class AddReportScreen extends StatelessWidget {
               showUploadedMedia(context),
               customButtonWidget(context, 'Add Report', white, 18.0, () async {
                 //add validation for all reports
-                //delete all the controllers also
                 try {
                   //upload files
+                  List<String> downloadLink = [];
 
-                  print("hey");
-                  final downloadLink = await addReportInFirebase.uploadMedia(
-                      controller.filePath[0].name,
-                      File(controller.filePath[0].path!));
-                  print(downloadLink);
+                  for (int i = 0; i < controller.filePath.length; i++) {
+                    final String reportLink;
+                    reportLink = await addReportInFirebase.uploadMedia(
+                        controller.filePath[i].name,
+                        File(controller.filePath[i].path!));
+                    downloadLink.add(reportLink);
+                  }
 
                   addReportInFirebase.storeReportsData(
                       files: downloadLink,
@@ -99,10 +97,9 @@ class AddReportScreen extends StatelessWidget {
                   Navigator.pop(context);
                 } catch (error) {
                   ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                    content: Text("Something went wrong"),
+                    content: Text("Something went wrong, Please try again"),
                     backgroundColor: primaryColor,
                   ));
-                  print(error);
                 }
               }),
             ],

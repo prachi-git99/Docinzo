@@ -17,7 +17,7 @@ class AddReportInFirebase extends GetxController {
   }
 
   storeReportsData(
-      {String? files,
+      {required List<String> files,
       patientName,
       recordType,
       recordName,
@@ -28,6 +28,7 @@ class AddReportInFirebase extends GetxController {
         .doc(currentUser!.uid)
         .collection(reportCollection)
         .doc(recordName);
+
     store.set({
       "id": currentUser!.uid,
       "files": files,
