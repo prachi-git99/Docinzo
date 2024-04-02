@@ -95,7 +95,7 @@ class ReportTabScreen extends StatelessWidget {
             Scaffold(
               backgroundColor: white,
               body: SingleChildScrollView(
-                child: reportData.length != 0
+                child: reportData.isNotEmpty
                     ? showReportsCardList(context, reportData)
                     : showDefaultScreen(context, "Add Your First Report"),
               ),
