@@ -13,3 +13,4 @@ User? currentUser = auth
 // collections
 const usersCollection = "users";
 const reportCollection = "my_reports";
+const notificationCollection = "notification";

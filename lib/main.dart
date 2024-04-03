@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'dart:ui';
 
+import 'package:doctor/firebase/push_notification_service.dart';
 import 'package:doctor/screens/auth_screens/login_screen/login_screen.dart';
 import 'package:doctor/screens/home.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -30,14 +31,21 @@ void main() async {
     return true;
   };
 
+  //FIREBASE MESSAGING
+  await PushNotificationService().initialize();
+  // FirebaseMessaging.onBackgroundMessage(backgroundHandler);
+
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
+  // final PushNotificationService _notification = PushNotificationService();
+
   @override
   Widget build(BuildContext context) {
+    // _notification.initialize();
     return MaterialApp(
       title: APP_NAME,
       debugShowCheckedModeBanner: false,

@@ -22,7 +22,7 @@ Widget showNotificationCard(context) {
                         responsiveText(
                             context: context,
                             textColor: black,
-                            text: "Your Reports are ready !!",
+                            text: "Your report",
                             fontWeight: FontWeight.w500,
                             size: 18.0),
                         Row(
@@ -46,7 +46,7 @@ Widget showNotificationCard(context) {
                             context: context,
                             textColor: black,
                             text:
-                                "Your Family Member Prachi's reports are ready. Please download reports\nName: X-ray report\nHave a great day, LIVE HEALTHY..",
+                                "Your Family Member Prachi's reports are ready. Please download reports Name: X-ray report Have a great day, LIVE HEALTHY..",
                             fontWeight: FontWeight.w400,
                             size: 12.0)
                       ],

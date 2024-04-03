@@ -11,7 +11,9 @@ class NotificationScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
-    int index = 0;
+    // final message = ModalRoute.of(context)!.settings.arguments;
+
+    int index = 1;
     return Scaffold(
       appBar: customAppbar(context, "Notifications"),
       body: gradientBg(
