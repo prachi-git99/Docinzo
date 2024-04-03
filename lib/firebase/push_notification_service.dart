@@ -20,7 +20,8 @@ Future storeNotificationsInFirebase(notificationTitle, notificationBody) async {
   store.set({
     "id": currentUser!.uid,
     "title": notificationTitle,
-    "body": notificationBody
+    "body": notificationBody,
+    "time": DateTime.now()
   }, SetOptions(merge: true));
 }
 

@@ -40,13 +40,6 @@ class _HomeState extends State<Home> {
     getToken();
   }
 
-  @override
-  void dispose() {
-    // TODO: implement dispose
-    Get.delete<HomeController>();
-    super.dispose();
-  }
-
   buildBottomNavigationBarItem(name, icon, controller, currentNavIndex) {
     return BottomNavigationBarItem(
         icon: Obx(

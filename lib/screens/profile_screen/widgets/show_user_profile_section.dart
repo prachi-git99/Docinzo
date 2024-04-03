@@ -1,4 +1,5 @@
 import 'package:doctor/consts/consts.dart';
+import 'package:doctor/screens/profile_screen/widgets/show_health_history_section.dart';
 import 'package:flutter_svg/svg.dart';
 
 import '../../../components/gradient_rounded_container.dart';
@@ -71,6 +72,8 @@ Widget showUserProfileSection(context) {
                     onTap: () {}, child: Icon(Icons.edit, color: black)),
               ],
             )),
+        //user health history
+        showHealthHistorySection(context),
       ],
     ),
   );

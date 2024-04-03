@@ -9,7 +9,7 @@ Widget customBottomGreetSection(context) {
     alignment: Alignment.center,
     child: Column(
       children: [
-        SizedBox(height: size.height * 0.1),
+        // SizedBox(height: size.height * 0.1),
         responsiveText(
             context: context,
             text: "Live",

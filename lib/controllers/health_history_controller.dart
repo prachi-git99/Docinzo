@@ -39,7 +39,6 @@ class HealthHistoryController extends GetxController {
   ];
 
   var dietList = ["Veg", "Non-veg"];
-
   var alcoholList = ["Yes,Regularly", "Yes, Occasionally", "Never"];
   var eyeSightList = ["No", "Yes"];
   var smokeList = ["Yes,Regularly", "Yes, Occasionally", "Never"];
