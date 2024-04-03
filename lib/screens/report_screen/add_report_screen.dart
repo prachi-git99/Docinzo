@@ -10,6 +10,7 @@ import 'package:doctor/screens/report_screen/widgets/show_upload_file_section.da
 import 'package:doctor/screens/report_screen/widgets/show_uploaded_media.dart';
 import 'package:get/get.dart';
 
+import '../../common_widgets/common_loading_widget.dart';
 import '../../common_widgets/custom_appbar.dart';
 import '../../common_widgets/custom_botton_widget.dart';
 import '../../controllers/report_controller.dart';
@@ -63,6 +64,8 @@ class AddReportScreen extends StatelessWidget {
               customButtonWidget(context, 'Add Report', white, 18.0, () async {
                 //add validation for all reports
                 try {
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => CircularLoadingWidget()));
                   //upload files
                   List<String> downloadLink = [];
 
@@ -88,6 +91,8 @@ class AddReportScreen extends StatelessWidget {
                   recordTypeController.dispose();
                   controller.nameController.dispose();
                   labNameController.dispose();
+
+                  Navigator.pop(context);
 
                   ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                     content: Text("File Uploaded"),
