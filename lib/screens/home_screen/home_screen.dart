@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:doctor/common_widgets/gradient_background.dart';
 import 'package:doctor/common_widgets/show_appointment_section.dart';
 import 'package:doctor/components/responsive_text.dart';
@@ -45,26 +46,51 @@ class HomeScreen extends StatelessWidget {
                   showServicesSection(context),
                   //appointment
                   SizedBox(height: 2 * containerVerMargin),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      responsiveText(
-                          context: context,
-                          text: appointmentSectionTitle,
-                          textColor: black,
-                          fontWeight: FontWeight.w500,
-                          size: 18.0)
-                    ],
-                  ),
+
                   //show appointment section
-                  SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    physics: ScrollPhysics(),
-                    child: Row(
-                        children: List.generate(
-                            3,
-                            (index) => showAppointmentSection(
-                                context: context, width: size.width * 0.8))),
+                  Column(
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          responsiveText(
+                              context: context,
+                              text: appointmentSectionTitle,
+                              textColor: black,
+                              fontWeight: FontWeight.w500,
+                              size: 18.0)
+                        ],
+                      ),
+                      StreamBuilder(
+                          stream: firestore
+                              .collection(usersCollection)
+                              .doc(currentUser!.uid)
+                              .collection(appointmentCollection)
+                              .orderBy("date_time", descending: false)
+                              .snapshots(),
+                          builder: (BuildContext context,
+                              AsyncSnapshot<QuerySnapshot> snapshot) {
+                            var appointmentData = snapshot.data?.docs;
+
+                            if (!snapshot.hasData) {
+                              return SizedBox.shrink();
+                            } else if (snapshot.data!.docs.isEmpty) {
+                              return SizedBox.shrink();
+                            } else {
+                              return SingleChildScrollView(
+                                scrollDirection: Axis.horizontal,
+                                physics: ScrollPhysics(),
+                                child: Row(
+                                    children: List.generate(
+                                        appointmentData!.length,
+                                        (index) => showAppointmentSection(
+                                            context: context,
+                                            width: size.width * 0.8,
+                                            data: appointmentData[index]))),
+                              );
+                            }
+                          }),
+                    ],
                   ),
                   //health section
                   SizedBox(height: 2 * containerVerMargin),

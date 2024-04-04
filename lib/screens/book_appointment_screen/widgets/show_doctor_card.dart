@@ -5,13 +5,6 @@ import '../../../components/responsive_text.dart';
 import '../../../components/rounded_corner_container.dart';
 
 Widget showDoctorCard(context, doctorsList) {
-  // Map<String, dynamic> doctorsList = {
-  //   "id": 0,
-  //   "name": "Dr.Prachi Sharma",
-  //   "speciality": "Cardiologist",
-  //   "exp": 19,
-  //   "degree": ["MBBS", "MD"]
-  // };
   var size = MediaQuery.of(context).size;
   return Container(
     padding: EdgeInsets.symmetric(
@@ -24,12 +17,18 @@ Widget showDoctorCard(context, doctorsList) {
         spread: 0.0,
         child: Row(
           children: [
-            CircleAvatar(
-              backgroundColor: primaryColor,
-              radius: size.width * 0.08,
-              child: SvgPicture.asset("assets/images/icons/$user",
-                  color: Colors.white),
-            ),
+            doctorsList['image'] == ''
+                ? CircleAvatar(
+                    backgroundColor: primaryColor,
+                    radius: size.width * 0.08,
+                    child: SvgPicture.asset("assets/images/icons/$user",
+                        color: Colors.white),
+                  )
+                : CircleAvatar(
+                    radius: size.width * 0.08,
+                    backgroundImage: NetworkImage('${doctorsList['image']}'),
+                    backgroundColor: Colors.transparent,
+                  ),
             SizedBox(width: containerHorMargin),
             //user info
             Container(
@@ -55,7 +54,7 @@ Widget showDoctorCard(context, doctorsList) {
                     doctorsList['degree'].length,
                     (i) => responsiveText(
                         context: context,
-                        text: "${doctorsList['degree'][i]}, ",
+                        text: "${doctorsList['degree'][i]}  ",
                         textColor: black,
                         fontWeight: FontWeight.w500,
                         size: 12.0),
