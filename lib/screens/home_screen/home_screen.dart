@@ -83,10 +83,18 @@ class HomeScreen extends StatelessWidget {
                                 child: Row(
                                     children: List.generate(
                                         appointmentData!.length,
-                                        (index) => showAppointmentSection(
-                                            context: context,
-                                            width: size.width * 0.8,
-                                            data: appointmentData[index]))),
+                                        (index) => DateTime.parse(
+                                                    (appointmentData[index]
+                                                                ['date_time']
+                                                            as Timestamp)
+                                                        .toDate()
+                                                        .toString())
+                                                .isBefore(DateTime.now())
+                                            ? SizedBox.shrink()
+                                            : showAppointmentSection(
+                                                context: context,
+                                                width: size.width * 0.8,
+                                                data: appointmentData[index]))),
                               );
                             }
                           }),
