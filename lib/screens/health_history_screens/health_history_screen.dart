@@ -74,9 +74,10 @@ class HealthHistory extends StatelessWidget {
                           ),
                           onPressed: () {
                             if (healthHistoryController.index.value <
-                                HEALTH_FORM_MAP.length - 1)
+                                HEALTH_FORM_MAP.length - 1) {
                               healthHistoryController.index.value =
                                   healthHistoryController.index.value + 1;
+                            }
                           },
                         ),
                       ],

@@ -14,5 +14,6 @@ User? currentUser = auth
 const usersCollection = "users";
 const doctorsCollection = "doctors";
 const reportCollection = "my_reports";
+const healthHistoryCollection = "my_health_history";
 const appointmentCollection = "my_appointments";
 const notificationCollection = "notification";

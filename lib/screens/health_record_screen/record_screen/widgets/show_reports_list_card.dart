@@ -16,8 +16,8 @@ Widget showReportsCardList(context) {
   var controller = Get.put(RecordController());
 
   return Container(
-    margin: EdgeInsets.only(bottom: 8 * containerVerMargin),
-    padding: EdgeInsets.symmetric(
+    margin: const EdgeInsets.only(bottom: 8 * containerVerMargin),
+    padding: const EdgeInsets.symmetric(
         vertical: containerVerMargin, horizontal: containerHorPadd),
     child: Column(
       children: [
@@ -31,16 +31,16 @@ Widget showReportsCardList(context) {
               for (int i = 0; i < controller.items.length; i++)
                 Obx(
                   () => Container(
-                    margin: EdgeInsets.symmetric(
+                    margin: const EdgeInsets.symmetric(
                         horizontal: containerHorMargin / 2),
                     child: ChoiceChip(
-                      padding:
-                          EdgeInsets.symmetric(horizontal: containerHorPadd),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: containerHorPadd),
                       label: Text(controller.items[i]),
                       backgroundColor: white,
                       showCheckmark: false,
                       shape: RoundedRectangleBorder(
-                          side: BorderSide(color: secondaryColor),
+                          side: const BorderSide(color: secondaryColor),
                           borderRadius:
                               BorderRadius.circular(smallBorderRadius)),
                       elevation: 2,
@@ -63,7 +63,7 @@ Widget showReportsCardList(context) {
             ],
           ),
         ),
-        SizedBox(height: containerVerMargin),
+        const SizedBox(height: containerVerMargin),
         StreamBuilder(
             stream: firestore
                 .collection(usersCollection)
@@ -75,7 +75,7 @@ Widget showReportsCardList(context) {
               featuredData = snapshot.data?.docs;
 
               if (!snapshot.hasData) {
-                return Center(
+                return const Center(
                     child: CircularProgressIndicator(
                   color: primaryColor,
                 ));
@@ -95,8 +95,8 @@ Widget showReportsCardList(context) {
                                     });
                               },
                               child: Container(
-                                margin:
-                                    EdgeInsets.only(bottom: containerVerMargin),
+                                margin: const EdgeInsets.only(
+                                    bottom: containerVerMargin),
                                 child: roundedCornerContainer(
                                     color: white,
                                     spread: 4.0,
@@ -121,7 +121,8 @@ Widget showReportsCardList(context) {
                                                     color: primaryColor,
                                                     size: size.width * 0.1,
                                                   )),
-                                        SizedBox(width: containerVerMargin),
+                                        const SizedBox(
+                                            width: containerVerMargin),
                                         Column(
                                           crossAxisAlignment:
                                               CrossAxisAlignment.start,
@@ -141,7 +142,7 @@ Widget showReportsCardList(context) {
                                                             FontWeight.w500,
                                                         size: 16.0),
                                                   )
-                                                : SizedBox.shrink(),
+                                                : const SizedBox.shrink(),
                                             Container(
                                               width: size.width * 0.52,
                                               child: responsiveText(

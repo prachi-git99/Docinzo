@@ -2,6 +2,7 @@ import 'package:doctor/consts/consts.dart';
 import 'package:get/get.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import '../../../../common_widgets/imageWidget.dart';
 import '../../../../controllers/report_controller.dart';
 
 Widget showBottomSheetWidget(context, data) {
@@ -13,7 +14,7 @@ Widget showBottomSheetWidget(context, data) {
   return Container(
     height: size.height * 0.4,
     width: size.width,
-    padding: EdgeInsets.symmetric(
+    padding: const EdgeInsets.symmetric(
         horizontal: appHorizontalPadding, vertical: 2 * appVerticalPadding),
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -53,13 +54,19 @@ Widget showBottomSheetWidget(context, data) {
                                       Padding(
                                     padding: const EdgeInsets.all(8.0),
                                     child: ClipRRect(
-                                        borderRadius: BorderRadius.circular(
-                                            smallBorderRadius),
-                                        child: Image.network(
-                                            "${data['files'][index]}",
-                                            fit: BoxFit.contain,
-                                            height: size.height * 0.8,
-                                            width: size.width * 0.9)),
+                                      borderRadius: BorderRadius.circular(
+                                          smallBorderRadius),
+                                      child: imageWidget(
+                                          context: context,
+                                          height: size.height * 0.8,
+                                          width: size.width * 0.9,
+                                          img: "${data['files'][index]}"),
+                                      // child: Image.network(
+                                      //     data['files'][index],
+                                      //     fit: BoxFit.contain,
+                                      //     height: size.height * 0.8,
+                                      //     width: size.width * 0.9)
+                                    ),
                                   );
                                 }),
                               ),
@@ -67,23 +74,28 @@ Widget showBottomSheetWidget(context, data) {
                           ));
                 },
                 child: Container(
-                  margin: EdgeInsets.symmetric(
+                  margin: const EdgeInsets.symmetric(
                       horizontal: containerHorMargin,
                       vertical: containerVerMargin),
                   child: ClipRRect(
                       borderRadius: BorderRadius.circular(smallBorderRadius),
-                      child: Image.network(
-                        data['files'][index],
-                        fit: BoxFit.fill,
-                        height: size.height * 0.1,
-                        width: size.width * 0.2,
-                      )),
+                      // child: Image.network(
+                      //   data['files'][index],
+                      //   fit: BoxFit.fill,
+                      //   height: size.height * 0.1,
+                      //   width: size.width * 0.2,
+                      // )
+                      child: imageWidget(
+                          context: context,
+                          height: size.height * 0.1,
+                          width: size.width * 0.2,
+                          img: "${data['files'][index]}")),
                 ),
               );
             }),
           ),
         ),
-        SizedBox(height: appVerticalMargin),
+        const SizedBox(height: appVerticalMargin),
         // Obx(() => controller.docExist.value
         //     ? responsiveText(
         //         context: context,
@@ -107,7 +119,7 @@ Widget showBottomSheetWidget(context, data) {
                 },
                 child: Container(
                   width: size.width * 0.25,
-                  margin: EdgeInsets.only(left: 5.0),
+                  margin: const EdgeInsets.only(left: 5.0),
                   child: Column(
                     children: [
                       Image.asset(

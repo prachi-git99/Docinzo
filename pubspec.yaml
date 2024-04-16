@@ -16,6 +16,9 @@ dependencies:
 
   cupertino_icons: ^1.0.2
 
+  #cache in flutter
+  cached_network_image: 
+
 #  firebase setup
   cloud_firestore:
   firebase_storage:

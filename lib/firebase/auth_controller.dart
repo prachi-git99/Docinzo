@@ -41,13 +41,13 @@ class AuthController extends GetxController {
   //   _mobileNumber.value = mobileNumber;
   // }
 
-  storeUserData({name, password, email, phone}) async {
+  storeUserData({name, id, phone, imageUrl}) async {
     DocumentReference store =
         await firestore.collection(usersCollection).doc(currentUser!.uid);
     store.set({
       "name": name,
-      "imageUrl": "",
-      "id": currentUser!.uid,
+      "imageUrl": imageUrl,
+      "id": id,
       "phone": phone,
     }, SetOptions(merge: true));
   }
@@ -76,7 +76,7 @@ class AuthController extends GetxController {
           PhoneAuthProvider.credential(verificationId: verify, smsCode: otp);
 
       await auth.signInWithCredential(credential).then((value) {
-        return storeUserData(phone: mobile);
+        return storeUserData(phone: mobile, id: currentUser!.uid);
       });
       const FlutterSecureStorage storage = FlutterSecureStorage();
       storage.write(key: 'jwtToken', value: "valid");

@@ -24,6 +24,8 @@ Widget showSmokeForm(context) {
       customButtonWidget(context, "Add Health History", white, 14.0, () {
         Navigator.pushNamedAndRemoveUntil(context, "home", (route) => false);
         controller.index.value = 0;
+        // add health history to firebase
+        controller.printvalue();
       })
     ],
   );
