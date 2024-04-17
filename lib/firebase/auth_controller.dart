@@ -41,26 +41,26 @@ class AuthController extends GetxController {
   //   _mobileNumber.value = mobileNumber;
   // }
 
-  storeUserData({name, id, phone, imageUrl}) async {
+  storeUserData({phone}) async {
     DocumentReference store =
         await firestore.collection(usersCollection).doc(currentUser!.uid);
     store.set({
-      "name": name,
-      "imageUrl": imageUrl,
-      "id": id,
+      // "name": name,
+      // "imageUrl": imageUrl,
+      "id": currentUser!.uid,
       "phone": phone,
-    }, SetOptions(merge: true));
+    });
   }
 
   Future registerUser(String phone, BuildContext context) async {
     auth.verifyPhoneNumber(
-      phoneNumber: '${countrycode + phone}',
-      timeout: Duration(seconds: 60),
+      phoneNumber: countrycode + phone,
+      timeout: const Duration(seconds: 60),
       verificationCompleted: (PhoneAuthCredential credential) {},
       verificationFailed: (FirebaseAuthException e) {},
       codeSent: (String verificationId, int? resendToken) {
         verify = verificationId;
-        mobile = '${countrycode + phone}';
+        mobile = countrycode + phone;
         // Navigator.of(context).push(MaterialPageRoute(
         //     builder: (context) => PhoneOtpScreen(
         //           phone: phone,
@@ -76,7 +76,7 @@ class AuthController extends GetxController {
           PhoneAuthProvider.credential(verificationId: verify, smsCode: otp);
 
       await auth.signInWithCredential(credential).then((value) {
-        return storeUserData(phone: mobile, id: currentUser!.uid);
+        return storeUserData(phone: mobile);
       });
       const FlutterSecureStorage storage = FlutterSecureStorage();
       storage.write(key: 'jwtToken', value: "valid");

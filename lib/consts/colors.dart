@@ -9,7 +9,7 @@ const Color glassWhite = Color.fromRGBO(255, 255, 255, 0.75);
 
 const Color unselectedNavbarIcon = Color.fromRGBO(171, 171, 171, 1.0);
 //blue
-const Color primaryColor = Color.fromRGBO(45, 120, 233, 1);
+const Color primaryColor = Color.fromRGBO(56, 130, 238, 1.0);
 const Color secondaryColor = Color.fromRGBO(117, 164, 231, 1.0);
 
 //yellow

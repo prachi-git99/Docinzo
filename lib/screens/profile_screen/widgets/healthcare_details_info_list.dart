@@ -2,7 +2,7 @@ import 'package:doctor/consts/consts.dart';
 
 import '../../../components/responsive_text.dart';
 
-Widget showHealthcareDetailInfoList(context, title, value) {
+Widget showHealthcareDetailInfoList(context, String title, String value) {
   var size = MediaQuery.of(context).size;
   return Container(
     width: size.width,
