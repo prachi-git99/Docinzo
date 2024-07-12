@@ -44,8 +44,8 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyBBP5M9LE0zhj2DfCe_PDpFGMmm5DCV48A',
-    appId: '1:57349243665:web:0cc108a30cdf65e357c2b0',
+    apiKey: '',
+    appId: '',
     messagingSenderId: '57349243665',
     projectId: 'docinzo-c5c51',
     authDomain: 'docinzo-c5c51.firebaseapp.com',
@@ -54,16 +54,16 @@ class DefaultFirebaseOptions {
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyB1e8ukdlfIDBT-mBBfILbqnB0ZyE1iDK4',
-    appId: '1:57349243665:android:cde199ba69c9eaed57c2b0',
+    apiKey: '',
+    appId: '',
     messagingSenderId: '57349243665',
     projectId: 'docinzo-c5c51',
     storageBucket: 'docinzo-c5c51.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyCL0giRwwpGAjjc4IA-WeHSgmYbAot_xsw',
-    appId: '1:57349243665:ios:0569b67d7592e00a57c2b0',
+    apiKey: '',
+    appId: '',
     messagingSenderId: '57349243665',
     projectId: 'docinzo-c5c51',
     storageBucket: 'docinzo-c5c51.appspot.com',
@@ -71,8 +71,8 @@ class DefaultFirebaseOptions {
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyCL0giRwwpGAjjc4IA-WeHSgmYbAot_xsw',
-    appId: '1:57349243665:ios:4417ecc51bfa23fb57c2b0',
+    apiKey: '',
+    appId: '',
     messagingSenderId: '57349243665',
     projectId: 'docinzo-c5c51',
     storageBucket: 'docinzo-c5c51.appspot.com',
