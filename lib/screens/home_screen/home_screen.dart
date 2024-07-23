@@ -45,7 +45,7 @@ class HomeScreen extends StatelessWidget {
                   SizedBox(height: containerVerMargin),
                   showServicesSection(context),
                   //appointment
-                  SizedBox(height: 2 * containerVerMargin),
+                  SizedBox(height: containerVerMargin),
 
                   //show appointment section
                   StreamBuilder(
@@ -70,12 +70,19 @@ class HomeScreen extends StatelessWidget {
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
                                 children: [
-                                  responsiveText(
-                                      context: context,
-                                      text: appointmentSectionTitle,
-                                      textColor: black,
-                                      fontWeight: FontWeight.w500,
-                                      size: 18.0)
+                                  DateTime.parse((appointmentData
+                                                      ?.last['date_time']
+                                                  as Timestamp)
+                                              .toDate()
+                                              .toString())
+                                          .isBefore(DateTime.now())
+                                      ? SizedBox.shrink()
+                                      : responsiveText(
+                                          context: context,
+                                          text: appointmentSectionTitle,
+                                          textColor: black,
+                                          fontWeight: FontWeight.w500,
+                                          size: 18.0)
                                 ],
                               ),
                               SingleChildScrollView(

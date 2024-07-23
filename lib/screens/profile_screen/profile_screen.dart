@@ -3,7 +3,6 @@ import 'package:doctor/common_widgets/custom_bottom_greet_section.dart';
 import 'package:doctor/common_widgets/gradient_background.dart';
 import 'package:doctor/consts/consts.dart';
 import 'package:doctor/controllers/family_controller.dart';
-import 'package:doctor/screens/profile_screen/widgets/show_family_profile_section.dart';
 import 'package:doctor/screens/profile_screen/widgets/show_user_profile_section.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:get/get.dart';
@@ -31,7 +30,7 @@ class ProfileScreen extends StatelessWidget {
                   //user profile section
                   showUserProfileSection(context),
                   //user family section,
-                  showFamilyProfileSection(context),
+                  // showFamilyProfileSection(context),
                   //logout
                   SizedBox(height: containerVerMargin),
                   TextButton(
