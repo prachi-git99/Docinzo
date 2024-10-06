@@ -3,9 +3,9 @@ import '../../../controllers/dropdown_controller.dart';
 class PatientController extends DropDownController {
   Future<List<String>> getPatientList() async {
     List<Map<String, dynamic>> finalResponse = [
-      {"id": 1, "name": "Anuj Sharma"},
+      {"id": 1, "name": "Payal Sharma"},
       {"id": 2, "name": "Prachi Verma"},
-      {"id": 3, "name": "Yugal Sharma"},
+      {"id": 3, "name": "Yukti Sharma"},
       {"id": 4, "name": "Palak Verma"},
       {"id": 5, "name": "Supriya Verma"}
     ];

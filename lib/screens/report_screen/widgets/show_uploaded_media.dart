@@ -20,9 +20,11 @@ Widget showUploadedMedia(context) {
           //         textColor: primaryColor,
           //         fontWeight: FontWeight.normal,
           //         size: 14.0),
+
           Wrap(
-            children: List.generate(controller.filePath.length, (index) {
-              var file = controller.filePath[index];
+            children: List.generate(controller.filePath!.length, (index) {
+              var file = controller.filePath?[index];
+
               return file.extension == 'pdf'
                   ? Image.asset(
                       "assets/images/icons/$pdfIcon",

@@ -26,11 +26,7 @@ VitalsController controller = Get.find<VitalsController>();
 
 Widget showBloodPressureWidget(context, index) {
   showGraph(dropDownValue) {
-    print(dropDownValue);
     controller.bottomTitleList = DATA['x_axis'];
-
-    print(controller.bottomTitleList);
-
     List<BarChartGroupData> showingBarGroupsWeekly = [];
     for (int index = 0; index < DATA['x_axis'].length; index++) {
       showingBarGroupsWeekly.add(makeGroupData(

@@ -1,5 +1,4 @@
 import 'package:doctor/consts/consts.dart';
-import 'package:doctor/screens/notification_screen/widgets/show_no_notification_card.dart';
 import 'package:doctor/screens/notification_screen/widgets/show_notofication_card.dart';
 
 import '../../common_widgets/custom_appbar.dart';
@@ -10,8 +9,6 @@ class NotificationScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var size = MediaQuery.of(context).size;
-    int index = 0;
     return Scaffold(
       appBar: customAppbar(context, "Notifications"),
       body: gradientBg(
@@ -21,9 +18,7 @@ class NotificationScreen extends StatelessWidget {
               padding: const EdgeInsets.symmetric(
                   horizontal: appHorizontalPadding,
                   vertical: appVerticalPadding),
-              child: index == 0
-                  ? showNoNotification(context)
-                  : showNotificationCard(context),
+              child: showNotificationCard(context),
             ),
           )),
     );

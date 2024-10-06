@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:get/get.dart';
 
 import '../consts/consts.dart';
@@ -39,7 +40,6 @@ class HealthHistoryController extends GetxController {
   ];
 
   var dietList = ["Veg", "Non-veg"];
-
   var alcoholList = ["Yes,Regularly", "Yes, Occasionally", "Never"];
   var eyeSightList = ["No", "Yes"];
   var smokeList = ["Yes,Regularly", "Yes, Occasionally", "Never"];
@@ -53,6 +53,50 @@ class HealthHistoryController extends GetxController {
   var alcoholChipSelected = 0.obs;
 
   printvalue() {
-    print(chipSelected);
+    var selectedAllergy = [];
+    var selectedFamilyHistory = [];
+    for (int i = 0; i < allergyList.length; i++) {
+      if (allergyListChips[i] == true) {
+        selectedAllergy.add(allergyList[i]);
+      }
+    }
+    for (int i = 0; i < familyHistoryList.length; i++) {
+      if (familyHistoryListChips[i] == true) {
+        selectedFamilyHistory.add(familyHistoryList[i]);
+      }
+    }
+
+    storeHealthHistoryData(
+        allergyList: selectedAllergy,
+        familyHistoryList: selectedFamilyHistory,
+        dietType: dietList[dietChipSelected.value],
+        alcoholStatus: alcoholList[alcoholChipSelected.value],
+        eyeSight: eyeSightList[eyeChipSelected.value],
+        smokeStatus: smokeList[smokeChipSelected.value]);
+  }
+
+  storeHealthHistoryData(
+      {allergyList,
+      familyHistoryList,
+      dietType,
+      alcoholStatus,
+      eyeSight,
+      smokeStatus}) async {
+    DocumentReference store = await firestore
+        .collection(usersCollection)
+        .doc(currentUser!.uid)
+        .collection(healthHistoryCollection)
+        .doc();
+
+    store.set({
+      "id": currentUser!.uid,
+      "created_at": DateTime.now(),
+      "allergy_list": allergyList,
+      "familyHistoryList": familyHistoryList,
+      "dietType": dietType,
+      "alcoholStatus": alcoholStatus,
+      "eyeSight": eyeSight,
+      "smokeStatus": smokeStatus,
+    }, SetOptions(merge: true));
   }
 }

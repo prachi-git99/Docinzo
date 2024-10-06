@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:doctor/common_widgets/gradient_background.dart';
 import 'package:doctor/common_widgets/show_appointment_section.dart';
 import 'package:doctor/components/responsive_text.dart';
@@ -44,28 +45,69 @@ class HomeScreen extends StatelessWidget {
                   SizedBox(height: containerVerMargin),
                   showServicesSection(context),
                   //appointment
-                  SizedBox(height: 2 * containerVerMargin),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      responsiveText(
-                          context: context,
-                          text: appointmentSectionTitle,
-                          textColor: black,
-                          fontWeight: FontWeight.w500,
-                          size: 18.0)
-                    ],
-                  ),
+                  SizedBox(height: containerVerMargin),
+
                   //show appointment section
-                  SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    physics: ScrollPhysics(),
-                    child: Row(
-                        children: List.generate(
-                            3,
-                            (index) => showAppointmentSection(
-                                context: context, width: size.width * 0.8))),
-                  ),
+                  StreamBuilder(
+                      stream: firestore
+                          .collection(usersCollection)
+                          .doc(currentUser?.uid)
+                          .collection(appointmentCollection)
+                          .orderBy("date_time", descending: false)
+                          .snapshots(),
+                      builder: (BuildContext context,
+                          AsyncSnapshot<QuerySnapshot> snapshot) {
+                        var appointmentData = snapshot.data?.docs;
+
+                        if (!snapshot.hasData) {
+                          return SizedBox.shrink();
+                        } else if (snapshot.data!.docs.isEmpty) {
+                          return SizedBox.shrink();
+                        } else {
+                          return Column(
+                            children: [
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  DateTime.parse((appointmentData
+                                                      ?.last['date_time']
+                                                  as Timestamp)
+                                              .toDate()
+                                              .toString())
+                                          .isBefore(DateTime.now())
+                                      ? SizedBox.shrink()
+                                      : responsiveText(
+                                          context: context,
+                                          text: appointmentSectionTitle,
+                                          textColor: black,
+                                          fontWeight: FontWeight.w500,
+                                          size: 18.0)
+                                ],
+                              ),
+                              SingleChildScrollView(
+                                scrollDirection: Axis.horizontal,
+                                physics: ScrollPhysics(),
+                                child: Row(
+                                    children: List.generate(
+                                        appointmentData!.length,
+                                        (index) => DateTime.parse(
+                                                    (appointmentData[index]
+                                                                ['date_time']
+                                                            as Timestamp)
+                                                        .toDate()
+                                                        .toString())
+                                                .isBefore(DateTime.now())
+                                            ? SizedBox.shrink()
+                                            : showAppointmentSection(
+                                                context: context,
+                                                width: size.width * 0.8,
+                                                data: appointmentData[index]))),
+                              ),
+                            ],
+                          );
+                        }
+                      }),
                   //health section
                   SizedBox(height: 2 * containerVerMargin),
                   Row(

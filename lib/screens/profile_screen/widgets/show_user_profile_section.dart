@@ -1,4 +1,5 @@
 import 'package:doctor/consts/consts.dart';
+import 'package:doctor/screens/profile_screen/widgets/show_health_history_section.dart';
 import 'package:flutter_svg/svg.dart';
 
 import '../../../components/gradient_rounded_container.dart';
@@ -42,7 +43,7 @@ Widget showUserProfileSection(context) {
                     children: [
                       responsiveText(
                           context: context,
-                          text: userName,
+                          text: '${currentUser?.displayName}',
                           textColor: black,
                           fontWeight: FontWeight.w500,
                           size: 18.0),
@@ -54,7 +55,7 @@ Widget showUserProfileSection(context) {
                           size: 12.0),
                       responsiveText(
                           context: context,
-                          text: "Phone: $userPhone",
+                          text: "Phone: ${currentUser?.phoneNumber}",
                           textColor: black,
                           fontWeight: FontWeight.normal,
                           size: 12.0),
@@ -71,6 +72,8 @@ Widget showUserProfileSection(context) {
                     onTap: () {}, child: Icon(Icons.edit, color: black)),
               ],
             )),
+        //user health history
+        showHealthHistorySection(context),
       ],
     ),
   );

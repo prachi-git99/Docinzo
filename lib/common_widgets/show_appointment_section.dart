@@ -1,11 +1,17 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import "package:doctor/consts/consts.dart";
+import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
 import "package:flutter_svg/svg.dart";
+import 'package:intl/intl.dart';
 
 import '../components/gradient_rounded_container.dart';
 import '../components/responsive_text.dart';
 
-Widget showAppointmentSection({context, width}) {
+Widget showAppointmentSection({context, width, data}) {
   var size = MediaQuery.of(context).size;
+  var hours = DateFormat('a')
+      .format((data['date_time'] as Timestamp).toDate())
+      .toString();
 
   return Padding(
     padding: EdgeInsets.symmetric(
@@ -43,13 +49,13 @@ Widget showAppointmentSection({context, width}) {
                         children: [
                           responsiveText(
                               context: context,
-                              text: doctorName,
+                              text: data['doctor_name'],
                               textColor: black,
                               fontWeight: FontWeight.w500,
                               size: 14.0),
                           responsiveText(
                               context: context,
-                              text: "Physician",
+                              text: data['doctor_speciality'],
                               textColor: black,
                               fontWeight: FontWeight.w300,
                               size: 12.0),
@@ -72,13 +78,15 @@ Widget showAppointmentSection({context, width}) {
                       children: [
                         responsiveText(
                             context: context,
-                            text: "Feb 20,2024",
+                            text:
+                                "${DateFormat('d MMM yyyy').format((data['date_time'] as Timestamp).toDate())}",
                             textColor: white,
                             fontWeight: FontWeight.w600,
                             size: 14.0),
                         responsiveText(
                             context: context,
-                            text: "Monday",
+                            text:
+                                "${DateFormat('EEEE').format((data['date_time'] as Timestamp).toDate())}",
                             textColor: white,
                             fontWeight: FontWeight.w300,
                             size: 12.0),
@@ -91,13 +99,14 @@ Widget showAppointmentSection({context, width}) {
                       children: [
                         responsiveText(
                             context: context,
-                            text: "7:00 PM",
+                            text:
+                                "${DateFormat('hh:mm a').format((data['date_time'] as Timestamp).toDate())}",
                             textColor: white,
                             fontWeight: FontWeight.w600,
                             size: 14.0),
                         responsiveText(
                             context: context,
-                            text: "Evening",
+                            text: (hours == 'AM') ? "Morning" : "Evening",
                             textColor: white,
                             fontWeight: FontWeight.w300,
                             size: 12.0),
@@ -117,7 +126,10 @@ Widget showAppointmentSection({context, width}) {
             backgroundColor: white,
             radius: size.height * 0.04,
             child: GestureDetector(
-              onTap: () {},
+              onTap: () {
+                FlutterPhoneDirectCaller.callNumber("${data['doctor_phone']}");
+                print(data['doctor_phone']);
+              },
               child: gradientRoundedContainer(
                   context: context,
                   borderRadius: largeBorderRadius,

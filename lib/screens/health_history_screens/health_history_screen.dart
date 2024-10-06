@@ -39,50 +39,53 @@ class HealthHistory extends StatelessWidget {
             body: Padding(
               padding:
                   const EdgeInsets.symmetric(horizontal: appHorizontalPadding),
-              child: Column(
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      IconButton(
-                        color: primaryColor,
-                        icon: Icon(
-                          Icons.arrow_back_ios,
-                          size: 15,
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        IconButton(
+                          color: primaryColor,
+                          icon: Icon(
+                            Icons.arrow_back_ios,
+                            size: 15,
+                          ),
+                          onPressed: () {
+                            if (healthHistoryController.index.value > 0)
+                              healthHistoryController.index.value =
+                                  healthHistoryController.index.value - 1;
+                          },
                         ),
-                        onPressed: () {
-                          if (healthHistoryController.index.value > 0)
-                            healthHistoryController.index.value =
-                                healthHistoryController.index.value - 1;
-                        },
-                      ),
-                      Obx(
-                        () => responsiveText(
-                            context: context,
-                            text:
-                                "${healthHistoryController.index.value + 1} / ${HEALTH_FORM_MAP.length}",
-                            textColor: darkfontGrey,
-                            fontWeight: FontWeight.w500,
-                            size: 14.0),
-                      ),
-                      IconButton(
-                        color: primaryColor,
-                        icon: Icon(
-                          Icons.arrow_forward_ios,
-                          size: 15,
+                        Obx(
+                          () => responsiveText(
+                              context: context,
+                              text:
+                                  "${healthHistoryController.index.value + 1} / ${HEALTH_FORM_MAP.length}",
+                              textColor: darkfontGrey,
+                              fontWeight: FontWeight.w500,
+                              size: 14.0),
                         ),
-                        onPressed: () {
-                          if (healthHistoryController.index.value <
-                              HEALTH_FORM_MAP.length - 1)
-                            healthHistoryController.index.value =
-                                healthHistoryController.index.value + 1;
-                        },
-                      ),
-                    ],
-                  ),
-                  Obx(() =>
-                      HEALTH_FORM_MAP[healthHistoryController.index.value])
-                ],
+                        IconButton(
+                          color: primaryColor,
+                          icon: Icon(
+                            Icons.arrow_forward_ios,
+                            size: 15,
+                          ),
+                          onPressed: () {
+                            if (healthHistoryController.index.value <
+                                HEALTH_FORM_MAP.length - 1) {
+                              healthHistoryController.index.value =
+                                  healthHistoryController.index.value + 1;
+                            }
+                          },
+                        ),
+                      ],
+                    ),
+                    Obx(() =>
+                        HEALTH_FORM_MAP[healthHistoryController.index.value])
+                  ],
+                ),
               ),
             )));
   }

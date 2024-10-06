@@ -16,21 +16,22 @@ dependencies:
 
   cupertino_icons: ^1.0.2
 
+  #cache in flutter
+  cached_network_image: 
 
 #  firebase setup
   cloud_firestore:
   firebase_storage:
   firebase_auth:
   firebase_core: ^2.25.4
+  firebase_messaging:
   #  crash analytics
   firebase_crashlytics:
 #  otp input boxes
   pinput:
-
 #  auto phone number
   mobile_number:
   simnumber:
-
   #local secure storage for token
   flutter_secure_storage:
   #date picker for appointment booking
@@ -39,6 +40,7 @@ dependencies:
   open_file:
   #pick pdf and media files from phone
   file_picker:
+  flutter_phone_direct_caller:
   url_launcher:
   dotted_border:
   table_calendar:

@@ -22,7 +22,7 @@ Widget showPrescriptionForm(context) {
           title: "Prescribed by",
           context: context,
           keytype: TextInputType.name,
-          controller: controller.priscribedDoctorNameController,
+          controller: controller.nameController,
           hintText: "Enter doctor name",
         ),
       ),
