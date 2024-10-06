@@ -8,6 +8,7 @@ import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:get/get.dart';
 
 import '../../components/responsive_text.dart';
+import '../../firebase/auth_controller.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({Key? key}) : super(key: key);
@@ -15,6 +16,7 @@ class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     FamilyController familyController = Get.put(FamilyController());
+    var controller = Get.put(AuthController());
 
     return gradientBg(
         context: context,
@@ -34,9 +36,10 @@ class ProfileScreen extends StatelessWidget {
                   //logout
                   SizedBox(height: containerVerMargin),
                   TextButton(
-                    onPressed: () {
+                    onPressed: () async {
                       const FlutterSecureStorage storage =
                           FlutterSecureStorage();
+                      await auth.signOut();
                       storage.deleteAll();
                       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
                         backgroundColor: primaryColor,

@@ -1,28 +1,27 @@
-import 'package:doctor/common_widgets/custom_botton_widget.dart';
-import 'package:doctor/consts/consts.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pinput/pinput.dart';
 
-import '../../../components/responsive_text.dart';
+import '../../../common_widgets/custom_botton_widget.dart';
+import '../../../consts/consts.dart';
 import '../../../firebase/auth_controller.dart';
 
 class PhoneOtpScreen extends StatefulWidget {
-  String? phone;
+  final String phone;
+
   PhoneOtpScreen({Key? key, required this.phone}) : super(key: key);
 
   @override
-  State<PhoneOtpScreen> createState() => _PhoneOtpScreenState();
+  _PhoneOtpScreenState createState() => _PhoneOtpScreenState();
 }
 
 class _PhoneOtpScreenState extends State<PhoneOtpScreen> {
   TextEditingController otpController = TextEditingController();
-
-  var controller = Get.put(AuthController());
+  var controller = Get.find<AuthController>();
 
   @override
   void dispose() {
     otpController.dispose();
-    Get.delete<AuthController>();
     super.dispose();
   }
 
@@ -32,114 +31,88 @@ class _PhoneOtpScreenState extends State<PhoneOtpScreen> {
       width: 56,
       height: 56,
       textStyle: TextStyle(
-          fontSize: 20,
-          color: Color.fromRGBO(30, 60, 87, 1),
-          fontWeight: FontWeight.w600),
+        fontSize: 20,
+        color: Colors.black,
+        fontWeight: FontWeight.w600,
+      ),
       decoration: BoxDecoration(
-        border: Border.all(color: fontGrey),
+        border: Border.all(color: Colors.grey),
         borderRadius: BorderRadius.circular(8),
       ),
     );
-    final focusedPinTheme = defaultPinTheme.copyDecorationWith(
-      border: Border.all(color: fontGrey),
-      color: primaryColor.withOpacity(0.1),
-      borderRadius: BorderRadius.circular(8),
+
+    final focusedPinTheme = defaultPinTheme.copyWith(
+      decoration: BoxDecoration(
+        border: Border.all(color: Colors.blue),
+        borderRadius: BorderRadius.circular(8),
+      ),
     );
 
     return Scaffold(
-      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         elevation: 0,
-        scrolledUnderElevation: 0,
       ),
-      body: Container(
+      body: Padding(
         padding: const EdgeInsets.all(24),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            responsiveText(
-                context: context,
-                text: "Confirm your phone",
-                textColor: black,
-                fontWeight: FontWeight.w500,
-                size: 20.0),
-            responsiveText(
-                context: context,
-                text: "Enter the code we have sent to",
-                textColor: fontGrey,
-                fontWeight: FontWeight.w400,
-                size: 16.0),
+            Text(
+              "Confirm your phone",
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
+            ),
+            Text(
+              "Enter the code we have sent to",
+              style: TextStyle(fontSize: 16, color: Colors.grey),
+            ),
             RichText(
               text: TextSpan(
-                children: <TextSpan>[
+                text: 'Phone - ',
+                style: TextStyle(fontSize: 16, color: Colors.grey),
+                children: [
                   TextSpan(
-                    text: 'phone- ',
-                    style: TextStyle(
-                        fontSize: 16.0,
-                        fontWeight: FontWeight.w400,
-                        color: fontGrey,
-                        fontFamily: poppins),
+                    text: widget.phone,
+                    style: TextStyle(fontSize: 16, color: Colors.blue),
                   ),
-                  TextSpan(
-                      text: '${widget.phone}',
-                      style: TextStyle(
-                          fontSize: 16.0,
-                          fontWeight: FontWeight.w400,
-                          color: primaryColor,
-                          fontFamily: poppins)),
                 ],
               ),
             ),
-            SizedBox(height: 2 * appVerticalMargin),
+            SizedBox(height: 20),
             Pinput(
-                length: 6,
-                pinputAutovalidateMode: PinputAutovalidateMode.onSubmit,
-                showCursor: true,
-                onCompleted: (otp) {
-                  controller.verifyOTP(otp, context);
-                },
-                focusedPinTheme: focusedPinTheme,
-                controller: otpController,
-                defaultPinTheme: defaultPinTheme),
-            SizedBox(height: 2 * appVerticalMargin),
+              length: 6,
+              controller: otpController,
+              focusedPinTheme: focusedPinTheme,
+              defaultPinTheme: defaultPinTheme,
+              onCompleted: (otp) => controller.verifyOTP(otp, context),
+            ),
+            SizedBox(height: 20),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                responsiveText(
-                    context: context,
-                    text: "haven't received a code? ",
-                    textColor: black,
-                    fontWeight: FontWeight.w400,
-                    size: 16.0),
+                Text("Haven't received a code? "),
                 GestureDetector(
                   onTap: () {
                     otpController.clear();
-                    // controller.verifyOTP(
-                    //   context: context,
-                    //   otp: otpController.text,
-                    // );
+                    controller.resendOTP(widget.phone, context);
                   },
-                  child: const Text(
+                  child: Text(
                     "Resend OTP",
-                    style: TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.w300,
-                        color: primaryColor,
-                        fontFamily: poppins),
+                    style: TextStyle(color: Colors.blue),
                   ),
                 ),
               ],
             ),
-            SizedBox(height: 2 * appVerticalMargin),
-            customButtonWidget(context, "Verify Mobile", white, 16.0, () async {
-              if (otpController.text.length == 6 && otpController != null) {
+            SizedBox(height: 20),
+            customButtonWidget(context, "Verify Mobile", Colors.white, 16.0,
+                () {
+              if (otpController.text.length == 6) {
                 controller.verifyOTP(otpController.text, context);
               } else {
                 ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                  content: Text("Please Enter Valid 6 digit Otp"),
+                  content: Text("Please Enter a Valid 6-Digit OTP"),
                 ));
               }
-            })
+            }),
           ],
         ),
       ),

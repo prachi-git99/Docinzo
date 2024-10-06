@@ -37,7 +37,7 @@ class _HomeState extends State<Home> {
   @override
   void initState() {
     super.initState();
-    // getToken();
+    getToken();
   }
 
   buildBottomNavigationBarItem(name, icon, controller, currentNavIndex) {

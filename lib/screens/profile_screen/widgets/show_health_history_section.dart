@@ -20,7 +20,7 @@ Widget showHealthHistorySection(context) {
         child: StreamBuilder(
             stream: firestore
                 .collection(usersCollection)
-                .doc(currentUser!.uid)
+                .doc(currentUser?.uid)
                 .collection(healthHistoryCollection)
                 .snapshots(),
             builder:

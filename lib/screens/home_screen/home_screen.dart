@@ -51,7 +51,7 @@ class HomeScreen extends StatelessWidget {
                   StreamBuilder(
                       stream: firestore
                           .collection(usersCollection)
-                          .doc(currentUser!.uid)
+                          .doc(currentUser?.uid)
                           .collection(appointmentCollection)
                           .orderBy("date_time", descending: false)
                           .snapshots(),
