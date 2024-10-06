@@ -24,7 +24,7 @@ Widget showHeaderWidget(context) {
                   fontWeight: FontWeight.w500),
               responsiveText(
                   context: context,
-                  text: userName,
+                  text: currentUser!.displayName ?? "User",
                   textColor: black,
                   fontWeight: FontWeight.w600,
                   size: 18.0),

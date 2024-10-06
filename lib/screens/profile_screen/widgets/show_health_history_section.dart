@@ -5,33 +5,34 @@ import 'package:get/get.dart';
 import '../../../components/responsive_text.dart';
 import '../../../components/rounded_corner_container.dart';
 import '../../../controllers/health_history_controller.dart';
+import '../../home_screen/widgets/show_health_history_section.dart';
 import 'healthcare_details_info_list.dart';
 
 Widget showHealthHistorySection(context) {
   HealthHistoryController controller = Get.put(HealthHistoryController());
   var size = MediaQuery.of(context).size;
   return Container(
-    margin: const EdgeInsets.symmetric(vertical: containerVerMargin),
-    child: roundedCornerContainer(
-        width: size.width,
-        borderRadius: smallBorderRadius,
-        color: glassWhite,
-        blur: 12.0,
-        child: StreamBuilder(
-            stream: firestore
-                .collection(usersCollection)
-                .doc(currentUser?.uid)
-                .collection(healthHistoryCollection)
-                .snapshots(),
-            builder:
-                (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
-              var healthData = snapshot.data?.docs;
-              if (!snapshot.hasData) {
-                return const SizedBox.shrink();
-              } else if (snapshot.data!.docs.isEmpty) {
-                return const SizedBox.shrink();
-              } else {
-                return Column(
+    child: StreamBuilder(
+        stream: firestore
+            .collection(usersCollection)
+            .doc(currentUser?.uid)
+            .collection(healthHistoryCollection)
+            .snapshots(),
+        builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
+          var healthData = snapshot.data?.docs;
+          if (!snapshot.hasData) {
+            return const SizedBox.shrink();
+          } else if (snapshot.data!.docs.isEmpty) {
+            return showHealtyHistorySection(context);
+          } else {
+            return Container(
+              margin: const EdgeInsets.only(top: appVerticalMargin),
+              child: roundedCornerContainer(
+                width: size.width,
+                borderRadius: smallBorderRadius,
+                color: glassWhite,
+                blur: 12.0,
+                child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     //titles
@@ -70,8 +71,10 @@ Widget showHealthHistorySection(context) {
                     //   ),
                     // ),
                   ],
-                );
-              }
-            })),
+                ),
+              ),
+            );
+          }
+        }),
   );
 }

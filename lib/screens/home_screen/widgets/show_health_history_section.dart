@@ -43,7 +43,7 @@ Widget showHealtyHistorySection(context) {
               ],
             ),
           )),
-      SizedBox(height: 10 * containerVerMargin)
+      SizedBox(height: 7 * containerVerMargin)
     ],
   );
 }

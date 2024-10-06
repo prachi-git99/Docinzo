@@ -114,21 +114,14 @@ class AuthController extends GetxController {
   static String verify = "";
   static String mobile = "";
 
-  storeUserData({name, password, email, phone}) async {
+  storeUserData(user) async {
     DocumentReference store =
-        await firestore.collection(usersCollection).doc(currentUser!.uid);
-    print("\n\nyo\n\n");
-    print(name);
-    print(password);
-    print(email);
-    print(phone);
-    print(currentUser);
-    print(currentUser!.uid);
+        await firestore.collection(usersCollection).doc(user!.uid);
     store.set({
-      "name": name,
+      "name": user.displayName,
       "imageUrl": "",
-      "id": currentUser!.uid,
-      "phone": phone,
+      "id": user!.uid,
+      "phone": user.phoneNumber,
     }, SetOptions(merge: true));
   }
 
@@ -136,8 +129,15 @@ class AuthController extends GetxController {
     auth.verifyPhoneNumber(
       phoneNumber: countrycode + phone,
       timeout: const Duration(seconds: 60),
-      verificationCompleted: (PhoneAuthCredential credential) {},
-      verificationFailed: (FirebaseAuthException e) {},
+      verificationCompleted: (PhoneAuthCredential credential) {
+        print("MY CREDENTIALS  : $credential");
+      },
+      verificationFailed: (FirebaseAuthException e) {
+        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+          content: Text('Verification Failed'),
+        ));
+        print(e.message);
+      },
       codeSent: (String verificationId, int? resendToken) {
         verify = verificationId;
         mobile = countrycode + phone;
@@ -154,15 +154,14 @@ class AuthController extends GetxController {
       print(credential);
 
       await auth.signInWithCredential(credential).then((value) {
-        return storeUserData(
-          phone: mobile,
-        );
+        currentUser = value.user;
+        return storeUserData(currentUser);
       });
       const FlutterSecureStorage storage = FlutterSecureStorage();
       storage.write(key: 'jwtToken', value: "valid");
       Navigator.pushNamedAndRemoveUntil(context, "home", (route) => false);
     } catch (e) {
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
         content: Text("Please enter correct otp"),
       ));
     }

@@ -43,7 +43,7 @@ Widget showUserProfileSection(context) {
                     children: [
                       responsiveText(
                           context: context,
-                          text: userName,
+                          text: '${currentUser?.displayName}',
                           textColor: black,
                           fontWeight: FontWeight.w500,
                           size: 18.0),
@@ -55,7 +55,7 @@ Widget showUserProfileSection(context) {
                           size: 12.0),
                       responsiveText(
                           context: context,
-                          text: "Phone: $userPhone",
+                          text: "Phone: ${currentUser?.phoneNumber}",
                           textColor: black,
                           fontWeight: FontWeight.normal,
                           size: 12.0),

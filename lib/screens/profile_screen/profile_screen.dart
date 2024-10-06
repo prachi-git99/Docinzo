@@ -40,6 +40,7 @@ class ProfileScreen extends StatelessWidget {
                       const FlutterSecureStorage storage =
                           FlutterSecureStorage();
                       await auth.signOut();
+
                       storage.deleteAll();
                       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
                         backgroundColor: primaryColor,
