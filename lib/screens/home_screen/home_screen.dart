@@ -11,6 +11,8 @@ import 'package:doctor/screens/home_screen/widgets/show_search_widget.dart';
 import 'package:doctor/screens/home_screen/widgets/show_service_section.dart';
 import 'package:get/get.dart';
 
+import '../../common_widgets/custom_bottom_greet_section.dart';
+
 class HomeScreen extends StatelessWidget {
   HomeScreen({Key? key}) : super(key: key);
 
@@ -135,6 +137,8 @@ class HomeScreen extends StatelessWidget {
                   SizedBox(height: containerVerMargin),
                   showHealthTrackerSection(context),
                   showHealtyHistorySection(context),
+                  customBottomGreetSection(context,
+                      text_1: "Simplifying your", text_2: "health journey"),
                 ],
               ),
             ),

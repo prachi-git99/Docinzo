@@ -1,7 +1,12 @@
 import 'package:doctor/consts/consts.dart';
 
 Widget customTextField(
-    {String? title, String? hintText, context, keytype, controller, onchange}) {
+    {String? title,
+    String? hintText,
+    required BuildContext context,
+    TextInputType? keytype,
+    TextEditingController? controller,
+    onchange}) {
   return Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
@@ -27,11 +32,11 @@ Widget customTextField(
           isDense: true,
           focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(smallBorderRadius),
-              borderSide: BorderSide(width: 2, color: secondaryColor)),
+              borderSide: BorderSide(width: 2.0, color: secondaryColor)),
           hintText: hintText!,
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(smallBorderRadius),
-            borderSide: BorderSide(width: 1, color: borderGrey),
+            borderSide: BorderSide(width: 1.0, color: borderGrey),
           ),
         ),
       ),

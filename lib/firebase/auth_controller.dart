@@ -121,6 +121,7 @@ class AuthController extends GetxController {
       "name": user.displayName,
       "imageUrl": "",
       "id": user!.uid,
+      "email": user.email,
       "phone": user.phoneNumber,
     }, SetOptions(merge: true));
   }
@@ -150,11 +151,10 @@ class AuthController extends GetxController {
     try {
       PhoneAuthCredential credential =
           PhoneAuthProvider.credential(verificationId: verify, smsCode: otp);
-      print("yo2");
-      print(credential);
 
       await auth.signInWithCredential(credential).then((value) {
         currentUser = value.user;
+        print("VALUE: ${value.user}");
         return storeUserData(currentUser);
       });
       const FlutterSecureStorage storage = FlutterSecureStorage();

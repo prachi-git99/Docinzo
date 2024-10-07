@@ -63,7 +63,8 @@ class ProfileScreen extends StatelessWidget {
                     ),
                   ),
                   //bottom greet section
-                  customBottomGreetSection(context),
+                  customBottomGreetSection(context,
+                      text_1: "Live", text_2: "Healthy"),
                 ],
               ),
             ),

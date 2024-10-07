@@ -3,7 +3,7 @@ import 'package:doctor/consts/consts.dart';
 Widget showSearchWidget({ontap, context}) {
   var size = MediaQuery.of(context).size;
   return Container(
-    margin: const EdgeInsets.only(bottom: containerVerMargin),
+    margin: const EdgeInsets.symmetric(vertical: appVerticalMargin),
     decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(smallBorderRadius),
         color: white,
@@ -16,7 +16,7 @@ Widget showSearchWidget({ontap, context}) {
           padding: EdgeInsets.symmetric(horizontal: containerHorPadd),
           child: TextField(
             decoration: InputDecoration(
-              hintText: hintText,
+              hintText: hintSearchText,
               hintStyle: TextStyle(
                   fontSize: 14,
                   overflow: TextOverflow.ellipsis,

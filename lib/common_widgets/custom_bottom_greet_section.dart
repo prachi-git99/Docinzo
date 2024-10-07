@@ -2,7 +2,7 @@ import 'package:doctor/consts/consts.dart';
 
 import '../components/responsive_text.dart';
 
-Widget customBottomGreetSection(context) {
+Widget customBottomGreetSection(context, {String? text_1, String? text_2}) {
   var size = MediaQuery.of(context).size;
 
   return Container(
@@ -12,13 +12,13 @@ Widget customBottomGreetSection(context) {
         // SizedBox(height: size.height * 0.1),
         responsiveText(
             context: context,
-            text: "Live",
+            text: text_1,
             textColor: fontGrey.withOpacity(0.5),
             fontWeight: FontWeight.bold,
             size: 26.0),
         responsiveText(
             context: context,
-            text: "Healthy",
+            text: text_2,
             textColor: fontGrey.withOpacity(0.5),
             fontWeight: FontWeight.bold,
             size: 26.0),
@@ -35,7 +35,7 @@ Widget customBottomGreetSection(context) {
             textColor: lightfontGrey,
             fontWeight: FontWeight.w200,
             size: 12.0),
-        SizedBox(height: size.height * 0.03),
+        SizedBox(height: size.height * 0.1),
       ],
     ),
   );
