@@ -116,12 +116,9 @@ class AuthController extends GetxController {
 
   storeUserData(user) async {
     DocumentReference store =
-        await firestore.collection(usersCollection).doc(user!.uid);
+        firestore.collection(usersCollection).doc(user!.uid);
     store.set({
-      "name": user.displayName,
-      "imageUrl": "",
       "id": user!.uid,
-      "email": user.email,
       "phone": user.phoneNumber,
     }, SetOptions(merge: true));
   }

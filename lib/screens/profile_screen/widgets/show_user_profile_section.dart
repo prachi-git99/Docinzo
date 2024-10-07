@@ -11,7 +11,7 @@ import 'edit_profile_dialog.dart';
 
 Widget showUserProfileSection(context) {
   var size = MediaQuery.of(context).size;
-  AddProfileData addProfileData = Get.put(AddProfileData());
+  AddProfileData addProfileData = Get.find<AddProfileData>();
 
   return Container(
     margin: EdgeInsets.symmetric(vertical: containerVerMargin),
@@ -59,14 +59,16 @@ Widget showUserProfileSection(context) {
                             )),
                         Obx(() => responsiveText(
                               context: context,
-                              text: "UHID: ${addProfileData.uhid.value}",
+                              text:
+                                  "UHID: ${addProfileData.uhid.value.isEmpty ? 'Update UHID' : addProfileData.uhid.value}",
                               textColor: black,
                               fontWeight: FontWeight.normal,
                               size: 12.0,
                             )),
                         Obx(() => responsiveText(
                               context: context,
-                              text: "Email: ${addProfileData.email.value}",
+                              text:
+                                  "Email: ${addProfileData.email.value.isEmpty ? 'Update Email' : addProfileData.email.value}",
                               textColor: black,
                               fontWeight: FontWeight.normal,
                               size: 12.0,

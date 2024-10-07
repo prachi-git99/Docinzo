@@ -18,6 +18,14 @@ class AddProfileData extends GetxController {
     fetchUserData();
   }
 
+  @override
+  void dispose() {
+    nameController.dispose();
+    uhidController.dispose();
+    emailController.dispose();
+    super.dispose();
+  }
+
   // Fetch user data from Firestore
   fetchUserData() async {
     try {

@@ -26,14 +26,15 @@ Widget showHealthTrackerSection(context) {
                   },
                   child: Container(
                     width: size.width * 0.43,
-                    margin: EdgeInsets.symmetric(vertical: containerVerMargin),
-                    padding: EdgeInsets.symmetric(
+                    margin: const EdgeInsets.symmetric(
+                        vertical: containerVerMargin),
+                    padding: const EdgeInsets.symmetric(
                         vertical: containerVerMargin,
                         horizontal: containerHorPadd),
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(smallBorderRadius),
                         color: white,
-                        boxShadow: [
+                        boxShadow: const [
                           BoxShadow(
                               color: shadow, spreadRadius: 0, blurRadius: 10.0)
                         ]),
@@ -103,20 +104,21 @@ Widget showHealthTrackerSection(context) {
         },
         child: Container(
           width: size.width,
-          margin: EdgeInsets.symmetric(
+          margin: const EdgeInsets.symmetric(
               vertical: containerVerMargin, horizontal: 5.0),
-          padding: EdgeInsets.symmetric(vertical: 2 * containerVerMargin),
+          padding: const EdgeInsets.symmetric(vertical: 2 * containerVerMargin),
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(smallBorderRadius),
               color: white,
-              boxShadow: [
+              boxShadow: const [
                 BoxShadow(color: shadow, spreadRadius: 0, blurRadius: 10.0),
               ]),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Container(
-                padding: EdgeInsets.symmetric(vertical: containerVerMargin),
+                padding:
+                    const EdgeInsets.symmetric(vertical: containerVerMargin),
                 width: size.width * 0.4,
                 height: size.width * 0.2,
                 child: Image.asset("assets/images/${healthGrid[2]['icon']}",
@@ -149,7 +151,7 @@ Widget showHealthTrackerSection(context) {
                           size: 10.0),
                     ],
                   ),
-                  SizedBox(height: containerVerMargin),
+                  const SizedBox(height: containerVerMargin),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,

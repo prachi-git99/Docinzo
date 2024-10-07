@@ -1,9 +1,11 @@
 import "package:doctor/consts/consts.dart";
 import "package:doctor/screens/profile_screen/profile_screen.dart";
 import "package:flutter_svg/svg.dart";
+import 'package:get/get.dart';
 
 import "../../../components/gradient_rounded_container.dart";
 import "../../../components/responsive_text.dart";
+import "../../../firebase/add_profile_data_controller.dart";
 
 Widget showHeaderWidget(context) {
   var size = MediaQuery.of(context).size;
@@ -40,6 +42,8 @@ Widget showHeaderWidget(context) {
         ),
         GestureDetector(
           onTap: () {
+            AddProfileData addProfileData = Get.put(AddProfileData());
+            addProfileData.fetchUserData();
             Navigator.of(context)
                 .push(MaterialPageRoute(builder: (context) => ProfileScreen()));
           },
