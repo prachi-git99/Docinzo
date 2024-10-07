@@ -1,4 +1,5 @@
 import 'package:doctor/consts/consts.dart';
+import 'package:doctor/env.dart';
 
 import '../components/responsive_text.dart';
 
@@ -31,7 +32,7 @@ Widget customBottomGreetSection(context, {String? text_1, String? text_2}) {
             size: 16.0),
         responsiveText(
             context: context,
-            text: "version 1.0.0",
+            text: "version $APP_VERSION",
             textColor: lightfontGrey,
             fontWeight: FontWeight.w200,
             size: 12.0),
